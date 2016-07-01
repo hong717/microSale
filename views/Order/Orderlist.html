@@ -1,0 +1,142 @@
+﻿<!--订单列表 begin-->
+<div id="view_orderlist" class="view_orderlist" style="display:none">
+    <ul class="headtab" id="orderlisthead">
+        <li class="tab" data-index="0">
+            <div class="name">
+                全部
+            </div>
+            <div class="lineb"></div>
+        </li>
+        <li class="tab" data-index="1">
+            <div class="name">
+                待付款
+            </div>
+            <div class="lineb"></div>
+        </li>
+        <li class="tab" data-index="2">
+            <div class="name">
+                待确认
+            </div>
+            <div class="lineb"></div>
+        </li>
+        <li class="tab" data-index="3">
+            <div class="name">
+                待发货
+            </div>
+            <div class="lineb"></div>
+        </li>
+        <li class="tab" data-index="4">
+            <div class="name">
+                已发货
+            </div>
+            <div class="lineb"></div>
+        </li>
+    </ul>
+    <div class="divtophead">
+        <div class="search" id="orderSearch">
+            <!--查询 -->
+            <div class="divSearch">
+                <img class="imgSearch sprite-search" src="img/kdpx.gif" />
+                <input class="txtSearch hintcolor" type="text" />
+                <img id="imgClear" class="imgClear sprite-clear" src="img/kdpx.gif" />
+            </div>
+            <div class="btnSearch">
+                搜索
+            </div>
+            <div class="btnDate">
+                <img src="img/kdpx.gif" class="downext sprite-downext" />
+            </div>
+        </div>
+        <div class="datePan" style="display:none;">
+            <div class="dateBeginv kdcDateParent">
+                <input class="kdcDate sprite-down" id="orderlist_dateBegin" type="text" readonly="true"
+                       value="2014-01-01" />
+            </div>
+            <span>至</span>
+
+            <div class="dateEndv kdcDateParent">
+                <input class="kdcDate sprite-down" id="orderlist_dateEnd" type="text" readonly="true"
+                       value="2015-01-01" />
+            </div>
+        </div>
+    </div>
+    <div id="orderlistview">
+        <div class="orderlist" id="orderlist_listwrap0">
+            <ul class="orderlistul" id="orderlist_list0">
+                <!--<li index="{index}" billid={billid}>
+                              <div class="orderlist-liarea" index="{index}">
+
+                                  <div class="orderlist_liinfo {buyer-view}" index="{index}" >
+                                      <div class="orderlist-li-top-left">
+                                          <p><em>{billno}{receivername}</em></p>
+                                          <p><em>{time}</em></p>
+                                      </div>
+                                      <div class="orderlist-li-top-right">
+                                          <p class="pstatus">{status}</p>
+                                          <p class="pnum"> <em>￥{billmoney}({num}件)</em></p>
+                                      </div>
+                                      <div style="clear:both;"></div>
+                                  </div>
+
+                                      <div data-cmd="detail" class="saler-order {retail-view}"  index="{index}" >
+                                          <div class="message">
+                                                <span>{time}</span>
+                                                <span class="style">{store-flag}</span>
+                                                <span class="status">{status}</span>
+                                          </div>
+                                          <ul>
+                                              #--row.begin--#
+                                              <li data-cmd="li">
+                                                  <img src="{imgurl}" />
+                                                  <p class="name"><span class="gift {isgift}">(赠)</span>{goods}</p>
+                                                  <p class="count">
+                                                      <span class="num">×{goodsnum}</span>
+                                                      <span class=total>￥{money}</span>
+                                                  </p>
+                                               </li>
+                                               #--row.end--#
+                                          </ul>
+                                          <div class="sum">
+                                              <span>合计：</span>
+                                              <p class="information">
+                                                    <span class="num">{num}件</span>
+                                                  <div class="information-right">
+                                                      <p class="total-money">￥{billmoney}</p>
+                                                  </div>
+                                              </p>
+                                              <p class="describe {freight-view}">（含运费￥{freight}）</p>
+                                              <p class="out-describe {out-view}">已出库{out-num}件</p>
+                                          </div>
+                                      </div>
+
+                                  <div class="orderlist-li-bottom">
+                                      <div class="optbtnCtrl">
+                                          <div class="remind" status={btnstatus}  index={index} style="{show}" >催单</div>
+                                          <div class="optbutton optConfirm"  index={index} >{optname}</div>
+                                          <div class="optStatus"  style="{isretail}"  index={index}>{optname2}</div>
+                                          <div style="clear:both;"></div>
+                                      </div>
+                                  </div>
+                                  <img class="payinfo" style="{paystatus}" src="{payimg}" />
+                               </div>
+                              <div class="line">
+                              <img src="img/kdpx.gif" class="lineb sprite-lineb"/>
+                              </div>
+                          </li>-->
+            </ul>
+        </div>
+        <div class="orderlist" id="orderlist_listwrap1">
+            <ul class="orderlistul" id="orderlist_list1"></ul>
+        </div>
+        <div class="orderlist" id="orderlist_listwrap2">
+            <ul class="orderlistul" id="orderlist_list2"></ul>
+        </div>
+        <div class="orderlist" id="orderlist_listwrap3">
+            <ul class="orderlistul" id="orderlist_list3"></ul>
+        </div>
+        <div class="orderlist" id="orderlist_listwrap4">
+            <ul class="orderlistul" id="orderlist_list4"></ul>
+        </div>
+    </div>
+</div>
+<!--订单列表 end-->

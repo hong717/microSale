@@ -1,0 +1,106 @@
+﻿<!--我的模块 begin-->
+<div class="view_Me" id="view_Me" style="display: none">
+    <div class="header sprite-me_bg">
+        <ul class="me_userInfo">
+            <li class="picture">
+                <img src="img/kdpx.gif" />
+            </li>
+            <li id="me_info" class="info">
+                <span id="userCompony" class="company"></span>
+
+                <div class="NamePosition">
+                    <span id="userName"></span>
+                    <span id="userPosition">(采购主管)</span>
+                </div>
+                <span id="userVerify" style="display: none" class="underLine">身份未验证</span>
+            </li>
+
+            <li id="me_saler" class="saler">
+
+                <!--<p class="name">
+                    <span data-cmd="vip" class="{vipView}">{name}</span>
+                    <span class="right {view}">等级：{level}</span>
+                </p>
+                <p class="count">
+                    <span class="{view} {allowView}">积分：{points} </span>
+                    <span data-cmd="vip" class="right vip {view}">余额：￥{money}</span>
+                </p>-->
+
+            </li>
+            <li class="checkDiv">
+                <span id="checkPhone">登录</span>
+            </li>
+        </ul>
+
+        <!--2016/4/7 此处重新改写-mayue-->
+        <ul class="me_nav" id="iconsample">
+            <!--<li class="nav_Item {styleclass}" id="{styleid}">
+                <span class="nav_Title">{stylename}</span>
+                <span class="count-tip" style="display:none;"></span>
+            </li>-->
+        </ul>
+    </div>
+    <div class="me_commonItems">
+        <div>
+            <div class="ItemGroup">
+                <div class="commonItem sprite-meorder " id="nav_Oredrs">
+                    <span>全部订单</span>
+                    <span class="sprite-more"></span>
+                </div>
+                <div class="commonItem sprite-mepay" id="nav_Notices">
+                    <span>我的付款</span>
+                    <span class="sprite-more"></span>
+                </div>
+                <div class="commonItem sprite-meaddress" id="me_Address">
+                    <span>我的地址</span>
+                    <span class="sprite-more"></span>
+                </div>
+                <div class="commonItem sprite-mecollection" id="me_Collect">
+                    <span>我的收藏</span>
+                    <span class="sprite-more"></span>
+                </div>
+            </div>
+            <div class="ItemGroup dropdownItem" id="me_manager" style="display: none;">
+                <img src="img/kdpx.gif" class="icon-item" />
+
+                <div>交易管理</div>
+                <span class="sprite-more"></span>
+                <ul class="second-menu">
+                    <li class="second-level" id="me_Money">
+                        <img src="img/kdpx.gif" />
+                        <div>交易对账</div>
+                    </li>
+                    <li class="second-level" id="me_Buyer">
+                        <img src="img/kdpx.gif" />
+                        <div>采购员</div>
+                    </li>
+                    <li class="second-level" id="me_retail">
+                        <img src="img/kdpx.gif" />
+                        <div>买家</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="ItemGroup singleItem me-share sprite-me-share" data-cmd="share" style="display: none">
+                <div>分享有奖</div>
+                <span class="sprite-more"></span>
+            </div>
+
+            <div class="ItemGroup singleItem sprite-me-invite" data-cmd="invite" style="display: none">
+                <div>输入邀请码</div>
+                <span class="sprite-more"></span>
+            </div>
+
+            <div class="ItemGroup singleItem sprite-mejoin" id="me_join">
+                <div>我要加盟</div>
+                <span class="sprite-more"></span>
+            </div>
+            <div class="ItemGroup singleItem sprite-mesetting" id="me_setting">
+                <div>我的设置</div>
+                <span class="sprite-more"></span>
+            </div>
+            <div class="quitDiv" id="quitBtn">注销当前账号</div>
+        </div>
+    </div>
+</div>
+<!--我的模块 end-->

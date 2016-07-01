@@ -1,0 +1,81 @@
+﻿<!--往来应付 beg-->
+<div class="view-business-outline" id="view-business-outline">
+    <div class="header">
+        <div class="time">
+            按期间查询：
+            <div class="right">
+                <div class="first-time"><input data-cmd="kdcbegDate" class="kdcbegDate" readonly="" value=""></div>
+                <span>至</span>
+                <div class="last-time"><input  data-cmd="kdcendDate" class="kdcendDate" readonly="" value=""></div>
+            </div>
+        </div>
+        <ul class="business-header">
+            <!--添加on类代表切换到此页-->
+            <li class="on" data-cmd="li" data-index="0">
+                <span>交易概要</span>
+            </li>
+            <li data-cmd="li" data-index="1">
+                <span>订单明细</span>
+            </li>
+            <li data-cmd="li" data-index="2">
+                <span>付款明细</span>
+            </li>
+        </ul>
+    </div>
+
+    <div id="business-outline-listwarp0" class="business-outline-listwarp" style="display: none">
+        <ul id="business-outline-list0" class="business-outline">
+            <!--<li><span>订单金额：</span><span>{billmoney}</span></li>
+            <li><span>其中未出库金额：</span><span>{notoutmoney}</span></li>
+            <li><span>期初应付金额：</span><span>{initbalance}</span></li>
+            <li><span>交易金额：</span><span>{trademoney}</span></li>
+            <li><span>实付金额：</span><span>{realpaymoney}</span></li>
+            <div class="describe"><p>以上数据的取数逻辑：</p>
+            <p>1）订单金额：取所选期间的所有订单的折后含税金额（并包含运费）</p>
+            <p>2）未出库金额：取所选期间的所有订单的未关联发货的折后含税金额（并包含运费）</p>
+            <p>3）期初应付余额：取所选期间的起始期间的期初应付余额</p>
+            <p>4）交易金额：取所选期间的所有已审核的发票金额和已审核出库未开票金额</p>
+            <p>5）实付金额：取所选期间的所有已审核的预收单、收款单和退款单</p></div>
+                -->
+        </ul>
+        
+           
+        
+    </div>
+
+    <div id="business-outline-listwarp1" class="business-outline-listwarp" style="display: none">
+        <div class="order-detail">
+            <p class="total-num" style="display: none">订单金额：<span data-type="money"></span></p>
+            <ul class="detail-li" id="business-outline-list1">
+                <!--<li>
+                    <div class="{billclass}">{billdate}</div>
+                    <div class="detail">
+                        <p class="order-num">
+                            <span>{billno}</span>
+                            <span>{statusname}</span>
+                        </p>
+                        <p class="count">{billmoney}</p>
+                    </div>
+                </li>-->
+            </ul>
+        </div>
+    </div>
+    <div id="business-outline-listwarp2" class="business-outline-listwarp" style="display: none">
+        <div class="pay-detail">
+            <p class="total-num" style="display: none">实付金额：<span data-type="money"></span></p>
+            <ul class="detail-li" id="business-outline-list2">
+                <!--<li>
+                    <div class="date">{billdate}</div>
+                    <div class="detail">
+                        <div class="for-line">
+                            <p class="order-num">
+                                {billno}
+                            </p>
+                            <p class="count">{billmoney}</p>
+                        </div>
+                    </div>
+                </li>-->
+            </ul>
+        </div>
+    </div>
+</div>

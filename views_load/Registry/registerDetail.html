@@ -1,0 +1,48 @@
+﻿<div class="view_registerDetail" id="viewid_registerDetail" style="display:none">
+    <div>
+        <div class="header">
+            <div class="logoDiv">
+                <img id="registerDetail_logo" src="img/kdpx.gif"/>
+            </div>
+            <span class="companyName" id="registerDetail_CName"></span>
+        </div>
+        <div class="content">
+            <ul>
+                <li><input type="text" class="name" id="registerDetail_Name" value="您的称呼"/></li>
+                <li class="gender" id="registerDetail_Gender">
+                    <span class="man sprite-check_green gender_touched">先生</span> <span class="female">女士</span>
+                </li>
+                <li><input type="tel" class="name" id="registerDetail_Mobile" value="您的手机"/></li>
+                <li><input type="text" class="name" id="registerDetail_Company" value="您的公司"/></li>
+                <li class="submit">
+                    <!--不要京东微店链接
+                        <div class="retailCust">
+                        去京东微店
+                    </div>-->
+                    <div id="registerDetail_submit" class="submitbtn">
+                        提交
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="footer">
+            <div>
+                <p id="welcomeMsg"></p>
+
+                <p>联系我们</p>
+
+                <p>电话： <a href="tel:" id="tel" class="phone"></a></p>
+
+                <p>地址：<span class="address"></span></p>
+            </div>
+        </div>
+    </div>
+    <div class="afterRegisterDiv" id="registerDetail_After">
+        <p id="registerDetail_Img" class="sprite-success_face"><span>您注册的信息已提交成功！</span> <span>后续会有客服专员与您联系</span></p>
+
+        <div class="backauto"><span id="autoback">3</span>秒后自动回到微商城</div>
+        <span class="returnBtn" id="registerDetail_ReturnBtn">回到微商城</span>
+
+        <div class="curtain" id="registerDetail_Curtain"></div>
+    </div>
+</div>

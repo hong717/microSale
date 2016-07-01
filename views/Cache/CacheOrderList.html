@@ -1,0 +1,232 @@
+﻿
+<!--订单确认 模块 begin-->
+
+<div class="view_cacheOrderList" id="viewid_cacheOrderList" style="display: none">
+
+<div id="divid_cacheOrder_billsum" class="cacheOrder_billsum">
+    <div class="orderNumber">
+        <p>订单编号：<span id="billId"></span></p>
+    </div>
+    <div class="divbillmoney">
+        订单金额:
+        <span class="billmoney">￥0</span>
+    </div>
+    <div class="delivery" id="div-freight-line">
+        运费:
+        <span class="btn-freightRule">计算规则</span>
+        <span class="freight">￥0</span>
+    </div>
+    <div class="privilegeInfo-div"></div>
+</div>
+<div id="cacheOrderListContent" class="content">
+    <div class="contentList">
+        <ul class="cacheOrderTopList">
+            <li id="cacheOrderList_SendMode" style="display: none" data-cmd="retail">
+                <span class="pattern">送货方式：</span>
+                <div class="pattern-style">
+                    <span id="cacheOrderList_express" class="sprite-style-chose chose sprite-style-on">快递送货</span>
+                    <span id="cacheOrderList_store" class="sprite-style-chose chose">门店自提</span>
+                </div>
+
+            </li>
+            <li class="deliver-bar" data-cmd="manage" style="display: none">
+                <div class="sprite-more deliverstyle">
+                    <span class="pattern">交货方式：</span>
+                    <span class="pattern card" data-cmd="deliverway"></span>
+                </div>
+            </li>
+            <li id="cacheOrderList_liaddress" class="liaddress borderBottom">
+                <div class="userMsgDiv">
+                    <div class="goodsAddress">
+                        <div class="selectAddress sprite-more">
+                            <div class="phoneDiv">
+                                <span>收货人：</span>
+                                <span class="name" id="orderReceiveName"></span>
+                                <span class="phone" id="orderReceivePhone"></span>
+                            </div>
+                            <div class="addressDiv">
+                                <span>收货地址：</span>
+                                <span id="orderReceiveAddress"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <ul id="cacheOrderList_identity" class="li-identity">
+                <li class="li-title">您选择了跨境商品，请输入您的身份证号码</li>
+                <li class="identity"><span>身份证:</span><input /></li>
+                <li>
+                            <span class="hint">
+                                温馨提示：收件人请使用和身份证号对应的真实姓名，
+                                否则您购买的商品将有可能无法通过海关检查!
+                            </span>
+                </li>
+            </ul>
+
+
+            <ul id="cacheOrderList_store_view" class="li-store">
+                <!--                    <li data-cmd="store-select" class="store-name">{store}</li>
+                                    <li>
+                                        <p class="address">提货地址:<span>{address}</span></p>
+                                        <p class="mention">(温馨提示:付款后,在订单详情中,凭提货码到自提点提货)</p>
+                                    </li>
+                                    <li class="time">
+                                        提货时间<span>（*必填）</span>:
+                                        <input data-cmd="date" type="text" readonly="" value="{date}">
+                                    </li>-->
+            </ul>
+            <ul class="receipt-info">
+                <li id="cacheOrderList_invoice" class="invoiceHead borderBottom">
+                    <span class="pattern">发票信息：</span>
+                    <div class="pattern-style">
+                        <span id="cacheOrderList_invoice_on" class="sprite-style-chose chose">需要发票</span>
+                                <span id="cacheOrderList_invoice_off"
+                                      class="sprite-style-chose chose sprite-style-on">无需发票</span>
+                    </div>
+                </li>
+                <li id="cacheOrderList_invoice_view" class="liinvoice" style="display: none">
+                    <div class="userMsgDiv">
+                        <div class="goodsAddress">
+                            <div class="selectAddress sprite-more">
+                                <div class="phoneDiv">
+                                    <span>发票抬头：</span>
+                                    <span id="orderInvoiceHead"></span>
+                                </div>
+                                <div class="addressDiv">
+                                    <span>寄送地址：</span>
+                                    <span id="orderInvoiceAddress"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <li id="cacheOrderList_wxCard" class="invoiceHead borderBottom sprite-more">
+                <span class="pattern">微信卡券：</span>
+                <span data-cmd="wxCard-name" class="pattern card"></span>
+            </li>
+            <li data-cmd="expoint-view" class="score-pay">
+                <span class="pattern">使用积分兑换：</span>
+                <p data-cmd="expoint" class="chose-outer">
+                    <span class="chose-y "></span>
+                </p>
+            </li>
+
+        </ul>
+        <div class="goodDetailDiv">
+            <div class="headTitie">
+                <span class="title">商品清单</span>
+                <div class="editgoods" id="cacheOrderEdit">
+                    <img src="img/kdpx.gif" />编辑清单
+                </div>
+                <div class="add_goods">
+                    <img src="img/kdpx.gif" />添加商品
+                </div>
+            </div>
+            <ul id="cacheOrderList_ul" class="">
+                <!-- <li>
+                                  <div class="goodItem">
+                                      <div class="goodInfo">
+                                          <div class="imgDiv"><img src="{img}"></div>
+                                          <div class="goodMsg">
+                                              <div class="goodName">{name}</div>
+                                              <div class="singlePrice" style="display:none">
+                                                  <span class="total">{attrsumMoney}</span>
+                                                  <span class="number">{attrsum}</span>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      #--row.begin--#
+                                      <div class="priceList">
+                                          <ul>
+                                              #--rowli.begin--#
+                                              <li>
+                                                  <span class="total">{money}</span>
+                                                  <span class="number">x {num}</span>
+                                                  <span class="price">{attrprice}</span>
+                                                  <span class="property">{attrname}</span>
+                                              </li>
+                                              #--rowli.end--#
+                                          </ul>
+                                      </div>
+                                      #--row.end--#
+                                  </div>
+                              </li>-->
+                <!--2                    <li class="gift">
+                                        <div class="describe {headTitleHide}">{protitle}</div>
+                                         #--good.begin--#
+                                        <ul class="buygood">
+                                           #--goodli.begin--#
+                                            <li>
+                                                <p class=image><img src="{goodsimg}" /></p>
+                                                <p class="name">{goodsname}</p>
+                                                <p class="jifenpoint {pointShow}">{expoint}<i class="change">兑</i></p>
+                                                <div class="count"><span>￥{price}</span>
+                                                    <p class="infor"><span class="num">X {num}</span><span class="money">￥{money}</span></p>
+                                                </div>
+                                            </li>
+                                           #--goodli.end--#
+                                        </ul>
+                                            #--good.end--#
+                                          #--gift.begin--#
+                                        <ul class="giftgood {gifthide}">
+                                            #--giftli.begin--#
+                                            <li>
+                                                <span class="tip">(赠)</span>
+                                                <span>{giftname}</span>
+                                                <span class="num">X {giftnum}</span>
+                                            </li>
+                                            #--giftli.end--#
+                                        </ul>
+                                          #--gift.end--#
+                                        <div class="describe {titleHide}"><span class="Lcount">{sumtitle}</span> <span class="desb-detail">{proInfo}</span><p class="allmoney"><span class="forever {hide}">￥{sumMoney}</span><span class="now">￥{sumMoneyDiscount}</span></p></div>
+                                    </li>2-->
+            </ul>
+            <div data-cmd="totalHead" class="sale-total">
+                合计：<p class="total-li">
+                            <span data-cmd="totalMoneyOrg"
+                                  class="forever"></span><span class="total-money" data-cmd="totalMoney">￥0</span>
+            </p>
+            </div>
+        </div>
+        <div class="MsgDiv">
+            <span>备注</span>
+
+            <div>
+                <textarea id="cacheOrderRemark">请在此处输入要备注的信息</textarea>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <div class="cancelChange" id="cancelChange">取消修改</div>
+    <div class="sure" id="summitOrder">确定</div>
+</div>
+<div id="orderpopupTip" class="orderpopupTip">
+    <!-- 控件的html代码 start -->
+    <div class="requestsuccess">
+        <div class="modal-header">
+            您的订单提交成功!
+        </div>
+        <div class="modal-body" style="height: 50px;font-size: 0.98em;">
+            <span style="color:#808080">您的订单号是：</span>
+            <span id="popbillno" style="color: #ff9000"></span>
+        </div>
+        <div class="orderbotton">
+            <div id="backtoitem" class="div-bottom-left">
+                继续购物
+            </div>
+            <div id="getlistbill" class="div-bottom-right">
+                立即付款
+            </div>
+        </div>
+    </div>
+    <!-- 遮罩div -->
+    <div class="full-screen-modal-back">
+    </div>
+    <!-- 控件的html代码 end -->
+</div>
+</div>
+
+<!--订单确认 模块 end-->

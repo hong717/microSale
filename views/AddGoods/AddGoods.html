@@ -1,0 +1,101 @@
+﻿
+<!--快速购买 begin-->
+<div id="view-addgoods" class="addgoods" style="display: none">
+    <div class="divhead" id="addgoodshead">
+        <!--
+                      <div class="leftDiv">
+                          <div class="imgDiv">
+                              <img class="image kdcImage2" src="{imgurl}" />
+                          </div>
+                      </div>
+                      <ul class="rightinfo">
+                           <li class="price">
+                            <span data-cmd="price">{price}</span>
+                            <span class="jifenpoint" data-cmd="expoint"><span data-cmd="orshow">或</span><span data-cmd="point">250</span>积分<i class="change">兑</i></span>
+                           </li>
+                          <li class="old-price" data-cmd="preprice"></li>
+                          <li class="stocknum"> <p>库存: <span>0件</span></p></li>
+                          <li class="selectAttrs">已选：<span class="selectAttr1"></span> <span class="selectAttr2"></span></li>
+                      </ul>
+                      <div class="close"><img src="img/close.png"/></div>
+                  -->
+    </div>
+
+    <div class="divbody" id="addgoodsbody">
+        <div>
+            <div class="goodAttr1" id="goodsAttr1">
+                <p>颜色</p>
+                <ul id="goodAttrList1">
+                    <!--<li class="attr attr_select sprite-attr_select  {attrcheck}">{attrname}</li>-->
+                </ul>
+            </div>
+            <div class="goodAttr2" id="goodsAttr2">
+                <p>材料</p>
+                <ul id="goodAttrList2">
+                    <!-- <li class="attr2 attr_select sprite-attr_select {attrcheck}">{attrname}</li>-->
+                </ul>
+            </div>
+            <div id="goodsAuxdetail">
+            </div>
+            <div class="divNum">
+
+                <p class="msgl">购买数量</p>
+
+                <div class="numArea_kdshare1">
+                    <div class="numl" id="divNumLeft">
+                        <p class="sprite-sub_n"></p>
+                    </div>
+                    <div class="numText2">
+                        1
+                    </div>
+                    <div class="numr" id="divNumRight">
+                        <p class="sprite-add_n"></p>
+                    </div>
+                    <div style="clear:both;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="batchMode" style="display: none">
+        <div class="batchHeader">
+            <div class="batchImgDiv">
+                <span> <img class="batchImg" src="img/kdpx.gif" /> </span>
+            </div>
+            <div class="close"><img src="img/kdpx.gif" /></div>
+            <div class="goodsname" id="goodsname">
+                <span></span>
+            </div>
+        </div>
+        <div class="itemHead"></div>
+        <div id="batchUlListdiv">
+            <div class="scrollDiv">
+                <ul class="batchUlList">
+                    <!--  <li index={index} class="lbody">
+                                  <div class="attrli">{attrinfo}</div>
+                                  <div class="price">{price}</div><div class="num"><input type="text"   index={index}   disabled   id="numInput" value={num}></div>
+                            </li>-->
+                </ul>
+                <div class="sumDiv">
+                    <span>合计</span>
+                    <span class="price">0</span>
+                    <span class="num">0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="divok">
+        <div class="btnBatch">批量录入</div>
+        <div class="btnok">确定</div>
+
+        <div class="btn-box-list">
+            <input type="button" value="加入购物车" class="btn-add-cart" />
+            <input type="button" value="立即购买" class="btn-buy-now" />
+        </div>
+            <span class="goodsBox sprite-cart">
+                <p>购物车</p>
+                <div class="count_tip">0</div>
+            </span>
+    </div>
+</div>
+<!--快速购买 end-->

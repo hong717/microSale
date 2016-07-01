@@ -1,0 +1,99 @@
+#view-Money {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+
+}
+
+#view-Money .height{
+    height: 43px !important;
+}
+
+.div-money-piechart {
+    display: block;
+    width: 100%;
+    height: 300px;
+}
+
+#div-money-amount {
+    position: absolute;
+    top: 122px;
+    width: 100%;
+    text-align: center;
+    font-size: 1.0em;
+    color: #303030;
+}
+
+.div-money-detail {
+
+    margin-top: 0px;
+    margin-bottom: 15px;
+    border-top: 1px solid #c2cad3;
+    border-bottom: 1px solid #c2cad3;
+    width: 100%;
+    background-color: #fff;
+}
+
+.div-money-bar {
+    margin-left: 5%;
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid #e2e2e2;
+    font-size: 0.9em;
+    background-color: #ffffff;
+}
+
+.div-money-bar em {
+    padding-right: 5%;
+    float: right;
+}
+
+.div-money-bar p {
+    display: inline-block;
+}
+
+#money-mon {
+    color: #fbb517;
+}
+
+#money-beforemon {
+    color: #ff4c50;
+}
+
+#money-aftermon {
+    color: #0069ba;
+}
+
+#div-money-top {
+    position: absolute;
+    top: 44px;
+    bottom: 0;
+    overflow: hidden;
+    width: 100%;
+    background-color: #fafafa;
+}
+
+@media screen and (max-height: 480px) {
+    .div-money-detail {
+
+    }
+
+    .div-money-bar {
+        height: 30px;
+        line-height: 30px;
+    }
+}
+
+.MoneyHintflag {
+    padding: 10px 0;
+    text-align: center !important;
+    border-bottom: 0 !important;
+    position: absolute;
+    top: 0;
+    padding-top: 40px;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+}

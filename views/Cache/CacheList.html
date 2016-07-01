@@ -1,0 +1,75 @@
+﻿<!--购物车 模块 begin-->
+<div id="view-itemlist" class="goodslist" style="display: none">
+    <div class="emptybox">
+        <img src="img/kdpx.gif" class="emptyImg sprite-emptybox" />
+
+        <p>您的购物车没有商品</p>
+
+        <div class="btnSelGoods">
+            <span>选购商品</span>
+        </div>
+    </div>
+    <div class="list-item-buy" id="list-item-buy">
+        <ul id="goodsitemlist" class="goodsitemlist">
+            <!--                <li index={index}>
+                                       <div  index={index} class="lirow">
+                                           <div class="itemlist-li-top"  index={index}>
+                                               <div class="itemlist-li-top-left">
+                                                   <span></span><img src="{img}">
+                                               </div>
+                                               <div class="itemlist-li-top-center">
+                                                   <div class="itemlist-itemname">{name}</div>
+                                               </div>
+                                               <div  index={index}  class="goodsRowDel" style="display:none">
+                                                   <img src="img/kdpx.gif" class="delete0 sprite-delete0" />
+                                               </div>
+                                               <div class="clearfloat"></div>
+                                           </div>
+                                           <div class="attrList">
+                                               <div class="attrListdata">
+                                           #--row.begin--#
+                                               <div attrIndex={attrIndex}  attrPindex={attrPindex}  class="attrRow" >
+                                                   <div class="attrname">{attrname}</div>
+                                                   <div class="attrnum" attrIndex={attrIndex}  attrPindex={attrPindex} >
+                                                       <input type="text" id="numInput" value={attrnum} disabled>
+                                                   </div>
+                                                   <div class="attrprice"  >
+                                                       <span>{attrprice}</span>
+                                                   </div>
+                                                   <div attrIndex={attrIndex}  attrPindex={attrPindex} class="attrRowDel" style="display:none">
+                                                       <img src="img/kdpx.gif" class="delete0 sprite-delete0">
+                                                   </div>
+                                               </div>
+                                           #--row.end--#
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="attrCtrl">
+                                               <div class="attrSumHead">小计</div>
+                                               <div class="attrSumPrice"><span>{attrsumMoney}</span></div>
+                                               <div class="attrSum"><span>{attrsum}</span>{unitname}</div>
+                                               <div  index={index} class="attrDelete">编辑</div>
+                                       </div>
+                                   </li>-->
+        </ul>
+    </div>
+    <div class="list-item-confirm">
+        <div class="cacheSumMoney">
+            <p>总计</p>
+
+            <div class="sumMoney" id="cacheSumMoney">
+                0
+            </div>
+        </div>
+        <div class="confirm-right">
+            <div class="btnSubmitorder" id="ordersubmit">
+                提交订单
+            </div>
+            <div class="btnCancelorder" id="ordercancel">
+                取消
+            </div>
+        </div>
+        <div class="privilegeInfo"></div>
+    </div>
+</div>
+<!--购物车 模块 end-->

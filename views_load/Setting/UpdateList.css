@@ -1,0 +1,28 @@
+.view-update{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 100%;
+	background-color: #f0f0f0;
+	display: none;
+}
+
+.view-update .head{
+	height: 0.8rem;
+	line-height: 0.8rem;
+	padding-left: 0.12rem;
+	font-size: 16px;
+	margin-bottom: 0.12rem;
+}
+
+.view-update .item{
+	line-height: 0.64rem;
+	font-size: 14px;
+	margin-left: 0.24rem;
+    padding-right: 0.01rem;
+}
+
+.view-update .title{
+    color: #FF6427;
+    font-size: 15px;
+}

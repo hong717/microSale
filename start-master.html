@@ -1,0 +1,341 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,
+          user-scalable=no,minimum-scale=1,maximum-scale=1" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <title id="appTitle">微商城</title>
+    <!-- build:css css/home.min.css?v=-->
+    <link href="css/home.css?v=442" rel="stylesheet" />
+    <link href="views/Cache/CacheList.css?v=442" rel="stylesheet" />
+    <link href="views/Cache/CacheOrderList.css?v=442" rel="stylesheet" />
+
+    <link href="views/Goods/GoodsList/GoodsList.css?v=442" rel="stylesheet" />
+    <link href="views/AddGoods/AddGoods.css?v=442" rel="stylesheet" />
+    <link href="views/Goods/GoodsCategory.css?v=442" rel="stylesheet" />
+    <link href="views/Goods/GoodsListSort.css?v=442" rel="stylesheet" />
+    <link href="views/Goods/GoodsDetail/GoodsDetail.css?v=442" rel="stylesheet" />
+    <link href="views/Goods/GoodsSearch.css?v=442" rel="stylesheet" />
+    <link href="views/Order/OrderDetail.css?v=442" rel="stylesheet" />
+    <link href="views/Order/Orderlist.css?v=442" rel="stylesheet" />
+    <link href="views/Pay/PayList.css?v=442" rel="stylesheet" />
+    <link href="views/Pay/PayDetail.css?v=442" rel="stylesheet" />
+    <link href="views/Pay/PayCode.css?v=442" rel="stylesheet" />
+
+    <link href="views/Me/Me.css?v=442" rel="stylesheet" />
+    <link href="views/Register/Register.css?v=442" rel="stylesheet" />
+    <link href="views/Register/InvitePop.css?v=442" rel="stylesheet" />
+
+    <link href="css/Other/PopMenu.css?v=442" rel="stylesheet" />
+    <link href="css/Other/kdshare.css?v=442" rel="stylesheet" />
+    <link href="css/Other/animation.css?v=442" rel="stylesheet" />
+    <link href="css/Other/jifen.css?v=442" rel="stylesheet" />
+    <link href="css/Other/jSelect.css?v=442" rel="stylesheet" />
+
+    <link href="css/mobiscroll/mobiscroll.android-ics-2.5.0.css" rel="stylesheet" />
+    <link href="css/mobiscroll/mobiscroll.core-2.5.0.css" rel="stylesheet" />
+    <link href="css/kdimgBase64.css?v=270" rel="stylesheet" />
+
+    <!-- endbuild -->
+    <script>
+        var deviceWidth = document.documentElement.clientWidth;
+        if (deviceWidth > 640) {
+            deviceWidth = 640;
+        }
+        document.documentElement.style.fontSize = deviceWidth / 6.4 + "px";
+        window.onresize = function () {
+            var deviceWidth = document.documentElement.clientWidth;
+            if (deviceWidth > 640) {
+                deviceWidth = 640;
+            }
+            document.documentElement.style.fontSize = deviceWidth / 6.4 + "px";
+        };
+    </script>
+
+</head>
+<body>
+
+    <div id="kdloading" class="divloading">
+        <div class="loading-box">
+            <div class="spinner">
+                <div class="spinner-container container1">
+                    <div class="circle1"></div>
+                    <div class="circle2"></div>
+                    <div class="circle3"></div>
+                    <div class="circle4"></div>
+                </div>
+                <div class="spinner-container container2">
+                    <div class="circle1"></div>
+                    <div class="circle2"></div>
+                    <div class="circle3"></div>
+                    <div class="circle4"></div>
+                </div>
+                <div class="spinner-container container3">
+                    <div class="circle1"></div>
+                    <div class="circle2"></div>
+                    <div class="circle3"></div>
+                    <div class="circle4"></div>
+                </div>
+            </div>
+            <div class="loading-text">
+                正在努力加载...
+            </div>
+        </div>
+    </div>
+
+    <div id="flyelement" class="flyelement"></div>
+
+    <div class="keyboard" id="keyboard" style="display:none;">
+        <ul class="rowhead">
+            <li class="name"></li>
+            <li class="input">
+                0
+            </li>
+            <li class="ok">
+                <span key="ok">完成</span>
+            </li>
+        </ul>
+        <ul class="rowbody">
+            <li class="row">
+                <div class="btnkey">
+                    <span key="1">1</span>
+                </div>
+                <div class="btnkey">
+                    <span key="2">2</span>
+                </div>
+                <div class="btnkey">
+                    <span key="3">3</span>
+                </div>
+            </li>
+            <li class="row">
+                <div class="btnkey">
+                    <span key="4">4</span>
+                </div>
+                <div class="btnkey">
+                    <span key="5">5</span>
+                </div>
+                <div class="btnkey">
+                    <span key="6">6</span>
+                </div>
+            </li>
+            <li class="row">
+                <div class="btnkey">
+                    <span key="7">7</span>
+                </div>
+                <div class="btnkey">
+                    <span key="8">8</span>
+                </div>
+                <div class="btnkey">
+                    <span key="9">9</span>
+                </div>
+            </li>
+            <li class="row">
+                <div class="btnkey">
+                    <span key="point" class="">.</span>
+                </div>
+                <div class="btnkey">
+                    <span key="0">0</span>
+                </div>
+                <div class="btnkey">
+                    <span key="clear1" class="clear1">
+                        <img class="sprite-clear1" src="img/kdpx.gif" />
+                    </span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div id="kdnotice" class="divnotice">
+        <p id="kdnoticecontent"></p>
+        <div class="divnoticeMap"></div>
+    </div>
+
+    <div id="divPulldown" class="pulldown">
+        下拉刷新
+    </div>
+
+    <div id="divPullup" class="pullup">
+        上拉刷新
+    </div>
+
+    <div class="kdcMenuBar">
+        <span id="homeId" class="home-icon  sprite-main_s selected">首页</span>
+        <span id="typeId" class="home-icon  sprite-order">商品</span>
+        <span id="goodsBoxId" class="home-icon shop-icon sprite-hcart">
+            <p>购物车</p>
+            <div id="goodsNum" style="display: none">0</div>
+        </span>
+        <span id="meId" class="home-icon me-icon sprite-person">我</span>
+    </div>
+
+    <!--选择界面 beg-->
+    <div id="select-way" class="select-div" style="display:none">
+        <div class="select-ways" style="height: 240px; width: 256px; z-index: 1024; margin-left: -128px; margin-top: -120px; ">
+            <header style=""></header>
+            <article>
+                <div>
+                    <ul id="select-list" class="select-list">
+                        <!--
+                        <li data-index="{index}" data-cmd="li">{name}</li>
+                        -->
+                    </ul>
+                </div>
+            </article>
+            <footer class="buttons-2">
+                <span data-cmd="cancel" style="color: gray;">取消</span>
+                <span data-cmd="sure">确定</span>
+            </footer>
+        </div>
+    </div>
+    <!--选择界面 beg-->
+
+    <div class="kdMsgHint" style="display: none">
+        <span>已加入购物车</span>
+    </div>
+
+    <img id="divMask" class="divMask" style="display:none;" src="img/kdpx.gif" />
+    <div id="divlistMark" class="divlistMark" style="display: none"></div>
+    <div id="wxShareMark" class="wxShareMark" style="display: none"></div>
+    <div id="keyboardMark" class="keyboardMark" style="display: none"></div>
+    <img id="keyboardMarkImg" class="keyboardMarkImg" style="display:none;" src="img/kdpx.gif" />
+
+    <!--begin 弹出菜单 -->
+    <div class="popMenu">
+        <div class="menu-item A" id="nemu1">
+            <img src="img/kdpx.gif" class="btn-img" />
+        </div>
+        <div class="menu-item B" id="nemu2">
+            <img src="img/kdpx.gif" class="btn-img" />
+        </div>
+        <div class="menu-item C" id="nemu3">
+            <img src="img/kdpx.gif" class="btn-img" />
+        </div>
+        <div class="menu-item D" id="nemu4">
+            <img src="img/kdpx.gif" class="btn-img" />
+        </div>
+        <div class="menu-item E" id="nemu5">
+            <img src="img/kdpx.gif" class="btn-img" />
+        </div>
+    </div>
+    <!--end 弹出菜单 -->
+
+    <include src="../all.html"/>
+
+    <!--loading
+      <div class="loading-box">
+          <div class="spinner">
+              <div class="spinner-container container1">
+                  <div class="circle1"></div>
+                  <div class="circle2"></div>
+                  <div class="circle3"></div>
+                  <div class="circle4"></div>
+              </div>
+              <div class="spinner-container container2">
+                  <div class="circle1"></div>
+                  <div class="circle2"></div>
+                  <div class="circle3"></div>
+                  <div class="circle4"></div>
+              </div>
+              <div class="spinner-container container3">
+                  <div class="circle1"></div>
+                  <div class="circle2"></div>
+                  <div class="circle3"></div>
+                  <div class="circle4"></div>
+              </div>
+          </div>
+          <div class="loading-text">
+              {loadingHint}
+          </div>
+      </div>
+    loading-->
+    <!-- build:js l.min.js?v= -->
+
+    <script src="lib/kisp/jQuery-2.1.1.js"></script>
+    <script src="lib/kisp/miniQuery.js"></script>
+    <script src="lib/kisp/iScroll-5.1.2.js"></script>
+    <script src="lib/kisp/kisp.js"></script>
+
+    <script src="lib/mobiscroll.core-custom-2.5.0.js"></script>
+    <script src="lib/mobiscroll.datetime-2.5.0.js"></script>
+    <script src="lib/jweixin-1.0.0.js?v=442"></script>
+    <script src="lib/sha.js?v=442"></script>
+    <script src="lib/weixinjs.js?v=442"></script>
+
+    <script src="lib/fastclick.js"></script>
+    <script src="lib/swipe.js"></script>
+    <script src="lib/kdctrl.js?v=442"></script>
+    <script src="lib/kdAppSet.js?v=442"></script>
+    <script src="lib/lib.js?v=442"></script>
+    <script src="lib/KDLoad.js?v=442"></script>
+    <script src="lib/KDNetID.js?v=442"></script>
+
+    <script src="views/AddGoods/AddGoods.js?v=442"></script>
+    <script src="views/AddGoods/AddGoods_Api.js?v=442"></script>
+    <script src="views/AddGoods/AddGoods_Attr.js?v=442"></script>
+    <script src="views/AddGoods/AddGoods_AddList.js?v=442"></script>
+    <script src="views/AddGoods/AddGoods_Batch.js?v=442"></script>
+
+    <script src="views/Goods/GoodsList/GoodsList.js?v=442"></script>
+    <script src="views/Goods/GoodsList/GoodsList_Api.js?v=442"></script>
+    <script src="views/Goods/GoodsList/GoodsList_List.js?v=442"></script>
+    <script src="views/Goods/GoodsList/GoodsList_Category.js?v=442"></script>
+    <script src="views/Goods/GoodsList/GoodsList_Footer.js?v=442"></script>
+    <script src="views/Goods/GoodsList/GoodsList_Opt.js?v=442"></script>
+
+    <script src="views/Goods/GoodsDetail/GoodsDetail.js?v=442"></script>
+    <script src="views/Goods/GoodsDetail/GoodsDetail_Api.js?v=442"></script>
+    <script src="views/Goods/GoodsDetail/GoodsDetail_Head.js?v=442"></script>
+    <script src="views/Goods/GoodsDetail/GoodsDetail_List.js?v=442"></script>
+
+    <script src="views/Goods/GoodsCategory.js?v=442"></script>
+    <script src="views/Goods/GoodsListSort.js?v=442"></script>
+    <script src="views/Goods/GoodsSearch.js?v=442"></script>
+
+    <script src="views/Cache/CacheList.js?v=442"></script>
+    <script src="views/Cache/CacheOrderList.js?v=442"></script>
+    <script src="views/Cache/CacheOrderList_Retail.js?v=442"></script>
+
+    <script src="views/Order/Orderlist.js?v=442"></script>
+    <script src="views/Order/OrderDetail.js?v=442"></script>
+    <script src="views/Order/OrderPay.js?v=442"></script>
+
+    <script src="views/Pay/PayDetail.js?v=442"></script>
+    <script src="views/Pay/PayList.js?v=442"></script>
+    <script src="views/Pay/PayCode.js?v=442"></script>
+
+    <script src="views/Other/WXCard.js?v=442"></script>
+    <script src="views/Other/UpdateContent.js?v=442"></script>
+    <script src="views/Other/Gaode.js?v=442"></script>
+
+    <script src="views/Me/Me.js?v=442"></script>
+    <script src="views/Register/Register.js?v=442"></script>
+    <script src="views/Register/InvitePop.js?v=442"></script>
+
+    <script src="views/Home/Home.js?v=442"></script>
+    <script src="views/Home/Home_Icon.js?v=442"></script>
+
+    <script src="views/kdshare/kdShare.js?v=442"></script>
+    <script src="views/kdshare/OptAnimation.js?v=442"></script>
+    <script src="views/kdshare/jAlert.js?v=442"></script>
+    <script src="views/kdshare/jSelect.js?v=442"></script>
+    <script src="views/kdshare/OptAppMenu.js?v=442"></script>
+    <script src="views/kdshare/OptLog.js?v=442"></script>
+    <script src="views/kdshare/OptHash.js?v=442"></script>
+    <script src="views/kdshare/OptImage.js?v=442"></script>
+    <script src="views/kdshare/OptExpress.js?v=442"></script>
+    <script src="views/kdshare/OptMsg.js?v=442"></script>
+    <script src="views/kdshare/OptPayOff.js?v=442"></script>
+    <script src="views/kdshare/OptView.js?v=442"></script>
+    <script src="views/kdshare/PopMenu.js?v=442"></script>
+    <script src="views/kdshare/H5Analysis.js?v=442"></script>
+    <script src="views/kdshare/OptUtils.js?v=442"></script>
+    <script src="index.js?v=442"></script>
+    <script src="http://webapi.amap.com/maps?v=1.3&key=b3e668b7441992532613810c7dda3072"></script>
+    <!-- endbuild -->
+
+    <script async type="text/javascript" src="http://pingjs.qq.com/h5/stats.js" name="MTAH5" sid="500012984" cid="500014214"></script>
+
+</body>
+</html>

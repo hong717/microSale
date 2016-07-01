@@ -1,0 +1,30 @@
+.kdpage_show{
+    -webkit-animation: kdpage_show_ani 2250ms;
+    left:0;
+    z-index:10;
+ }
+
+.kdpage_hide{
+    -webkit-animation: kdpage_hide_ani 2250ms;
+    left: 100%;
+    z-index:10;
+}
+
+
+@-webkit-keyframes kdpage_show_ani {
+    from {
+        left: 100%;
+    }
+    to {
+        left: 0;
+    }
+}
+
+@-webkit-keyframes kdpage_hide_ani {
+    from {
+        left: 0;
+    }
+    to {
+        left: 100%;
+    }
+}

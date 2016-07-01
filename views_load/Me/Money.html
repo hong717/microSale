@@ -1,0 +1,30 @@
+﻿<div id="view-Money" style="display: none;">
+    <div class="docked-top toolbar height">
+        <div id="div-money-title" class="title">
+            <span>应付账款</span>
+        </div>
+    </div>
+    <div id="div-money-top">
+        <div>
+            <div class="div-money-piechart" id="money-piechart">
+                <canvas id="div-money-piechart" width="320" height="300"></canvas>
+                <p id="div-money-amount">总计<br/>￥--</p>
+            </div>
+            <div class="div-money-detail" id="div-money-detail">
+                <div class="div-money-bar">
+                    <p style="color:#fbb517;">●</p> 本月到期:
+                    <em id="money-mon">￥-- (--%)</em>
+                </div>
+                <div class="div-money-bar">
+                    <p style="color:#ff4c50;">●</p> 本月之前到期:
+                    <em id="money-beforemon">￥-- (--%)</em>
+                </div>
+                <div class="div-money-bar" style="border-bottom:0px;">
+                    <p style="color:#0069ba;">●</p> 本月之后到期:
+                    <em id="money-aftermon">￥-- (--%)</em>
+                </div>
+            </div>
+            <div style="height:10px;"></div>
+        </div>
+    </div>
+</div>

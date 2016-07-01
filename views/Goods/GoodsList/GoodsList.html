@@ -1,0 +1,139 @@
+﻿<!--商品列表 begin-->
+<div id="viewid_goodslist" class="view_goodslist bookPage" style="display: none">
+    <!--搜索框-->
+    <div class="main-searchOuter" id="main-searchOuter">
+        <!--查询 -->
+        <div class="back-div" id="back-div">
+            <i class="icon-category sprite-order"></i>
+            <p class="title"></p>
+        </div>
+        <div class="main-searchinput" id="toClassSearch">
+            <span class="main-imgSearch sprite-w-search"></span>
+            <input type="text" id="txtSearch" readonly="true" />
+
+            <div id="main-imgClear" class="main-imgClear sprite-clear">
+            </div>
+        </div>
+        <div data-cmd="order" class="order sprite-btn-order">排序</div>
+        <div class="listviewtype" id="listviewtype">
+            <img src="img/kdpx.gif" class="sprite-list_img" />
+        </div>
+    </div>
+
+    <ul class="category-container" id="div-category-wrap">
+        <!--
+           #--li.begin--#
+            <li class="div-category" id="{liId}" data-level="{level}">
+            <ul>
+            </ul>
+        </li>
+           #--li.end--#
+            -->
+        <!--
+                #--ul.begin--#
+                #--all.begin--#
+                <li data-dataindex="0" data-index="-1" data-ItemId="{ItemId}" data-cmd="li" class="active" >全部</li>
+                #--all.end--#
+
+                #--item.begin--#
+                <li  data-dataindex="{dataindex}"  data-index="{index}" data-ItemId="{ItemId}" data-cmd="li">{name}</li>
+                #--item.end--#
+                #--ul.end--#
+
+            -->
+    </ul>
+
+    <!--明细列表区开始-->
+    <div data-index="0" class="listdiv" id="goodslist_listwrap">
+        <ul class="ullistType" id="goodslist_list">
+            <!--3<li data-index="{index}">
+                             <div class="infoDiv">
+                                 <div class="leftDiv">
+                                     <div class="imgDiv">
+                                         <img class="image " src="{img}" />
+                                     </div>
+                                 </div>
+                                <div class="name-detail">
+                                     <ul class="rightInfo">
+                                         <li class="name">{name}</li>
+                                         <li class="price">
+                                            <span class="{priceshow}">{price}</span>
+                                            <span class="jifenpoint {pointshow}"><span class="{orshow}">或</span>{expoint}积分<i class="change">兑</i></span>
+                                         </li>
+                                         <li class="old-price {xcust-old-price}" >{oldprice}</li>
+                                         <li class="stockLi">库存：<span class="stockNum" style={colormsg}>{stockmsg}</span></li>
+                                     </ul>
+                                </div>
+                             </div>
+                            <p  data-index="{index}" class="count-bar {input-view}">
+                                <span data-cmd="-" class="minus-icon hide"><i class="icon-m icon-pm">-</i></span>
+                                <span data-cmd="input" data-id={itemid} class="count"></span>
+                                <span data-cmd="+" class="add-icon"><i class="icon-pm">+</i></span>
+                            </p>
+                         </li>3-->
+            <!--2
+                         <li class="imgrow" >
+                            #--row.begin--#
+                            <div  class="imgbox" data-index="{data-index}">
+                                <ul class="imgul">
+                                     <li class="imgboxDiv">
+                                         <img class="image kdcImage" src="{img}" imgsrc="{imgsrc}" />
+                                     </li>
+                                     <li class="name">{name}</li>
+                                     <li class="footer">
+                                        <div class="icon-buy sprite-buy_s"></div>
+                                        <div class="price">{price}</div>
+                                        <div class="stockNum" style={colormsg}>{stockmsg}</div>
+                                     </li>
+                                </ul>
+                            </div>
+                            #--row.end--#
+                         </li>
+                         2-->
+            <!--1   <li data-index="{index}">
+             <div class="infoDiv">
+                 <div class="leftDiv">
+                     <div class="imgDiv">
+                         <img class="image " src="{img}" />
+                     </div>
+
+                 </div>
+            <div class="name-detail">
+                 <ul class="rightInfo">
+                     <li class="name">{name}</li>
+                     <li class="price">
+                        <span class="{priceshow}">{price}</span>
+                        <span class="jifenpoint {pointshow}"><span class="{orshow}">或</span>{expoint}积分<i class="change">兑</i></span>
+                     </li>
+                     <li class="old-price {xcust-old-price}" >{oldprice}</li>
+                     <li class="stockLi">库存：<span class="stockNum" style={colormsg}>{stockmsg}</span></li>
+                 </ul>
+            </div>
+             </div>
+             <img src="img/kdpx.gif" class="addBtn sprite-buy_s">
+            </li>   1-->
+        </ul>
+    </div>
+    <!--明细列表区结束-->
+
+    <div class="category-footer" id="div-category-footer">
+        <section class="left">
+            <i class="icon-cart sprite-cart"></i>
+            <span class="span-cart-count"></span>
+        </section>
+        <section class="center">
+            <div data-cmd="money">
+                <div class="title">
+                    <p class="title-main">总金额：</p>
+                    <p class="title-remark">(不含运费)</p>
+                </div>
+                <label class="money"><span class="money-integer"></span><span class="money-decimal"></span></label>
+            </div>
+        </section>
+        <section class="right">
+            <input type="button" value="提交订单" class="input-submit" />
+        </section>
+    </div>
+
+</div>
+<!--商品查询 end-->

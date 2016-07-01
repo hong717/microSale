@@ -1,0 +1,35 @@
+﻿<!--门店选择 begin-->
+<div id="viewid-store-list" class="view-store-list" style="display: none">
+
+    <ul id="ul-view-store-address-list" class="address-name">
+        <!--        <li data-cmd="province"><span>{province}</span></li>
+                <li data-cmd="city"><span>{city}</span></li>
+                <li data-cmd="district" style="display: none"><span class="last-span">{district}</span></li>-->
+    </ul>
+    <div data-cmd="locate" class="autolocate">
+        <img src="img/kdpx.gif">
+        <span>自动定位</span>
+    </div>
+    <p data-cmd="hint" class="nostore-mention">此区域没有可供选择的门店，您可以就近选择以下门店</p>
+
+    <div class="list-div" id="div-view-store-list">
+
+        <!--添加on类表示选中此项，添加has表示有定位图标-->
+        <ul class="address-list">
+            <!--<li data-cmd="store" data-index={index} class="address-detail">
+                <div class="left {on}">
+                    <p>{name}</p>
+                    <p class="address">{address}</p>
+                </div>
+                <div class="right {on}" data-cmd="guide">
+                    <div class="guide" data-cmd="guide">
+                        <p class="btn-guide" data-cmd="guide"></p>
+                        <p class="num {hide}"  data-cmd="guide">{distance}</p>
+                        <p class="mention" data-cmd="guide">到这里去</p>
+                    </div>
+                </div>
+            </li>-->
+        </ul>
+    </div>
+</div>
+<!--门店选择 end-->

@@ -1,0 +1,102 @@
+﻿
+.invite-pop {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 3;
+
+    .pop-detail {
+        margin: 1.68rem auto 0 auto;
+        width: 5.3rem;
+        background-color: #fff;
+        border-radius: 0.2rem;
+        border: 1px solid #ddd;
+        padding-bottom: 0.4rem;
+
+        p {
+            overflow: hidden;
+            color: #646464;
+            padding: 0 0.3rem;
+            margin: 0.4rem 0;
+            font-size: 16px;
+            height: 0.7rem;
+
+            input {
+                border: 1px solid #ddd;
+                height: 100%;
+                padding-left: 0.3rem;
+                width: 100%;
+                box-sizing: border-box;
+                border-radius: 0.06rem;
+                width: 100%;
+                font-size: 15px;
+                color: #646464;
+                -webkit-appearance:none;
+            }
+
+            .cancel {
+                width: 2.1rem;
+                background-color: #fff;
+                color: #ccc;
+                float: left;
+                border: 1px solid #ddd;
+                box-sizing: border-box;
+
+                &.on {
+                    background-color: #f4f4f4 !important;
+                }
+            }
+
+            .submit {
+                width: 2.1rem;
+                background-color: #F57325;
+                color: #fff;
+                float: right;
+                border: none;
+
+                &.on {
+                    background-color: #ef5125 !important;
+                }
+            }
+
+            button {
+                font-size: 17px;
+                height: 0.7rem;
+                line-height: 0.7rem;
+                box-sizing: border-box;
+                border-radius: 0.06rem;
+                outline: none;
+                font-family:'Microsoft YaHei';
+            }
+        }
+
+            p:last-child {
+                margin-bottom: 0;
+            }
+    }
+
+    .title {
+        font-size: 17px;
+        line-height: 1.1rem;
+        height: 1.1rem;
+        border-bottom: 1px solid #ddd;
+        text-align: center;
+        position: relative;
+        color: #555;
+    }
+
+    .describe {
+        margin: 0.3rem;
+        background-color: #fff;
+        border: 1px solid #e0e0e0;
+        font-size: 13px;
+        color: #555;
+        background-size: 0.8rem 0.8rem;
+        background-position: 0.26rem 50%;
+        padding: 0.2rem 0.3rem 0.2rem 1.4rem;
+        border-radius: 0.06rem;
+    }
+}

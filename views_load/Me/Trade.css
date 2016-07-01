@@ -1,0 +1,64 @@
+#view-trade {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    background: #ffffff;
+}
+
+.trade-bar {
+    padding: 0 5%;
+    height: 1.4rem;
+    line-height:1.4rem;
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.trade-bar p {
+    color: #3d3d3d;
+    margin-top: 0.1rem;
+    height: 0.6rem;
+    line-height: 0.6rem;
+    width: 95%;
+}
+
+.trade-bar p em {
+    color: #ff6427;
+    float: right;
+}
+
+.trade-Div {
+    margin-top: 0.2rem;
+    border-radius: 0.2rem;
+    height: 0.4rem;
+    overflow: hidden;
+    background-color: #f4f4f4;
+    border: 1px solid rgba(233, 233, 233, 0.4);
+}
+
+.trade-rect {
+    height: 0.4rem;
+    width: 1%;
+    background-color: #6cc7f2;
+}
+
+#trade-detail-bar {
+    position: absolute;
+    top: 0.88rem;
+    bottom: 0;
+    overflow: hidden;
+    width: 100%;
+    font-size:16px;
+}
+
+.tradeHintflag {
+    padding: 0.2rem 0;
+    text-align: center !important;
+    border-bottom: 0 !important;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    padding-top: 0.8rem;
+    height: 100%;
+    background: #fff;
+}

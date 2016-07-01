@@ -1,0 +1,65 @@
+﻿<!--首页 begin-->
+<div class="view_home" id="viewid_home" style="display: none">
+    <div class="sprite-followme follow-me" data-cmd="followme"></div>
+    <div class="head">
+        <div class="search">
+            <div class="search-bar">
+                <input class="sprite-w-search" type="text" readonly="true" placeholder="商品名称/规格型号/商品代码">
+            </div>
+            <div class="imgClear sprite-clear"></div>
+        </div>
+        <div class="qrcode" data-cmd="qrcode">
+            <img src="img/kdpx.gif" class="code sprite-w-qrcode">
+        </div>
+    </div>
+    <div id="homeViewList" class="content">
+        <div>
+            <div class="homeBox swipe" id="homeSlider">
+                <div class="home_img swipe_wrap" id="homeSwipeWrap">
+                    <!--                     <div class="wrap">
+                                                 <div class="wrapinner">
+                                                     <div id="homewrapimg" class="middiv imgbg">
+                                                         <img data-index={index} data-optid={optid} initview=0  src="{img}" />
+                                                     </div>
+                                                 </div>
+                                         </div>-->
+                </div>
+                <nav>
+                    <ul id="homeSliderPosi" class="position">
+                        <!--  <li class=""></li>-->
+                    </ul>
+                </nav>
+            </div>
+            <div class="bg-special">
+                <ul id="homeIconList" class="iconList">
+                    <!--                <li data-index="{index}" data-name="{imgname}"><img src="{img}"><span>{imgname}</span></li>-->
+                </ul>
+
+                <div id="nameList">
+
+                    <!--#--nameList.begin--#
+                    <div id="{nameListId}" class="imgList">
+                        <div class="more">
+                            <div class="moredetail">
+                                <span class="title">{name}</span>
+                                <span class="moreinfo">更多</span>
+                            </div>
+                        </div>
+
+                        <ul class="imgList2 {imgClass}"></ul>
+                    </div>
+                    #--nameList.end--#-->
+                    <!--#--ImgList.begin--#
+                    <li data-goodsid={goodsid}>
+                        <div class="imgBox"><img src="{img}"></div>
+                        <div class="Ndescribe"><p class="name">{name}</p></div>
+                        <p class="price">￥{price}</p>
+                    </li>
+                    #--ImgList.end--#-->
+                </div>
+            </div>
+        </div>
+        <div class="bottom">金蝶KIS提供技术支持</div>
+    </div>
+</div>
+<!--首页 end-->

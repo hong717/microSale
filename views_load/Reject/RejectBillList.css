@@ -1,0 +1,370 @@
+﻿.view_RejectBillList {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background: #fff;
+    width: 100%;
+}
+
+.view_RejectBillList .header {
+    top: 0;
+    width: 100%;
+    position: absolute;
+    background: #EFEFEF;
+    border-bottom: 1px solid #DADADA;
+}
+
+.view_RejectBillList .header .search {
+    width: 100%;
+    display: -webkit-box;
+}
+
+.view_RejectBillList .header .divSearch {
+    height: 0.64rem;
+    line-height: 0.64rem;
+    text-align: left;
+    cursor: pointer;
+    color: #393939;
+    font-size: 10.12rem;
+    top: 0.12rem;
+    border-radius: 0.12rem;
+    position: relative;
+    background: #fff;
+    -webkit-box-flex: 1;
+    margin-left: 0.22rem;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.view_RejectBillList .header .imgSearch {
+    position: absolute;
+    top: 0.18rem;
+    left: 0.14rem;
+    background-repeat: no-repeat;
+    background-size: 0.3rem;
+    opacity: 0.8;
+    height: 0.36rem;
+    width: 0.36rem;
+    z-index: 1;
+}
+
+.view_RejectBillList .header .txtSearch {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    width: 75%;
+    height: 0.48rem;
+    font-size: 15px;
+    border-style: none;
+    left: 0.5rem;
+    top: 0.08rem;
+    padding-left: 0.1rem;
+    outline: none;
+    color: #b1b1b1;
+}
+
+.view_RejectBillList .header .imgClear {
+    position: absolute;
+    top: 0.14rem;
+    right: 0.12rem;
+    width: 0.36rem;
+    height: 0.36rem;
+    background: url(img/clear.png) no-repeat;
+    background-size: 0.36rem;
+    display: none;
+}
+
+.view_RejectBillList .header .btnSearch {
+    position: relative;
+    height: 0.88rem;
+    line-height: 0.9rem;
+    width: 0.9rem;
+    text-align: center;
+    color: #969a9f;
+    margin-left: 0.06rem;
+    margin-right: -0.04rem;
+    font-size:16px;
+}
+
+.view_RejectBillList .header .btnDate {
+    position: relative;
+    height: 0.88rem;
+    line-height: 40.12rem;
+    width: 0.8rem;
+    text-align: center;
+    font-size: 14px;
+    color: #606060;
+}
+
+.view_RejectBillList .header .btnDate img {
+    width: 0.3rem;
+    height: 0.3rem;
+    position: absolute;
+    top: 50%;
+    margin-top: -0.15rem;
+    margin-right: -0.15rem;
+    right: 50%;
+    background: url(img/upext.png) no-repeat;
+    background-size: 0.3rem;
+}
+
+.view_RejectBillList .header .datePan {
+    height: 0.88rem;
+    line-height: 0.88rem;
+    display: none;
+    font-size:16px;
+}
+
+.view_RejectBillList .dateBeginDiv {
+    background: #fff;
+    width: 36%;
+    border: 1px solid rgba(204, 204, 204, 0.4);
+    border-radius: 4px;
+    line-height: 0.6rem;
+    height: 0.6rem;
+    text-align: center;
+    font-size: 16px;
+    color: #727a82;
+    position: relative;
+    margin-top: 0.12rem;
+    display: inline-block;
+    margin-left: 0.2rem;
+}
+
+.view_RejectBillList .dateBeginDiv .dateBegin {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    font-size: 15px;
+    position: relative;
+    width: 1.66rem;
+    border: 0;
+    padding-right: 0.22rem;
+    background: url(img/down.png) no-repeat;
+    background-size: 0.24rem;
+    background-position: right;
+}
+
+.view_RejectBillList .header .datePan span {
+    font-size:  14px;
+    color: #686f76;
+    width: 8%;
+    text-align: center;
+}
+
+.view_RejectBillList .dateEndDiv {
+    background: #fff;
+    width: 36%;
+    border: 1px solid rgba(204, 204, 204, 0.4);
+    border-radius: 4px;
+    line-height: 0.6rem;
+    height:  0.6rem;
+    text-align: center;
+    font-size:  16px;
+    color: #727a82;
+    position: relative;
+    margin-top: 0.12rem;
+    display: inline-block;
+}
+
+.view_RejectBillList .dateEnd {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    font-size: 15px;
+    position: relative;
+    width: 83px;
+    border: 0;
+    padding-right: 0.22rem;
+    background: url(../css/img/down.png) no-repeat;
+    background-size: 12px 12px;
+    background-position: right;
+}
+
+.view_RejectBillList .RejectSelectDiv {
+    position: absolute;
+    top: 0.9rem;
+    bottom: 0.9rem;
+    left: 0px;
+    overflow: hidden;
+    width: 100%;
+    background: #f7f7f7;
+    z-index: 5;
+}
+
+.view_RejectBillList ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: relative;
+    background: #f0f0f0;
+    clear: both;
+}
+
+.view_RejectBillList li {
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: 100% 0.22rem;
+    padding-bottom: 0.12rem;
+}
+
+.view_RejectBillList li:last-child {
+    background-image: none !important;
+    padding-bottom: 0 !important;
+}
+
+.view_RejectBillList li .ItemInfo {
+    font-size:  16px;
+    position: relative;
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+    overflow: hidden;
+}
+
+.view_RejectBillList li .leftInfoDiv {
+    width: 65%;
+    float: left;
+}
+
+.view_RejectBillList li .billSpan {
+    width: 100%;
+    line-height: 0.4rem;
+    margin-bottom: 0.06rem;
+    position: relative;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    word-break: break-all;
+    margin-top: 0.2rem;
+    font-size:  16px;
+    color: #646464;
+}
+
+.view_RejectBillList li .dateSpan {
+    font-size:  15px;
+    color: #686f76;
+    width: 100%;
+    line-height: 0.4rem;
+    margin-bottom: 0.2rem;
+    position: relative;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    word-break: break-all;
+    margin-top: 0.2rem;
+}
+
+.view_RejectBillList li .rightInfoDiv {
+    width: 30%;
+    float: right;
+    text-align: right;
+    margin-right: 0.1rem;
+}
+
+.view_RejectBillList li .itemStatus {
+    margin-top: 0.2rem;
+    color: #ff3f3f;
+    display: block;
+}
+
+.view_RejectBillList li .numSpan {
+    margin-top: 0.2rem;
+    color: #686f76;
+    font-size: 15px;
+    display: inline-block;
+}
+
+.view_RejectBillList li .bottomDiv {
+    overflow: hidden;
+    text-align: right;
+    border-top: 1px dotted #ccc;
+    margin-left: 0.2rem;
+    margin-right: 0.2rem;
+}
+
+.view_RejectBillList li .bottomDiv span {
+    height: 0.52rem;
+    line-height: 0.52rem;
+    margin: 0.2rem 0;
+    padding: 0 0.1rem;
+    background: #fff;
+    font-size: 12px;
+    border-radius: 3px;
+    text-align: center;
+    margin-left: 0.2rem;
+}
+
+.view_RejectBillList li .expresstBtn {
+    color: #ff6427;
+    border: 1px solid #ff6427;
+    display: none;
+}
+
+.view_RejectBillList li .bottomDiv .remindBtn {
+    color: #8c9093;
+    border: 1px solid #8c9093;
+    display: inline-block;
+    margin-left: 0;
+    display: none;
+}
+
+.view_RejectBillList li .viewBtn {
+    display: none;
+    color: #ff6427;
+    border: 1px solid #ff6427;
+}
+
+.view_RejectBillList .footer {
+    position: absolute;
+    bottom: 0;
+    height: 0.88rem;
+    border-top: 1px solid #ececec;
+    width: 100%;
+    text-align: center;
+    line-height: 0.9rem;
+    background: #fff;
+    font-size:16px;
+}
+
+.view_RejectBillList .footer .serviceBtn {
+    font-size: 15px;
+    border-radius: 5px;
+    line-height: 0.56rem;
+    height: 0.56rem;
+    width: 2.52rem;
+    display: inline-block;
+    margin-right: 0.3rem;
+    color: #686f76;
+    border: 1px solid #686f76;
+    text-decoration: none;
+}
+
+.view_RejectBillList .footer .rejectBtn {
+    font-size: 15px;
+    border-radius: 5px;
+    line-height:  0.6rem;
+    height:  0.6rem;
+    width: 2.52rem;
+    display: inline-block;
+    color: #fff;
+    background-color: #ff6427;
+}
+
+.view_RejectBillList .rejectBtn_touched {
+    background-color: #ef5215 !important;
+}
+
+.view_RejectBillList .search_touched {
+    color: #363636 !important;
+}
+
+.view_RejectBillList .unfoldDate {
+    top: 1.78rem !important;
+}
+
+.view_RejectBillList .showBtn {
+    display: inline-block !important;
+}

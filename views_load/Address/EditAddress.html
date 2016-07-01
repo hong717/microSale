@@ -1,0 +1,40 @@
+﻿<!-- 编辑地址页面开始 -->
+<div class="view_editAddress" id="viewid_editAddress" style="display:none">
+    <div class="content" id="addressList_edit">
+        <div>
+            <ul>
+                <li><span class="nameh">收货人</span> <input type="text" class="name" value=""/></li>
+                <li><span class="phoneh">手机</span> <input type="tel" class="phone" value=""/></li>
+                <li>
+                    <span class="areah">地区</span> <span class="area">
+                            <span id="province"
+                                  class="province">省</span> <span id="city"
+                                                                  class="city">市</span> <span id="district"
+                                                                                              class="district">区</span>
+                        </span>
+
+                    <div class="AutoLocate">
+                        <img src="img/kdpx.gif"/>
+                        <span>自动定位</span>
+                    </div>
+                </li>
+                <li class="detail_address">
+                    <span class="addressh">街道</span> <textarea class="detailAddress kdcHint"
+                                                               hint=""></textarea>
+                </li>
+            </ul>
+            <div class="setDefaultDiv">
+                <div class="defaultBtn">
+                    设为默认地址
+                </div>
+                <span id="addressDefaultState" class="addressDefaultState"></span>
+            </div>
+            <div class="bom_space"></div>
+        </div>
+    </div>
+    <div class="footer">
+        <span class="deleteBtn">删除地址</span>
+        <span class="saveBtn">保存</span>
+    </div>
+</div>
+<!-- 编辑地址页面结束 -->

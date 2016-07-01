@@ -1,0 +1,60 @@
+﻿
+<!--库存不足商品列表显示区-->
+<div class="view_lowstocklist" id="viewid_lowstocklist" style="display: none">
+    <div class="head">
+        库存不足商品处理
+    </div>
+    <div class="lowstocklistdiv" id="lowstocklistdiv">
+        <ul class="lowstocklistul" id="lowstocklistul">
+            <!--                <li index={index}>
+                                       <div  index={index} class="lirow">
+                                           <div class="itemlist-li-top"  index={index}>
+                                               <div class="itemlist-li-top-left">
+                                                   <span></span><img src="{img}">
+                                               </div>
+                                               <div class="itemlist-li-top-center">
+                                                   <div class="itemlist-itemname">{name}</div>
+                                               </div>
+                                               <div  index={index}  class="goodsRowDel" >
+                                                   <img src="img/kdpx.gif" class="delete0 sprite-delete0" />
+                                               </div>
+                                               <div class="clearfloat"></div>
+                                           </div>
+                                           <div class="attrList">
+                                               <div class="attrListdata">
+                                           #--row.begin--#
+                                               <div attrIndex={attrIndex}  attrPindex={attrPindex}  class="attrRow" >
+                                                   <div class="attrname">{attrname}</div>
+                                                   <div class="attrnum" attrIndex={attrIndex}  attrPindex={attrPindex} >
+                                                       <input type="text" id="numInput" value={attrnum} disabled>
+                                                           <div class="lowstocknum">(库存{maxnum}{stockunit})</div>
+                                                   </div>
+
+                                                   <div attrIndex={attrIndex}  attrPindex={attrPindex} class="attrRowDel" >
+                                                       <img src="img/kdpx.gif" class="delete0 sprite-delete0">
+                                                   </div>
+                                               </div>
+                                           #--row.end--#
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </li>-->
+        </ul>
+    </div>
+    <div class="footer">
+        <div class="lowstockbtnlist" style="display:none">
+            <ul>
+                <li id="lowstock_saleleft"><span>有多少买多少</span></li>
+                <li id="lowstock_delete"><span>删除库存不足商品</span></li>
+            </ul>
+            <div class="triangle"></div>
+        </div>
+        <div class="optstock" id="lowstock_opt">
+            <span class="sprite-open">批量操作</span>
+        </div>
+        <div class="save" id="lowstock_save">
+            保存
+        </div>
+    </div>
+</div>
+<!--库存不足商品列表显示区end-->

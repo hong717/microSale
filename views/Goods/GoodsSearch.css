@@ -1,0 +1,219 @@
+.view_searchPage {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #f5f5f5;
+
+}
+
+
+.view_searchPage .header {
+    font-size: 15px;
+    height: 1rem;
+    width: 100%;
+    background-color: #F5F5F5;
+    border-bottom: 1px solid #e4e4e4;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #EFEFEF;
+}
+
+.view_searchPage .searchTxt {
+    margin-right: 1.2rem;
+    margin-left: 2%;
+    height: 0.8rem;
+    margin-top: 0.2rem;
+    position: relative;
+}
+
+.view_searchPage .searchTxt form {
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    height: 0.6rem;
+    padding-left: 0.6rem;
+    padding-right: 0.6rem;
+}
+
+.view_searchPage .searchTxt .imgSearch {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 0.6rem;
+    width: 0.6rem;
+    background-repeat: no-repeat;
+    background-size: 0.36rem;
+    background-position: center;
+}
+
+.view_searchPage .searchTxt .imgClear {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 0.6rem;
+    width: 0.6rem;
+    background-repeat: no-repeat;
+    background-size: 0.36rem;
+    background-position: center;
+}
+
+.view_searchPage .searchTxt input {
+    outline: none;
+    padding: 0;
+    font-size: 14px;
+    height: 0.64rem;
+    width: 100%;
+    border: 0;
+}
+
+.view_searchPage .cancelBtn {
+    position: absolute;
+    height: 1rem;
+    width: 1.2rem;
+    text-align: center;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+    line-height: 1rem;
+    color: #969a9f;
+    text-align:center;
+}
+
+/*.view_searchPage .cancelBtn span {
+    outline: none;
+    font-size: 0.8em;
+    height: 1.875em;
+    line-height: 1.875em;
+    width: 3em;
+    text-align: center;
+    display: -webkit-inline-box;
+    display: inline-block;
+}*/
+
+.view_searchPage .content {
+    font-size: 14px;
+    position: absolute;
+    top: 1.02rem;
+    bottom: 0;
+    width: 100%;
+    background-color: #f5f5f5;
+    overflow: hidden;
+}
+.view_searchPage .historyList {
+    margin-top: 0.2rem;
+    padding: 0 0 0 0.2rem;
+    overflow: hidden;
+}
+
+.view_searchPage .content li {
+    font-size: 13px;
+    height: 0.6rem;
+    line-height: 0.6rem;
+    padding: 0 0.2rem;
+    background-color: #fff;
+    border-radius: 4px;
+    float: left;
+    margin-right: 0.2rem;
+    margin-bottom: 0.2rem;
+    color: #959595;
+}
+
+.view_searchPage .emptyDiv {
+    width: 100%;
+    font-size: 14px;
+    height: 1.96rem;
+    line-height: 1.96rem;
+    text-align: center;
+}
+
+.view_searchPage .emptyDiv span {
+    display: inline-block;
+    padding-left: 0.56rem;
+}
+
+.view_searchPage .clearDiv {
+    width: 100%;
+    height: 0.8rem;
+    text-align: center;
+    cursor: pointer;
+    border-bottom:1px solid #e5e5e5;
+    padding-bottom:0.26rem;
+    display: none;
+}
+
+.view_searchPage .clearDiv input {
+    outline: none;
+    border:none;
+    font-size: 14px;
+    padding: 0.12rem 0.16rem;
+    border-radius: 4px;
+    background-color: #efefef;
+    font-family: microsoft yahei;
+    color: #ababab;
+}
+
+.view_searchPage .historyPic {
+    background-repeat: no-repeat;
+    background-size: 0.4rem;
+    background-position: left;
+}
+
+.view_searchPage .filter{
+    position:absolute;
+    top:35%;
+    bottom: 0;
+    width: 100%;
+    overflow: hidden;
+    padding:0 0 0 0.24rem;
+    font-size:0;
+}
+
+.view_searchPage .filter .lable{
+    height:1.14rem;
+    line-height:1.14rem;
+    color:#757575;
+    font-size:14px;
+    background-color:#f5f5f5;
+}
+.view_searchPage .filter .list{
+    position:absolute;
+    top:1.14rem;
+    bottom:0;
+    left:0.24rem;
+    right:0;
+    overflow: hidden;
+}
+
+.view_searchPage .filter li{ 
+    height: 0.68rem;
+    line-height: 0.68rem;
+    font-size: 14px;
+    color: #646464;
+    border: 1px solid #e0e0e0;
+    border-radius: 0.08rem;
+    padding: 0 0.42rem;
+    margin-right: 0.3rem;
+    margin-bottom: 0.3rem;
+    background-color: #fff;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    box-sizing: border-box;
+    max-width: 92%;
+    display: inline-block;
+}
+
+.view_searchPage .filter li.on{
+    border:1px solid #ff633c;
+    color:#ff633c;
+    background-size:0.44rem 0.36rem;
+    background-position:100% 100%;
+}
+
+
+

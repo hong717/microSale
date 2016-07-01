@@ -1,0 +1,1484 @@
+
+<!--快速购买 begin-->
+<div id="view-addgoods" class="addgoods" style="display: none">
+    <div class="divhead" id="addgoodshead">
+        <!--
+                      <div class="leftDiv">
+                          <div class="imgDiv">
+                              <img class="image kdcImage2" src="{imgurl}" />
+                          </div>
+                      </div>
+                      <ul class="rightinfo">
+                           <li class="price">
+                            <span data-cmd="price">{price}</span>
+                            <span class="jifenpoint" data-cmd="expoint"><span data-cmd="orshow">或</span><span data-cmd="point">250</span>积分<i class="change">兑</i></span>
+                           </li>
+                          <li class="old-price" data-cmd="preprice"></li>
+                          <li class="stocknum"> <p>库存: <span>0件</span></p></li>
+                          <li class="selectAttrs">已选：<span class="selectAttr1"></span> <span class="selectAttr2"></span></li>
+                      </ul>
+                      <div class="close"><img src="img/close.png"/></div>
+                  -->
+    </div>
+
+    <div class="divbody" id="addgoodsbody">
+        <div>
+            <div class="goodAttr1" id="goodsAttr1">
+                <p>颜色</p>
+                <ul id="goodAttrList1">
+                    <!--<li class="attr attr_select sprite-attr_select  {attrcheck}">{attrname}</li>-->
+                </ul>
+            </div>
+            <div class="goodAttr2" id="goodsAttr2">
+                <p>材料</p>
+                <ul id="goodAttrList2">
+                    <!-- <li class="attr2 attr_select sprite-attr_select {attrcheck}">{attrname}</li>-->
+                </ul>
+            </div>
+            <div id="goodsAuxdetail">
+            </div>
+            <div class="divNum">
+
+                <p class="msgl">购买数量</p>
+
+                <div class="numArea_kdshare1">
+                    <div class="numl" id="divNumLeft">
+                        <p class="sprite-sub_n"></p>
+                    </div>
+                    <div class="numText2">
+                        1
+                    </div>
+                    <div class="numr" id="divNumRight">
+                        <p class="sprite-add_n"></p>
+                    </div>
+                    <div style="clear:both;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="batchMode" style="display: none">
+        <div class="batchHeader">
+            <div class="batchImgDiv">
+                <span> <img class="batchImg" src="img/kdpx.gif" /> </span>
+            </div>
+            <div class="close"><img src="img/kdpx.gif" /></div>
+            <div class="goodsname" id="goodsname">
+                <span></span>
+            </div>
+        </div>
+        <div class="itemHead"></div>
+        <div id="batchUlListdiv">
+            <div class="scrollDiv">
+                <ul class="batchUlList">
+                    <!--  <li index={index} class="lbody">
+                                  <div class="attrli">{attrinfo}</div>
+                                  <div class="price">{price}</div><div class="num"><input type="text"   index={index}   disabled   id="numInput" value={num}></div>
+                            </li>-->
+                </ul>
+                <div class="sumDiv">
+                    <span>合计</span>
+                    <span class="price">0</span>
+                    <span class="num">0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="divok">
+        <div class="btnBatch">批量录入</div>
+        <div class="btnok">确定</div>
+
+        <div class="btn-box-list">
+            <input type="button" value="加入购物车" class="btn-add-cart" />
+            <input type="button" value="立即购买" class="btn-buy-now" />
+        </div>
+            <span class="goodsBox sprite-cart">
+                <p>购物车</p>
+                <div class="count_tip">0</div>
+            </span>
+    </div>
+</div>
+<!--快速购买 end-->
+<!--购物车 模块 begin-->
+<div id="view-itemlist" class="goodslist" style="display: none">
+    <div class="emptybox">
+        <img src="img/kdpx.gif" class="emptyImg sprite-emptybox" />
+
+        <p>您的购物车没有商品</p>
+
+        <div class="btnSelGoods">
+            <span>选购商品</span>
+        </div>
+    </div>
+    <div class="list-item-buy" id="list-item-buy">
+        <ul id="goodsitemlist" class="goodsitemlist">
+            <!--                <li index={index}>
+                                       <div  index={index} class="lirow">
+                                           <div class="itemlist-li-top"  index={index}>
+                                               <div class="itemlist-li-top-left">
+                                                   <span></span><img src="{img}">
+                                               </div>
+                                               <div class="itemlist-li-top-center">
+                                                   <div class="itemlist-itemname">{name}</div>
+                                               </div>
+                                               <div  index={index}  class="goodsRowDel" style="display:none">
+                                                   <img src="img/kdpx.gif" class="delete0 sprite-delete0" />
+                                               </div>
+                                               <div class="clearfloat"></div>
+                                           </div>
+                                           <div class="attrList">
+                                               <div class="attrListdata">
+                                           #--row.begin--#
+                                               <div attrIndex={attrIndex}  attrPindex={attrPindex}  class="attrRow" >
+                                                   <div class="attrname">{attrname}</div>
+                                                   <div class="attrnum" attrIndex={attrIndex}  attrPindex={attrPindex} >
+                                                       <input type="text" id="numInput" value={attrnum} disabled>
+                                                   </div>
+                                                   <div class="attrprice"  >
+                                                       <span>{attrprice}</span>
+                                                   </div>
+                                                   <div attrIndex={attrIndex}  attrPindex={attrPindex} class="attrRowDel" style="display:none">
+                                                       <img src="img/kdpx.gif" class="delete0 sprite-delete0">
+                                                   </div>
+                                               </div>
+                                           #--row.end--#
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="attrCtrl">
+                                               <div class="attrSumHead">小计</div>
+                                               <div class="attrSumPrice"><span>{attrsumMoney}</span></div>
+                                               <div class="attrSum"><span>{attrsum}</span>{unitname}</div>
+                                               <div  index={index} class="attrDelete">编辑</div>
+                                       </div>
+                                   </li>-->
+        </ul>
+    </div>
+    <div class="list-item-confirm">
+        <div class="cacheSumMoney">
+            <p>总计</p>
+
+            <div class="sumMoney" id="cacheSumMoney">
+                0
+            </div>
+        </div>
+        <div class="confirm-right">
+            <div class="btnSubmitorder" id="ordersubmit">
+                提交订单
+            </div>
+            <div class="btnCancelorder" id="ordercancel">
+                取消
+            </div>
+        </div>
+        <div class="privilegeInfo"></div>
+    </div>
+</div>
+<!--购物车 模块 end-->
+
+
+<!--订单确认 模块 begin-->
+
+<div class="view_cacheOrderList" id="viewid_cacheOrderList" style="display: none">
+
+<div id="divid_cacheOrder_billsum" class="cacheOrder_billsum">
+    <div class="orderNumber">
+        <p>订单编号：<span id="billId"></span></p>
+    </div>
+    <div class="divbillmoney">
+        订单金额:
+        <span class="billmoney">￥0</span>
+    </div>
+    <div class="delivery" id="div-freight-line">
+        运费:
+        <span class="btn-freightRule">计算规则</span>
+        <span class="freight">￥0</span>
+    </div>
+    <div class="privilegeInfo-div"></div>
+</div>
+<div id="cacheOrderListContent" class="content">
+    <div class="contentList">
+        <ul class="cacheOrderTopList">
+            <li id="cacheOrderList_SendMode" style="display: none" data-cmd="retail">
+                <span class="pattern">送货方式：</span>
+                <div class="pattern-style">
+                    <span id="cacheOrderList_express" class="sprite-style-chose chose sprite-style-on">快递送货</span>
+                    <span id="cacheOrderList_store" class="sprite-style-chose chose">门店自提</span>
+                </div>
+
+            </li>
+            <li class="deliver-bar" data-cmd="manage" style="display: none">
+                <div class="sprite-more deliverstyle">
+                    <span class="pattern">交货方式：</span>
+                    <span class="pattern card" data-cmd="deliverway"></span>
+                </div>
+            </li>
+            <li id="cacheOrderList_liaddress" class="liaddress borderBottom">
+                <div class="userMsgDiv">
+                    <div class="goodsAddress">
+                        <div class="selectAddress sprite-more">
+                            <div class="phoneDiv">
+                                <span>收货人：</span>
+                                <span class="name" id="orderReceiveName"></span>
+                                <span class="phone" id="orderReceivePhone"></span>
+                            </div>
+                            <div class="addressDiv">
+                                <span>收货地址：</span>
+                                <span id="orderReceiveAddress"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <ul id="cacheOrderList_identity" class="li-identity">
+                <li class="li-title">您选择了跨境商品，请输入您的身份证号码</li>
+                <li class="identity"><span>身份证:</span><input /></li>
+                <li>
+                            <span class="hint">
+                                温馨提示：收件人请使用和身份证号对应的真实姓名，
+                                否则您购买的商品将有可能无法通过海关检查!
+                            </span>
+                </li>
+            </ul>
+
+
+            <ul id="cacheOrderList_store_view" class="li-store">
+                <!--                    <li data-cmd="store-select" class="store-name">{store}</li>
+                                    <li>
+                                        <p class="address">提货地址:<span>{address}</span></p>
+                                        <p class="mention">(温馨提示:付款后,在订单详情中,凭提货码到自提点提货)</p>
+                                    </li>
+                                    <li class="time">
+                                        提货时间<span>（*必填）</span>:
+                                        <input data-cmd="date" type="text" readonly="" value="{date}">
+                                    </li>-->
+            </ul>
+            <ul class="receipt-info">
+                <li id="cacheOrderList_invoice" class="invoiceHead borderBottom">
+                    <span class="pattern">发票信息：</span>
+                    <div class="pattern-style">
+                        <span id="cacheOrderList_invoice_on" class="sprite-style-chose chose">需要发票</span>
+                                <span id="cacheOrderList_invoice_off"
+                                      class="sprite-style-chose chose sprite-style-on">无需发票</span>
+                    </div>
+                </li>
+                <li id="cacheOrderList_invoice_view" class="liinvoice" style="display: none">
+                    <div class="userMsgDiv">
+                        <div class="goodsAddress">
+                            <div class="selectAddress sprite-more">
+                                <div class="phoneDiv">
+                                    <span>发票抬头：</span>
+                                    <span id="orderInvoiceHead"></span>
+                                </div>
+                                <div class="addressDiv">
+                                    <span>寄送地址：</span>
+                                    <span id="orderInvoiceAddress"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <li id="cacheOrderList_wxCard" class="invoiceHead borderBottom sprite-more">
+                <span class="pattern">微信卡券：</span>
+                <span data-cmd="wxCard-name" class="pattern card"></span>
+            </li>
+            <li data-cmd="expoint-view" class="score-pay">
+                <span class="pattern">使用积分兑换：</span>
+                <p data-cmd="expoint" class="chose-outer">
+                    <span class="chose-y "></span>
+                </p>
+            </li>
+
+        </ul>
+        <div class="goodDetailDiv">
+            <div class="headTitie">
+                <span class="title">商品清单</span>
+                <div class="editgoods" id="cacheOrderEdit">
+                    <img src="img/kdpx.gif" />编辑清单
+                </div>
+                <div class="add_goods">
+                    <img src="img/kdpx.gif" />添加商品
+                </div>
+            </div>
+            <ul id="cacheOrderList_ul" class="">
+                <!-- <li>
+                                  <div class="goodItem">
+                                      <div class="goodInfo">
+                                          <div class="imgDiv"><img src="{img}"></div>
+                                          <div class="goodMsg">
+                                              <div class="goodName">{name}</div>
+                                              <div class="singlePrice" style="display:none">
+                                                  <span class="total">{attrsumMoney}</span>
+                                                  <span class="number">{attrsum}</span>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      #--row.begin--#
+                                      <div class="priceList">
+                                          <ul>
+                                              #--rowli.begin--#
+                                              <li>
+                                                  <span class="total">{money}</span>
+                                                  <span class="number">x {num}</span>
+                                                  <span class="price">{attrprice}</span>
+                                                  <span class="property">{attrname}</span>
+                                              </li>
+                                              #--rowli.end--#
+                                          </ul>
+                                      </div>
+                                      #--row.end--#
+                                  </div>
+                              </li>-->
+                <!--2                    <li class="gift">
+                                        <div class="describe {headTitleHide}">{protitle}</div>
+                                         #--good.begin--#
+                                        <ul class="buygood">
+                                           #--goodli.begin--#
+                                            <li>
+                                                <p class=image><img src="{goodsimg}" /></p>
+                                                <p class="name">{goodsname}</p>
+                                                <p class="jifenpoint {pointShow}">{expoint}<i class="change">兑</i></p>
+                                                <div class="count"><span>￥{price}</span>
+                                                    <p class="infor"><span class="num">X {num}</span><span class="money">￥{money}</span></p>
+                                                </div>
+                                            </li>
+                                           #--goodli.end--#
+                                        </ul>
+                                            #--good.end--#
+                                          #--gift.begin--#
+                                        <ul class="giftgood {gifthide}">
+                                            #--giftli.begin--#
+                                            <li>
+                                                <span class="tip">(赠)</span>
+                                                <span>{giftname}</span>
+                                                <span class="num">X {giftnum}</span>
+                                            </li>
+                                            #--giftli.end--#
+                                        </ul>
+                                          #--gift.end--#
+                                        <div class="describe {titleHide}"><span class="Lcount">{sumtitle}</span> <span class="desb-detail">{proInfo}</span><p class="allmoney"><span class="forever {hide}">￥{sumMoney}</span><span class="now">￥{sumMoneyDiscount}</span></p></div>
+                                    </li>2-->
+            </ul>
+            <div data-cmd="totalHead" class="sale-total">
+                合计：<p class="total-li">
+                            <span data-cmd="totalMoneyOrg"
+                                  class="forever"></span><span class="total-money" data-cmd="totalMoney">￥0</span>
+            </p>
+            </div>
+        </div>
+        <div class="MsgDiv">
+            <span>备注</span>
+
+            <div>
+                <textarea id="cacheOrderRemark">请在此处输入要备注的信息</textarea>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <div class="cancelChange" id="cancelChange">取消修改</div>
+    <div class="sure" id="summitOrder">确定</div>
+</div>
+<div id="orderpopupTip" class="orderpopupTip">
+    <!-- 控件的html代码 start -->
+    <div class="requestsuccess">
+        <div class="modal-header">
+            您的订单提交成功!
+        </div>
+        <div class="modal-body" style="height: 50px;font-size: 0.98em;">
+            <span style="color:#808080">您的订单号是：</span>
+            <span id="popbillno" style="color: #ff9000"></span>
+        </div>
+        <div class="orderbotton">
+            <div id="backtoitem" class="div-bottom-left">
+                继续购物
+            </div>
+            <div id="getlistbill" class="div-bottom-right">
+                立即付款
+            </div>
+        </div>
+    </div>
+    <!-- 遮罩div -->
+    <div class="full-screen-modal-back">
+    </div>
+    <!-- 控件的html代码 end -->
+</div>
+</div>
+
+<!--订单确认 模块 end-->
+<!-- 类目视图 begin-->
+<div class="view-category" id="view-category" style="display: none;">
+    <div class="head">
+        <div class="search">
+            <img class="imgSearch search sprite-w-search" src="img/kdpx.gif">
+            <input type="text" readonly="true" placeholder="商品名称/规格型号/商品代码">
+
+            <div class="imgClear sprite-clear"></div>
+        </div>
+        <div class="qrcode" data-cmd="qrcode">
+            <img src="img/kdpx.gif" class="code sprite-w-qrcode">
+            <span>扫一扫</span>
+        </div>
+    </div>
+    <div id="div-loading" style="width: 100%;margin-top: 45px"></div>
+    <div class="left" id="div-left">
+        <ul id="ul-left">
+            <!--
+            <li data-index="{index}">
+                <p class="item">{name}</p>
+            </li>
+            -->
+        </ul>
+    </div>
+    <div class="right" id="div-right">
+        <ul id="ul-right">
+            <!--
+            <li data-group="{index}">
+                <p class="title">{title}</p>
+                <ul class="item-group">
+                    #--item.begin--#
+                    <li class="item" data-index="{index}">
+                        <div style="background-image: url({url});display: none;">
+                        </div>
+                        <p class="category-title">{name}</p>
+                    </li>
+                    #--item.end--#
+                </ul>
+            </li>
+            -->
+        </ul>
+    </div>
+</div>
+<!-- 类目视图 end-->
+<!--  条件过滤页面 begin -->
+<div id="viewid-goodslist-sort" class="goodslist-sort" style="display: none">
+    <div>
+        <ul data-cmd="order-ul" class="goodslist-sort-list">
+            <li data-cmd="5" class="default-icon-chose" >最近购买时间
+                <div data-cmd="order"  class="order ">
+                    <span class="down on ">降序</span><span class="up">升序</span>
+                </div>
+            </li>
+            <li data-cmd="2">销量
+                <div data-cmd="order"  class="order hide">
+                    <span class="down on ">降序</span><span class="up">升序</span>
+                </div>
+            </li>
+            <li data-cmd="1">价格
+                <div data-cmd="order"  class="order hide">
+                    <span class="down on ">降序</span><span class="up">升序</span>
+                </div>
+            </li>
+            <li data-cmd="3">商品名称
+                <div data-cmd="order"   class="order hide">
+                    <span class="down on ">降序</span><span class="up">升序</span>
+                </div>
+            </li>
+            <li data-cmd="4">商品代码
+                <div data-cmd="order"   class="order hide">
+                    <span class="down on ">降序</span><span class="up">升序</span>
+                </div>
+            </li>
+            <li data-cmd="0">上架时间
+                <div data-cmd="order"   class="order hide">
+                    <span class="down on ">降序</span><span class="up">升序</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <footer><button data-cmd="ok">确定</button></footer>
+</div>
+<!--  条件过滤页面 end -->
+
+<!--搜索页面开始-->
+<div class="view_searchPage" id="viewid_searchPage" style="display:none">
+    <div class="header">
+        <div class="searchTxt">
+            <!-- 这里添加form元素来响应enter按键的输入 -->
+            <form>
+                <img src="img/kdpx.gif" class="imgSearch sprite-search" />
+                <input type="text" id="inputTxt" />
+                <img src="img/kdpx.gif" class="imgClear sprite-clear" />
+            </form>
+        </div>
+        <div class="cancelBtn">搜索</div>
+    </div>
+    <div class="content" id="viewid_searchPage_content">
+        <div>
+            <ul class="historyList">
+                <!-- <li class="listItem historyPic">{historyTxt}</li> -->
+            </ul>
+            <div class="emptyDiv">
+                <span class="historyPic sprite-iview">暂无搜索记录</span>
+            </div>
+            <div class="clearDiv">
+                <input type="button" value="清空历史记录" />
+            </div>
+        </div>
+    </div>
+    <div class="filter">
+        <div class="lable">搜索范围</div>
+        <div  id="div_viewid_searchPage_filter" class="list" >
+            <ul id="viewid_searchPage_filter">
+                <!--<li data-id={id} class="{selected}">{name}</li>-->
+            </ul>
+        </div>
+    </div>
+</div>
+<!--搜索页面结束-->
+
+<!--首页 begin-->
+<div class="view_home" id="viewid_home" style="display: none">
+    <div class="sprite-followme follow-me" data-cmd="followme"></div>
+    <div class="head">
+        <div class="search">
+            <div class="search-bar">
+                <input class="sprite-w-search" type="text" readonly="true" placeholder="商品名称/规格型号/商品代码">
+            </div>
+            <div class="imgClear sprite-clear"></div>
+        </div>
+        <div class="qrcode" data-cmd="qrcode">
+            <img src="img/kdpx.gif" class="code sprite-w-qrcode">
+        </div>
+    </div>
+    <div id="homeViewList" class="content">
+        <div>
+            <div class="homeBox swipe" id="homeSlider">
+                <div class="home_img swipe_wrap" id="homeSwipeWrap">
+                    <!--                     <div class="wrap">
+                                                 <div class="wrapinner">
+                                                     <div id="homewrapimg" class="middiv imgbg">
+                                                         <img data-index={index} data-optid={optid} initview=0  src="{img}" />
+                                                     </div>
+                                                 </div>
+                                         </div>-->
+                </div>
+                <nav>
+                    <ul id="homeSliderPosi" class="position">
+                        <!--  <li class=""></li>-->
+                    </ul>
+                </nav>
+            </div>
+            <div class="bg-special">
+                <ul id="homeIconList" class="iconList">
+                    <!--                <li data-index="{index}" data-name="{imgname}"><img src="{img}"><span>{imgname}</span></li>-->
+                </ul>
+
+                <div id="nameList">
+
+                    <!--#--nameList.begin--#
+                    <div id="{nameListId}" class="imgList">
+                        <div class="more">
+                            <div class="moredetail">
+                                <span class="title">{name}</span>
+                                <span class="moreinfo">更多</span>
+                            </div>
+                        </div>
+
+                        <ul class="imgList2 {imgClass}"></ul>
+                    </div>
+                    #--nameList.end--#-->
+                    <!--#--ImgList.begin--#
+                    <li data-goodsid={goodsid}>
+                        <div class="imgBox"><img src="{img}"></div>
+                        <div class="Ndescribe"><p class="name">{name}</p></div>
+                        <p class="price">￥{price}</p>
+                    </li>
+                    #--ImgList.end--#-->
+                </div>
+            </div>
+        </div>
+        <div class="bottom">金蝶KIS提供技术支持</div>
+    </div>
+</div>
+<!--首页 end-->
+
+<!--我的模块 begin-->
+<div class="view_Me" id="view_Me" style="display: none">
+    <div class="header sprite-me_bg">
+        <ul class="me_userInfo">
+            <li class="picture">
+                <img src="img/kdpx.gif" />
+            </li>
+            <li id="me_info" class="info">
+                <span id="userCompony" class="company"></span>
+
+                <div class="NamePosition">
+                    <span id="userName"></span>
+                    <span id="userPosition">(采购主管)</span>
+                </div>
+                <span id="userVerify" style="display: none" class="underLine">身份未验证</span>
+            </li>
+
+            <li id="me_saler" class="saler">
+
+                <!--<p class="name">
+                    <span data-cmd="vip" class="{vipView}">{name}</span>
+                    <span class="right {view}">等级：{level}</span>
+                </p>
+                <p class="count">
+                    <span class="{view} {allowView}">积分：{points} </span>
+                    <span data-cmd="vip" class="right vip {view}">余额：￥{money}</span>
+                </p>-->
+
+            </li>
+            <li class="checkDiv">
+                <span id="checkPhone">登录</span>
+            </li>
+        </ul>
+
+        <!--2016/4/7 此处重新改写-mayue-->
+        <ul class="me_nav" id="iconsample">
+            <!--<li class="nav_Item {styleclass}" id="{styleid}">
+                <span class="nav_Title">{stylename}</span>
+                <span class="count-tip" style="display:none;"></span>
+            </li>-->
+        </ul>
+    </div>
+    <div class="me_commonItems">
+        <div>
+            <div class="ItemGroup">
+                <div class="commonItem sprite-meorder " id="nav_Oredrs">
+                    <span>全部订单</span>
+                    <span class="sprite-more"></span>
+                </div>
+                <div class="commonItem sprite-mepay" id="nav_Notices">
+                    <span>我的付款</span>
+                    <span class="sprite-more"></span>
+                </div>
+                <div class="commonItem sprite-meaddress" id="me_Address">
+                    <span>我的地址</span>
+                    <span class="sprite-more"></span>
+                </div>
+                <div class="commonItem sprite-mecollection" id="me_Collect">
+                    <span>我的收藏</span>
+                    <span class="sprite-more"></span>
+                </div>
+            </div>
+            <div class="ItemGroup dropdownItem" id="me_manager" style="display: none;">
+                <img src="img/kdpx.gif" class="icon-item" />
+
+                <div>交易管理</div>
+                <span class="sprite-more"></span>
+                <ul class="second-menu">
+                    <li class="second-level" id="me_Money">
+                        <img src="img/kdpx.gif" />
+                        <div>交易对账</div>
+                    </li>
+                    <li class="second-level" id="me_Buyer">
+                        <img src="img/kdpx.gif" />
+                        <div>采购员</div>
+                    </li>
+                    <li class="second-level" id="me_retail">
+                        <img src="img/kdpx.gif" />
+                        <div>买家</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="ItemGroup singleItem me-share sprite-me-share" data-cmd="share" style="display: none">
+                <div>分享有奖</div>
+                <span class="sprite-more"></span>
+            </div>
+
+            <div class="ItemGroup singleItem sprite-me-invite" data-cmd="invite" style="display: none">
+                <div>输入邀请码</div>
+                <span class="sprite-more"></span>
+            </div>
+
+            <div class="ItemGroup singleItem sprite-mejoin" id="me_join">
+                <div>我要加盟</div>
+                <span class="sprite-more"></span>
+            </div>
+            <div class="ItemGroup singleItem sprite-mesetting" id="me_setting">
+                <div>我的设置</div>
+                <span class="sprite-more"></span>
+            </div>
+            <div class="quitDiv" id="quitBtn">注销当前账号</div>
+        </div>
+    </div>
+</div>
+<!--我的模块 end-->
+
+
+<!--订单详情 begin-->
+<div id="view_orderdetail" class="view_orderdetail" style="display: none">
+    <div class="orderdetail_top">
+        <ul class="orderdetail_head">
+            <li class="top-center-top">
+                <div class="moneyDiv">
+                    <img class="moneyimg" src="img/kdpx.gif" />
+                    <span>订单金额<em class="freight">: </em></span>
+                    <em id="orderdetail-money" class="money"></em>
+                </div>
+                <div id="orderdetail-status" class="status"></div>
+            </li>
+            <li class="orderdetail_express">
+                运费: <em id="orderdetail_freight">0</em><span class="btn-freightRule">计算规则</span>
+            </li>
+        </ul>
+        <img class="buyagain" src="img/kdpx.gif" />
+        <ul data-cmd="express" class="ReceivingHead">
+            <li>
+                <img class="receiveimg" src="img/kdpx.gif" />
+                <span>收货人</span>:
+                <em id="orderdetail_receivename"></em>
+                <span class="phone" id="orderdetail_receivephone"></span>
+            </li>
+            <li class="identity">
+                身份证号码: <span id="orderdetail_identity"></span>
+            </li>
+            <li class="re-address">
+                <span class="addressh">收货地址:</span>
+                <span id="orderdetail_address"></span>
+            </li>
+        </ul>
+
+    </div>
+    <img class="payinfo" style="display: none" src="img/kdpx.gif" />
+
+    <div id="orderscrollarea" class="orderdetail">
+        <div>         
+            <ul id="view_orderdetail_store" class="self-mention">
+                <!--<li class="store-name">
+                    <div>
+                        <p>{name}</p>
+                        <p class="address">{address}</p>
+                    </div>
+                    <a href="tel:{phone}"></a>
+                </li>
+                <li class="goods-code">
+                    <p  data-type="takecode" class="code">提货码：{takeCode}</p>
+                    <p class="code-num"></p>
+                    <p class="date">提货日期：{date}</p>
+                    <img class="kdcImage2" data-type="codeImg" src="img/kdpx.gif"/>
+                    <span style="display: none" data-type="imgHint"  >点击可放大</span>
+                </li>-->
+            </ul>
+
+
+            <ul class="detail-list" id="orderdetailarea">
+                <!--                <li index={index}>
+                                              <div class="rowhead" attrListFlag={attrListFlag}  index={index}>
+                                                  <div class="orderdetail-li-left">
+                                                      <div>
+                                                          <span>
+                                                              <img src="{img}">
+                                                          </span>
+                                                      </div>
+                                                  </div>
+                                                  <div class="orderdetail-li-center">
+                                                      <p><span class="gift {gift}">(赠)</span>{name}</p>
+                                                      <p>规格型号:{model}</p>
+                                                      <div class="li-center-bottom">
+                                                          <div class="sumMsg" style="{hasAttrList}">
+                                                              <div  class="unfold sprite-unfold"></div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="clearfloat"> </div>
+                                              </div>
+                                              <div class="attrList" style="display: none">
+                                               #--row.begin--#
+                                                  <div class="attrRow">
+                                                      <div class="name">{attrname}</div>
+                                                      <div class="price showPrice">{attrprice}</div>
+                                                      <div class="num">{attrnum}</div>
+                                                  </div>
+                                               #--row.end--#
+                                              </div>
+                                              <div class="good_sumMsg">
+                                                  <span style="{totalTxt}">小计：</span>
+                                                  <span class="showPrice">{totalMoney}</span>
+                                                  <span class="totalnum">{num} </span>
+                                              </div>
+                                               <div class="goods-out" style="{out_good}">
+                                                  <span >（已出库数量：{OutAuxQty}，金额{OutAmount}）</span>
+                                               </div>
+                                          </li>-->
+            </ul>
+            <div class="orderdetail-sum">
+                <span>合计：</span>
+
+                <p class="totalMoney"><em id="orderdetail-amount-1">0</em></p>
+
+                <p class="totalNum"><em id="orderdetail-count-1">0</em></p>
+            </div>
+            <div class="ordertotalInfo">
+                <p>&nbsp;&nbsp;&nbsp;下单人：<em class="maker"></em></p>
+
+                <p>订单编号：<em class="order"></em></p>
+
+                <p>下单时间：<em class="bookDate"></em></p>
+                <p data-cmd="orderDetail-deliverway">交货方式：<em class="deliverway"></em></p>
+                <p id="orderDetail-Point">本单获得：<em class="orderPoint"></em></p>
+                <p data-cmd="orderDetail-billexPoint">本单消费：<em class="billexPoint"></em></p>
+
+                <p class="last">订单备注：<em class="note"></em></p>
+            </div>
+        </div>
+    </div>
+    <div class="orderdetail_btnctrl">
+        <div class="btnctrl_right" id="goodsdetail_popmenu">
+            <img src="img/kdpx.gif" />
+        </div>
+        <div data-cmd="btnCtrl" class="btnctrl_left">
+            <div class="menu_share sprite-me-link-client">
+                <span class="name">客服</span>
+            </div>
+            <div class="orderdetail_btn">
+                <div class="orderdetail_receive" id="orderdetail_receive_btn">
+                    <span class="sprite-open">确认收货</span>
+                </div>
+            </div>
+            <div class="orderdetail_btn orderdetail_payBtn " id="orderdetail_payBtn">
+                <span class="sprite-open">付款</span>
+            </div>
+            <div class="paybuttonList">
+                <ul>
+                    <li class="payNow"><span>立即付款</span></li>
+                    <li class="payNotify"><span>付款通知</span></li>
+                </ul>
+                <div class="triangle"></div>
+            </div>
+            <div class="orderbuttonList">
+                <ul>
+                    <li class="cancelOrder"><span>取消订单</span></li>
+                    <li class="changeOrder"><span>修改订单</span></li>
+                </ul>
+                <div class="triangle"></div>
+            </div>
+            <div class="orderdetailRejectDiv">
+                <span class="rejectBtn">申请退货</span>
+            </div>
+
+            <div id="orderdetail_return_btn" style="display: none" class="orderdetail_btn">
+                <div class="orderdetail_receive orderdetail_return" >
+                    <span class="sprite-open">退货</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--订单详情end-->
+
+<!--订单列表 begin-->
+<div id="view_orderlist" class="view_orderlist" style="display:none">
+    <ul class="headtab" id="orderlisthead">
+        <li class="tab" data-index="0">
+            <div class="name">
+                全部
+            </div>
+            <div class="lineb"></div>
+        </li>
+        <li class="tab" data-index="1">
+            <div class="name">
+                待付款
+            </div>
+            <div class="lineb"></div>
+        </li>
+        <li class="tab" data-index="2">
+            <div class="name">
+                待确认
+            </div>
+            <div class="lineb"></div>
+        </li>
+        <li class="tab" data-index="3">
+            <div class="name">
+                待发货
+            </div>
+            <div class="lineb"></div>
+        </li>
+        <li class="tab" data-index="4">
+            <div class="name">
+                已发货
+            </div>
+            <div class="lineb"></div>
+        </li>
+    </ul>
+    <div class="divtophead">
+        <div class="search" id="orderSearch">
+            <!--查询 -->
+            <div class="divSearch">
+                <img class="imgSearch sprite-search" src="img/kdpx.gif" />
+                <input class="txtSearch hintcolor" type="text" />
+                <img id="imgClear" class="imgClear sprite-clear" src="img/kdpx.gif" />
+            </div>
+            <div class="btnSearch">
+                搜索
+            </div>
+            <div class="btnDate">
+                <img src="img/kdpx.gif" class="downext sprite-downext" />
+            </div>
+        </div>
+        <div class="datePan" style="display:none;">
+            <div class="dateBeginv kdcDateParent">
+                <input class="kdcDate sprite-down" id="orderlist_dateBegin" type="text" readonly="true"
+                       value="2014-01-01" />
+            </div>
+            <span>至</span>
+
+            <div class="dateEndv kdcDateParent">
+                <input class="kdcDate sprite-down" id="orderlist_dateEnd" type="text" readonly="true"
+                       value="2015-01-01" />
+            </div>
+        </div>
+    </div>
+    <div id="orderlistview">
+        <div class="orderlist" id="orderlist_listwrap0">
+            <ul class="orderlistul" id="orderlist_list0">
+                <!--<li index="{index}" billid={billid}>
+                              <div class="orderlist-liarea" index="{index}">
+
+                                  <div class="orderlist_liinfo {buyer-view}" index="{index}" >
+                                      <div class="orderlist-li-top-left">
+                                          <p><em>{billno}{receivername}</em></p>
+                                          <p><em>{time}</em></p>
+                                      </div>
+                                      <div class="orderlist-li-top-right">
+                                          <p class="pstatus">{status}</p>
+                                          <p class="pnum"> <em>￥{billmoney}({num}件)</em></p>
+                                      </div>
+                                      <div style="clear:both;"></div>
+                                  </div>
+
+                                      <div data-cmd="detail" class="saler-order {retail-view}"  index="{index}" >
+                                          <div class="message">
+                                                <span>{time}</span>
+                                                <span class="style">{store-flag}</span>
+                                                <span class="status">{status}</span>
+                                          </div>
+                                          <ul>
+                                              #--row.begin--#
+                                              <li data-cmd="li">
+                                                  <img src="{imgurl}" />
+                                                  <p class="name"><span class="gift {isgift}">(赠)</span>{goods}</p>
+                                                  <p class="count">
+                                                      <span class="num">×{goodsnum}</span>
+                                                      <span class=total>￥{money}</span>
+                                                  </p>
+                                               </li>
+                                               #--row.end--#
+                                          </ul>
+                                          <div class="sum">
+                                              <span>合计：</span>
+                                              <p class="information">
+                                                    <span class="num">{num}件</span>
+                                                  <div class="information-right">
+                                                      <p class="total-money">￥{billmoney}</p>
+                                                  </div>
+                                              </p>
+                                              <p class="describe {freight-view}">（含运费￥{freight}）</p>
+                                              <p class="out-describe {out-view}">已出库{out-num}件</p>
+                                          </div>
+                                      </div>
+
+                                  <div class="orderlist-li-bottom">
+                                      <div class="optbtnCtrl">
+                                          <div class="remind" status={btnstatus}  index={index} style="{show}" >催单</div>
+                                          <div class="optbutton optConfirm"  index={index} >{optname}</div>
+                                          <div class="optStatus"  style="{isretail}"  index={index}>{optname2}</div>
+                                          <div style="clear:both;"></div>
+                                      </div>
+                                  </div>
+                                  <img class="payinfo" style="{paystatus}" src="{payimg}" />
+                               </div>
+                              <div class="line">
+                              <img src="img/kdpx.gif" class="lineb sprite-lineb"/>
+                              </div>
+                          </li>-->
+            </ul>
+        </div>
+        <div class="orderlist" id="orderlist_listwrap1">
+            <ul class="orderlistul" id="orderlist_list1"></ul>
+        </div>
+        <div class="orderlist" id="orderlist_listwrap2">
+            <ul class="orderlistul" id="orderlist_list2"></ul>
+        </div>
+        <div class="orderlist" id="orderlist_listwrap3">
+            <ul class="orderlistul" id="orderlist_list3"></ul>
+        </div>
+        <div class="orderlist" id="orderlist_listwrap4">
+            <ul class="orderlistul" id="orderlist_list4"></ul>
+        </div>
+    </div>
+</div>
+<!--订单列表 end-->
+
+<div id="viewid-pay-code" class="view-pay-code" style="display: none">
+    <div class="detail">
+        <img class="sprite-loading" src="img/kdpx.gif" />
+        <p>把此页面分享给好友,可邀请他帮您代付哦</p>
+        <p>好友也可以通过扫描二维码帮您支付呦</p>
+    </div>
+</div>
+<!-- 付款单详情begin-->
+<div class="view_payDetail" style="display:none">
+    <div class="header">
+        <span>付款通知</span>
+        <span class="check_logo hideModule"></span>
+    </div>
+    <div class="content">
+        <div>
+            <div class="main_Info pay_Box">
+                <div class="payNoDiv">
+                    <span class="pay_leftSpan">付款单号</span>
+                    <span class="payno"></span>
+                </div>
+                <div class="paymoney">
+                    <span class="pay_leftSpan">付款金额</span>
+
+                    <div class="money pay_boxDiv">
+                        <input type="text" id="pay_Money" value="请输入金额" disabled="" />
+                    </div>
+                </div>
+                <div class="date pay_boxDiv">
+                    <span class="pay_leftSpan">付款时间</span>
+
+                    <div class="pay_DateDiv kdcDateParent">
+                        <input class="kdcDate sprite-down" type="text" value="2015-01-01" />
+                    </div>
+                </div>
+            </div>
+            <div class="extra_Info pay_Box">
+                <div class="message pay_boxDiv">
+                    <span class="pay_leftSpan msg">捎句话</span>
+
+                    <div class="inputTxt pay_inputTxt">
+                        <textarea class="pay_Msg"> 请输入需告知供应商的信息 </textarea>
+                    </div>
+                </div>
+                <div class="image pay_Image">
+                    <div>
+                        <span>上传图片</span>
+                        <span>(最多3张小于5M的JPG,PNG,BMP图片) </span>
+                    </div>
+                    <div class="imgDiv">
+                        <div class="imgListDiv">
+                            <!--                            <div class="imgBox">
+                                                   <div>
+                                                       <img src="{src}" class="kdcImage sprite-loading" />
+                                                   </div>
+                                                   <span class="deleteImg sprite-closeMore"></span>
+                                               </div>     -->
+                        </div>
+                        <div class="addImgBtn sprite-addImg"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="order">
+                <span>关联订单</span>
+                <span class="pay_Order">sdk125847586</span>
+            </div>
+            <div class="moreBtn">
+                <span>录入更多信息</span>
+            </div>
+            <div class="moreDiv hideModule">
+                <div class="more_Info">
+                    <div class="bank pay_boxDiv">
+                        <span class="pay_leftSpan">汇入银行</span>
+
+                        <div class="pay_selectDiv">
+                            <ul class="bankList hideModule">
+                                <!-- <li class="bankItem" index="{index}">{item}</li> -->
+                            </ul>
+                            <input type="text" id="bankName" />
+                            <span class="showUl sprite-down"></span>
+                        </div>
+                    </div>
+                    <div class="bank_Account pay_boxDiv">
+                        <span class="pay_leftSpan">银行帐号</span>
+
+                        <div class="pay_selectDiv">
+                            <ul class="accountList hideModule">
+                                <!-- <li class="accountItem">{item}</li> -->
+                            </ul>
+                            <input class="account" type="tel" />
+                            <span class="showAccountUl hideModule"></span>
+                        </div>
+                    </div>
+                    <div class="closeBtn sprite-closeMore"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer" id="payDetailFooter">
+        <span class="submit">提交</span>
+    </div>
+</div>
+<!-- 付款单详情end -->
+
+<!--支付方式选择 begin-->
+
+<div id="viewid-pay-list" class="view-pay-list" style="display: none">
+
+    <div class="head">
+        <p>订单号:<span data-type="billno"></span></p>
+        <p>支付金额:<span data-type="money" class="money">￥0.00</span></p>
+    </div>
+    <!--添加on类表示选中此项-->
+    <div id="div-view-pay-list" class="pay-content">
+        <ul>
+            <li data-pay="zjt" class="wechat sprite-list_zjt">
+                <div class="pay-style">
+                    <div class="to-middle">
+                        <p>银行卡支付</p>
+                        <p class="describe">推荐有资金通账号的用户使用</p>
+                    </div>
+                </div>
+            </li>
+            <li data-pay="wx" class="wechat sprite-list_wechat on">
+                <div class="pay-style">
+                    <div class="to-middle">
+                        <p>微信支付</p>
+                        <p class="describe"></p>
+                    </div>
+                </div>
+            </li>
+            <li data-pay="alipay" class="wechat sprite-list_alipay">
+                <div class="pay-style">
+                    <div class="to-middle">
+                        <p>支付宝支付</p>
+                        <p class="describe"></p>
+                    </div>
+                </div>
+            </li>
+            <li data-pay="prepay" class="card sprite-list_card">
+                <div class="pay-style">
+                    <div class="to-middle">
+                        <div>储值卡支付 <p class="remain">可用余额：<span data-type="card-money" class="money">￥0</span></p></div>
+                        <p class="describe">使用会员账号里的储值卡余额支付</p>
+                    </div>
+                </div>
+            </li>
+            <li data-pay="vipcard" class="card sprite-list_shiticard">
+                <div class="pay-style">
+                    <div class="to-middle">
+                        <div>实体卡支付 <p class="remain">可用余额：<span data-type="vipcard-money" class="money">￥0</span></p></div>
+                        <p class="describe">使用会员账号里关联的实体卡余额支付</p>
+                    </div>
+                </div>
+            </li>
+            <li data-pay="wx_other" class="wechat sprite-list_wechat">
+                <div class="pay-style">
+                    <div class="to-middle">
+                        <p>微信代付</p>
+                        <p class="describe">可邀请您的朋友帮您代付哦</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+    </div>
+    <div class="footer">
+        <span data-cmd="cancel" class="cancel">取消支付</span>
+        <span data-cmd="pay" class="confirm">确认</span>
+    </div>
+</div>
+
+<!--支付方式选择 end-->
+
+<div class="invite-pop" id="div-view-invitepop" style="display:none">
+    <div class="pop-detail">
+        <div class="title">绑定邀请码</div>
+        <div>
+            <p class="pwd default-icon-pwd"><input placeholder="请输入邀请码" data-cmd="ipt"></p>
+            <div class="describe sprite-invite">输入邀请码绑定成为经销商的买家，还能享受经销商的优惠价格呦！</div>
+            <p><button class="cancel" data-cmd="close">取消</button><button class="submit" data-cmd="btn">确定</button></p>
+        </div>
+    </div>
+</div>
+<!-- 注册模块 begin -->
+
+<div class="view_registerPage" id="viewid_registerPage" style="display:none">
+    <div class="header">
+        <div class="inviteDiv">
+            <span class="inviteMsg sprite-horn"></span>
+        </div>
+        <img class="logo" src="img/kdpx.gif" />
+        <span class="companyName"></span>
+        <span class="platformName">(经销商订货平台)</span>
+    </div>
+    <div class="msg"></div>
+    <div class="content">
+        <ul>
+            <li class="phone"><input id="phoneNumber" type="tel" value="请输入手机号" class="kdcHint" hint="请输入手机号" /></li>
+            <li class="sendCodeli">
+                <div class="sendCode">
+                    获取验证码
+                </div>
+            </li>
+            <li class="code"><input id="checkNumber" type="tel" value="请输入验证码" class="kdcHint" hint="请输入验证码" /></li>
+            <li class="checkli">
+                <div class="check">
+                    验证
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="footer">
+        <!--不要京东微店链接
+            <span class="retailCust">去京东微店</span>-->
+        <img class="hint helpBtn" src="img/kdpx.gif" />
+        <span class=""></span>
+    </div>
+    
+    
+</div>
+
+
+<!-- 注册模块 end -->
+
+<!--商品明细 begin-->
+<div id="view-itemdetail" class="view_itemdetail" style="display: none">
+    <div class="itemdetail-top">
+        <div class="itemdetail-return" id="itemdetail_Return">
+            <span class="triangle"></span>
+            <span>微商城</span>
+        </div>
+        <p>商品详情</p>
+    </div>
+    <div id="itemdetailarea" class="itemdetail">
+        <div>
+            <div class="itemdetailBox swipe" id="itemDetailSlider">
+                <div class="itemdetail-img swipe-wrap" id="itemDetailSwipeWrap">
+                    <!--                <div class="wrap">
+                                     <div class="wrapinner">
+                                         <div class="middiv imgbg">
+                                             <img data-index={index} initview=0 class="kdcImage2" src="{img}" />
+                                         </div>
+                                     </div>
+                                 </div>-->
+                </div>
+                <nav>
+                    <ul id="itemDetailSliderPosi" class="position">
+                        <!--<li class=""></li>-->
+                    </ul>
+                </nav>
+            </div>
+            <div id="loadingHint">
+            </div>
+            <ul class="goodsinfoList" id="goodsinfoList">
+                <!--                <li class="liname">
+                              <p class="middle">
+                                <span class="name"> {name}</span>
+                              </p>
+                              <div class="collect">
+                                  <img src="img/kdpx.gif"/>
+                                  <span>收藏</span>
+                              </div>
+                          </li>
+                          <li class="liprice">
+                              <label id="itemdetail-price">
+                                <span class="pricermb">￥</span><span class="priceh">{pricehLow}</span><span  class="priced">.{pricedLow}</span>
+                              </label>
+                              <label id="itemdetail-priceInterval" style="display: none;">
+                                <span class="pricermb">~ ￥</span><span class="priceh">{pricehHigh}</span><span  class="priced">.{pricedHigh}</span>
+                              </label>
+                              <span class="jifenpoint" data-cmd="point"><span data-cmd="orshow">或</span>{point}积分<i class="change">兑</i></span>
+                              <span  id="goodsDetail_rate" class="rate">{rate}折</span>
+                            <span  class="stock {stockcolor}" >库存: {stock}</span>
+                          </li>
+                          <li class="lioldprice">
+                              <span id="item-originalprice" class="oldprice-head"><del >￥{oldprice}</del></span>
+                              <div  class="share"><span style="display:none" class="shareNum">分享:0次</span><span style="{showsalenum}">已售:{saleinfo}</span></div>
+                          </li>
+                          <li class="lifreight">
+                              <div class="freight">运费：<span></span></div>
+                          </li>
+
+                          <li class="bar sprite-more {pro-show}" data-cmd="promotionlist">
+                            <span>促销信息：</span>
+                            <span>{protitle}</span>
+                          </li> 
+                          
+                           <li class="bar {limit-show}" >
+                            <span>限购信息：</span>
+                            <span>{limit-title}</span>
+                          </li> 
+                           
+                          <li class="lisize" style="{lisizecss}">
+                              <div class="sizeh">规格型号</div>
+                              <span class="sized">{sizeinfo}</span>
+                              <div style="display: none" class="sizeinfo">颜色/尺码</div>
+                          </li>-->
+            </ul>
+            <div class="itemdetail-model" id="item-more">
+                <!--
+                          <p>商品描述</p>
+                          #--item.begin--#
+
+                          #--desc.begin--#
+                          <div class="pre">{desc}</div>
+                          #--desc.end--#
+                          #--img.begin--#
+                          <img src="{img}" class="desc-img" />
+                          #--img.end--#
+                          #--item.end--#
+                          -->
+            </div>
+        </div>
+    </div>
+
+    <div class="itemdetail-bottom">
+        <div class="menu_share sprite-me-link-client" id="menu_share_btn">
+            <span class="name">客服</span>
+            <span data-cmd="alert"></span>
+        </div>
+        <div class="itemdetail-bottom-right">
+            <div class="addToCart">
+                加入购物车
+            </div>
+            <div class="buyNow" id="itemdetail_buy">
+                立即购买
+            </div>
+        </div>
+        <div class="menu-btn" id="pop-menu-btn">
+            <img src="img/kdpx.gif" />
+        </div>
+    </div>
+
+
+</div>
+<!--商品明细 end-->
+
+<!--商品列表 begin-->
+<div id="viewid_goodslist" class="view_goodslist bookPage" style="display: none">
+    <!--搜索框-->
+    <div class="main-searchOuter" id="main-searchOuter">
+        <!--查询 -->
+        <div class="back-div" id="back-div">
+            <i class="icon-category sprite-order"></i>
+            <p class="title"></p>
+        </div>
+        <div class="main-searchinput" id="toClassSearch">
+            <span class="main-imgSearch sprite-w-search"></span>
+            <input type="text" id="txtSearch" readonly="true" />
+
+            <div id="main-imgClear" class="main-imgClear sprite-clear">
+            </div>
+        </div>
+        <div data-cmd="order" class="order sprite-btn-order">排序</div>
+        <div class="listviewtype" id="listviewtype">
+            <img src="img/kdpx.gif" class="sprite-list_img" />
+        </div>
+    </div>
+
+    <ul class="category-container" id="div-category-wrap">
+        <!--
+           #--li.begin--#
+            <li class="div-category" id="{liId}" data-level="{level}">
+            <ul>
+            </ul>
+        </li>
+           #--li.end--#
+            -->
+        <!--
+                #--ul.begin--#
+                #--all.begin--#
+                <li data-dataindex="0" data-index="-1" data-ItemId="{ItemId}" data-cmd="li" class="active" >全部</li>
+                #--all.end--#
+
+                #--item.begin--#
+                <li  data-dataindex="{dataindex}"  data-index="{index}" data-ItemId="{ItemId}" data-cmd="li">{name}</li>
+                #--item.end--#
+                #--ul.end--#
+
+            -->
+    </ul>
+
+    <!--明细列表区开始-->
+    <div data-index="0" class="listdiv" id="goodslist_listwrap">
+        <ul class="ullistType" id="goodslist_list">
+            <!--3<li data-index="{index}">
+                             <div class="infoDiv">
+                                 <div class="leftDiv">
+                                     <div class="imgDiv">
+                                         <img class="image " src="{img}" />
+                                     </div>
+                                 </div>
+                                <div class="name-detail">
+                                     <ul class="rightInfo">
+                                         <li class="name">{name}</li>
+                                         <li class="price">
+                                            <span class="{priceshow}">{price}</span>
+                                            <span class="jifenpoint {pointshow}"><span class="{orshow}">或</span>{expoint}积分<i class="change">兑</i></span>
+                                         </li>
+                                         <li class="old-price {xcust-old-price}" >{oldprice}</li>
+                                         <li class="stockLi">库存：<span class="stockNum" style={colormsg}>{stockmsg}</span></li>
+                                     </ul>
+                                </div>
+                             </div>
+                            <p  data-index="{index}" class="count-bar {input-view}">
+                                <span data-cmd="-" class="minus-icon hide"><i class="icon-m icon-pm">-</i></span>
+                                <span data-cmd="input" data-id={itemid} class="count"></span>
+                                <span data-cmd="+" class="add-icon"><i class="icon-pm">+</i></span>
+                            </p>
+                         </li>3-->
+            <!--2
+                         <li class="imgrow" >
+                            #--row.begin--#
+                            <div  class="imgbox" data-index="{data-index}">
+                                <ul class="imgul">
+                                     <li class="imgboxDiv">
+                                         <img class="image kdcImage" src="{img}" imgsrc="{imgsrc}" />
+                                     </li>
+                                     <li class="name">{name}</li>
+                                     <li class="footer">
+                                        <div class="icon-buy sprite-buy_s"></div>
+                                        <div class="price">{price}</div>
+                                        <div class="stockNum" style={colormsg}>{stockmsg}</div>
+                                     </li>
+                                </ul>
+                            </div>
+                            #--row.end--#
+                         </li>
+                         2-->
+            <!--1   <li data-index="{index}">
+             <div class="infoDiv">
+                 <div class="leftDiv">
+                     <div class="imgDiv">
+                         <img class="image " src="{img}" />
+                     </div>
+
+                 </div>
+            <div class="name-detail">
+                 <ul class="rightInfo">
+                     <li class="name">{name}</li>
+                     <li class="price">
+                        <span class="{priceshow}">{price}</span>
+                        <span class="jifenpoint {pointshow}"><span class="{orshow}">或</span>{expoint}积分<i class="change">兑</i></span>
+                     </li>
+                     <li class="old-price {xcust-old-price}" >{oldprice}</li>
+                     <li class="stockLi">库存：<span class="stockNum" style={colormsg}>{stockmsg}</span></li>
+                 </ul>
+            </div>
+             </div>
+             <img src="img/kdpx.gif" class="addBtn sprite-buy_s">
+            </li>   1-->
+        </ul>
+    </div>
+    <!--明细列表区结束-->
+
+    <div class="category-footer" id="div-category-footer">
+        <section class="left">
+            <i class="icon-cart sprite-cart"></i>
+            <span class="span-cart-count"></span>
+        </section>
+        <section class="center">
+            <div data-cmd="money">
+                <div class="title">
+                    <p class="title-main">总金额：</p>
+                    <p class="title-remark">(不含运费)</p>
+                </div>
+                <label class="money"><span class="money-integer"></span><span class="money-decimal"></span></label>
+            </div>
+        </section>
+        <section class="right">
+            <input type="button" value="提交订单" class="input-submit" />
+        </section>
+    </div>
+
+</div>
+<!--商品查询 end-->

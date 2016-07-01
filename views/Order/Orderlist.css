@@ -1,0 +1,573 @@
+.view_orderlist {
+    display: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.view_orderlist .headtab {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 0.88rem;
+    width: 100%;
+    background: #FFFFFF;
+    border-bottom: 1px solid #DADADA;
+    font-size: 14px;
+}
+
+.view_orderlist .headtab .tab{
+    width: 20%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0;
+    position: relative;
+    float: left;
+    color: #686f76;
+}
+
+.view_orderlist .headtab .tab .name{
+    display: block;
+    width: 100%;
+    border-right: 1px solid #b6b6b6;
+    text-align: center;
+    margin-top: 0.24rem;
+    font-size: 16px;
+}
+
+.view_orderlist .headtab :last-child .name{
+    border-right:0 !important;
+}
+
+.view_orderlist .headtab  .lineb {
+    width: 100%;
+    height: 0.04rem;
+    background: #FF7E56;
+    position: absolute;
+    bottom: -0.02rem;
+    display: none;
+}
+
+.view_orderlist .orderlist {
+    position: absolute;
+    top: 1.8rem;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    width: 100%;
+    background: #f7f7f7;
+}
+
+.view_orderlist .orderlistul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: relative;
+    background: #f0f0f0;
+    clear: both;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+.view_orderlist .orderlistul li {
+    background: #fff;
+}
+
+.view_orderlist .orderlistul li .orderlist-liarea {
+    position: relative;
+    background-color: #ffffff;
+    font-size: 16px;
+}
+
+.view_orderlist .orderlistul li .orderlist_liinfo {
+    position: relative;
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+}
+
+.view_orderlist .orderlistul li .orderlist_liinfo .orderlist-li-top-left {
+    width: 65%;
+    float: left
+}
+
+.view_orderlist .orderlistul li .orderlist_liinfo .orderlist-li-top-left p {
+    width: 100%;
+    line-height: 0.4rem;
+    margin-bottom: 0.06rem;
+    position: relative;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    word-break: break-all;
+    margin-top: 0.2rem;
+}
+
+.view_orderlist .orderlistul li .orderlist_liinfo .orderlist-li-top-left p {
+    font-size: 16px;
+    color: #646464;
+}
+
+.view_orderlist .orderlistul li .orderlist_liinfo .orderlist-li-top-left p:last-child {
+    margin-bottom: 0.2rem;
+    font-size: 15px;
+    color: #686f76;
+}
+
+.view_orderlist .orderlistul li .orderlist_liinfo .orderlist-li-top-right {
+    width: 30%;
+    float: right;
+    text-align: right;
+    margin-right: 0.1rem;
+}
+
+.view_orderlist .orderlistul .saler-order ul img{
+    float:left;
+    width: 1.32rem;
+    height: 1.32rem;
+    margin: 0 0.24rem;
+}
+.view_orderlist .orderlistul .saler-order ul li {
+    border-bottom:1px solid #f0f0f0;
+    padding:0.16rem 0;
+    font-size: 14px;
+}
+
+.view_orderlist .orderlistul .saler-order ul li:last-child {
+    border-bottom:none;
+}
+
+.view_orderlist .orderlistul .saler-order .total-money {
+}
+
+.view_orderlist .orderlistul .saler-order .status{
+    float:right;
+    padding-right:0.08rem;
+    color: #ff3f3f;
+    font-size:14px;
+}
+
+.view_orderlist .orderlistul .saler-order ul .count{
+    margin-top:0.12rem;
+    padding:0 0.28rem 0.06rem 3.2rem;
+    position:relative;
+    min-height:0.36rem;
+}
+
+.view_orderlist .orderlistul .saler-order .count .total{
+    float:right;
+    color: rgb(255, 117, 62);
+}
+
+.view_orderlist .orderlistul .saler-order .num {
+    position:absolute;
+    left:55%;
+    color:#363636;
+}
+
+.view_orderlist .orderlistul .saler-order .message {
+    color:#363636;
+    height:0.7rem;
+    line-height:0.7rem;
+    padding:0 0.2rem;
+    border-bottom:1px solid #F0F0F0;
+}
+
+.view_orderlist .orderlistul .saler-order .name {
+    text-overflow:ellipsis;
+    overflow:hidden;
+    -webkit-line-clamp:2;
+    display: -webkit-box; 
+    -webkit-box-orient:vertical;
+    padding-right: 12px;
+    height:0.72rem;
+    line-height: 0.36rem;
+    padding-top: 0.06rem;
+}
+
+.view_orderlist .orderlistul .saler-order .gift{
+    color: #fc7945;
+}
+
+.view_orderlist .orderlistul .saler-order .sum {
+    border-top:1px solid #f0f0f0;
+    line-height:0.72rem;
+    padding-left: 0.36rem;
+    padding-right: 0.28rem;
+    color:rgb(255, 117, 62);
+    font-size:14px;
+    position:relative;
+}
+
+.view_orderlist .orderlistul .saler-order .information {
+    position:absolute;
+    top:0;
+    right:0;
+    width:100%;
+    box-sizing:border-box;
+    padding-right: 0.28rem;
+}
+
+.view_orderlist .orderlistul .saler-order .information-right {
+    float:right;
+    text-align: right;
+}
+ 
+.view_orderlist .orderlistul .saler-order .describe {
+    font-size: 12px;
+    line-height: 0.32rem;
+    margin-right: -0.08rem;
+    text-align: right;
+    padding-bottom:0.1rem;
+}
+
+.view_orderlist .orderlistul .saler-order .out-describe {
+    font-size: 12px;
+    line-height: 0.32rem;
+    text-align: right;
+    padding-bottom:0.1rem;
+    color: #343434;
+}
+
+.view_orderlist .orderlistul li:last-child .line {
+    height: 0.22rem !important;
+}
+
+.view_orderlist .orderlistul li:last-child .line img {
+    display: none !important;
+}
+
+.view_orderlist .orderlist-li-top-right .pstatus {
+    margin-top: 0.2rem;
+    color: #ff3f3f;
+    font-size:14px;
+}
+
+.view_orderlist .orderlist-li-top-right .pnum {
+    margin-top: 0.18rem;
+    color: #686f76;
+    font-size: 15px;
+}
+
+.view_orderlist .orderlistul li .orderlist-li-bottom {
+    position: relative;
+    margin: 0 0.2rem;
+    border-top: 1px solid #f0f0f0;
+}
+
+.view_orderlist .orderlistul li .orderlist-li-bottom .optbtnCtrl {
+    position: relative;
+    clear: both;
+    padding-top: 0.2rem;
+}
+
+.view_orderlist .orderlistul li .orderlist-li-bottom .optbtnCtrl .optbutton {
+    position: relative;
+    float: right;
+    display: block;
+    height: 0.52rem;
+    line-height: 0.52rem;
+    margin: 0 auto;
+    padding: 0 0.3rem;
+    font-size:14px;
+    margin-left: 0.2rem;
+    margin-right: 0.1rem;
+    border-radius: 3px;
+    min-width: 0.96rem;
+    text-align: center;
+}
+
+.view_orderlist .orderlistul .optbtnCtrl .remind {
+    position: relative;
+    float: left;
+    display: block;
+    font-size: 15px;
+    text-decoration: underline;
+    color: #8b9093;
+    left: 0.2rem;
+    top: 0.04rem;
+}
+
+.view_orderlist .orderlistul .optbtnCtrl .remind_s {
+    color: #ff6427;
+}
+
+.view_orderlist  .payinfo {
+    width: 0.86rem;
+    height: 0.86rem;
+    position: absolute;
+    top: 0.12rem;
+    left: 66%;
+}
+.view_orderlist  .payinfohide {
+    display: none;
+}
+
+.view_orderlist  .optConfirm {
+    color: #FC6536;
+    background: #fff;
+    border: 1px solid #FC6536;
+}
+
+.view_orderlist  .receiver-confirm-bottom-confirmed {
+    display: none;
+}
+
+.view_orderlist  .optNotice {
+    color: #ff6427;
+    background: #fff;
+    border: 1px solid #ff6427;
+}
+
+.orderlistul li .orderlist-li-bottom .optbtnCtrl .optStatus {
+    position: relative;
+    float: right;
+    display: block;
+    height: 0.52rem;
+    line-height: 0.52rem;
+    margin: 0 auto;
+    padding: 0 0.3rem;
+    background: #fff;
+    font-size: 14px;
+    color: #8c9093;
+    border-radius: 3px;
+    border: 1px solid #8c9093;
+}
+
+.view_orderlist  .divtophead {
+    top: 0.9rem;
+    width: 100%;
+    position: absolute;
+    background: #EFEFEF;
+    border-bottom: 1px solid #DADADA;
+}
+
+.view_orderlist  .divtophead .search {
+    width: 100%;
+    display: -webkit-box;
+    padding: 0.04rem 0;
+}
+
+.view_orderlist  .flex-rowh {
+    display: -webkit-box;
+    -webkit-box-orient: horizontal;
+}
+
+.view_orderlist  .divSearch {
+    height:0.64rem;
+    line-height: 0.64rem;
+    text-align: left;
+    cursor: pointer;
+    color: #393939;
+    font-size: 16px;
+    top: 0.08rem;
+    border-radius: 0.12rem;
+    position: relative;
+    background: #fff;
+    -webkit-box-flex: 1;
+    margin-left: 0.22rem;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.view_orderlist  .divSearch .imgSearch {
+    position: absolute;
+    top: 0.16rem;
+    left: 0.14rem;
+    z-index: 1;
+}
+
+.view_orderlist  .divSearch img.imgSearch {
+    background-repeat:  no-repeat;
+    background-size: 0.3rem;
+    opacity: 0.8;
+    height: 0.36rem;
+    width: 0.36rem;
+}
+
+.view_orderlist .divSearch #imgClear {
+    position: absolute;
+    top: 0.12rem;
+    right: 0.12rem;
+    width: 0.36rem;
+    height: 0.36rem;
+}
+
+.view_orderlist  .divSearch img.imgClear {
+    background-size: 0.36rem;
+    height: 0.36rem;
+    width: 0.36rem;
+    display: none;
+}
+
+.view_orderlist  .divSearch .txtSearch {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    width: 75%;
+    height: 0.48rem;
+    font-size: 14px;
+    border-style: none;
+    left:0.5rem;
+    top: 0.1rem;
+    padding-left: 0.1rem;
+    outline: none;
+}
+
+.view_orderlist  .divSearch .hintcolor {
+    color: #969a9f;
+}
+
+.view_orderlist  .btnSearch {
+    position: relative;
+    height: 0.8rem;
+    line-height: 0.8rem;
+    width: 0.9rem;
+    text-align: center;
+    color: #969a9f;
+    margin-left: 0.06rem;
+    margin-right: -0.04rem;
+    font-size: 16px;
+}
+
+.view_orderlist  .btnDate {
+    position: relative;
+    height: 0.8rem;
+    line-height: 0.8rem;
+    width: 0.8rem;
+    text-align: center;
+    font-size: 14px;
+    color: #606060;
+}
+
+.view_orderlist  .btnDate img {
+    width: 0.3rem;
+    height: 0.3rem;
+    top:0.06rem;
+    position: relative;
+}
+
+.view_orderlist  .btnDate img.downext {
+    background-repeat: no-repeat;
+    background-size: 0.3rem;
+}
+
+.view_orderlist  .btnDate img.upext {
+    background-repeat: no-repeat;
+    background-size: 0.3rem;
+}
+
+.view_orderlist .lidatehead {
+    height: 0.7rem;
+    padding-left: 0.2rem;
+    line-height:0.7rem;
+    background: #f7f7f7 !important;
+    margin: 0 !important;
+    border-bottom: 1px solid #F0F0F0;
+    color: #363636;
+    font-size:16px;
+}
+
+
+.view_orderlist  .datePan {
+    height: 0.88rem;
+    line-height: 0.88rem;
+    font-size:16px;
+}
+
+.view_orderlist  .datePan div {
+    display: inline-block;
+}
+
+.view_orderlist  .datePan span {
+    font-size: 14px;
+    color: #686f76;
+    width: 8%;
+    text-align: center;
+}
+
+.view_orderlist  .datePan  .dateBeginv {
+    background: #fff;
+    width: 36%;
+    border: 1px solid rgba(204, 204, 204, 0.4);
+    border-radius: 4px;
+    line-height: 0.62rem;
+    height: 0.6rem;
+    text-align: center;
+    font-size: 16px;
+    color: #727a82;
+    position: relative;
+    margin-top: 0.12rem;
+    display: inline-block;
+    margin-left: 0.2rem;
+}
+
+.view_orderlist  .datePan  .dateEndv {
+    background: #fff;
+    width: 36%;
+    border: 1px solid rgba(204, 204, 204, 0.4);
+    border-radius: 4px;
+    line-height: 0.62rem;
+    height: 0.6rem;
+    text-align: center;
+    font-size: 16px;
+    color: #727a82;
+    position: relative;
+    margin-top: 0.12rem;
+    display: inline-block;
+}
+
+.view_orderlist  .datePan input {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    font-size: 15px;
+    position: relative;
+    width: 1.66rem;
+    border: 0;
+    padding-right: 0.22rem;
+    background-repeat: no-repeat;
+    background-size: 0.24rem;
+    background-position: right;
+}
+
+
+.view_orderlist  .line2 {
+    width: 100%;
+    height: 0.22rem;
+}
+
+.view_orderlist  .line3 {
+    width: 100%;
+    height: 0.2rem;
+    border-bottom: 1px solid #DADADA;
+    border-top: 1px solid #DADADA;
+    background: #F0F0F0;
+}
+
+.view_orderlist  .line {
+    width: 100%;
+    height: 0.42rem;
+    line-height: 0.42rem;
+    font-size: 16px;
+}
+
+.view_orderlist  .line img {
+    width: 100%;
+    height: 0.22rem;
+}
+
+.view_orderlist  .line img.lineb {
+    background-repeat: no-repeat;
+    background-size: 100% 0.22rem;
+}
+
+.view_orderlist .hide{
+     display: none;
+ }
+
+
+.view_orderlist .pressed {
+    background-color: #d9dadb !important;
+}

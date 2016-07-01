@@ -1,0 +1,60 @@
+.view_error
+{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background: #F0F0F0;
+    z-index: 1;
+    bottom: 0;
+    position: absolute;
+}
+
+.view_error .errImage{
+    width:  3rem;
+    height:  3rem;
+    position: relative;
+    margin-top:  1.2rem;
+    left: 50%;
+    margin-left: -1.5rem;
+}
+
+.view_error .err{
+    text-align: center;
+    color: #363636;
+    margin-top: 0.48rem;
+    font-size: 14px;
+}
+
+.view_error .errHint{
+    text-align: center;
+    color: #909498;
+    margin-top: 0.14rem;
+    font-size: 10px;
+}
+
+.view_error .errFresh{
+    text-align: center;
+    color: #8b9093;
+    margin-top: 0.24rem;
+    font-size: 13px;
+    padding: 0.08rem 0.1rem;
+    border: 1px solid #93979a;
+    width: 1.4rem;
+    border-radius: 4px;
+    position: relative;
+    left: 50%;
+    margin-left: -0.7rem;
+}
+
+.view_error .errFresh_touched{
+    background: #93979a;
+    color:#fff;
+}
+.view_error .errInfo{
+    position: absolute;
+    bottom:  1.2rem;
+    text-align: center;
+    width: 100%;
+    color: #909498;
+    font-size: 10px;
+}

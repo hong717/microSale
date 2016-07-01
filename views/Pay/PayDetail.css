@@ -1,0 +1,529 @@
+
+@media (max-height: 8rem) {
+    .view_payDetail .header{
+        display: none;
+    }
+    .view_payDetail .footer{
+        display: none!important;
+    }
+    .view_payDetail .content{
+        top: 0!important;
+        bottom: 0!important;
+    }
+}
+
+.view_payDetail {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: #F8F8F8;
+    font-size: 18px;
+}
+
+.view_payDetail .header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 0.88rem;
+    line-height: 0.88rem;
+    text-align: center;
+    background-color: #F4F6F7;
+    border-bottom: 1px solid rgba(204, 204, 204, 0.6);
+    font-size: 18px;
+}
+
+.view_payDetail .header span {
+    color: #2e343d;
+    font-weight: bold;
+}
+
+.view_payDetail .header .check_logo {
+    height: 0.6rem;
+    width: 1.6rem;
+    background-repeat: no-repeat;
+    background-size: 1.4rem;
+    display: inline-block;
+    position: absolute;
+    margin-left: 0.2rem;
+    bottom: 0.08rem;
+}
+
+.view_payDetail .pay_Box {
+    padding: 0.2rem;
+    background-color: #fff;
+    border-bottom: 1px solid rgba(204, 204, 204, 0.4);
+    margin-bottom: 0.2rem;
+}
+
+.view_payDetail .pay_boxDiv {
+    position: relative;
+    padding-left: 1.4rem;
+    margin-bottom: 0.2rem;
+}
+
+.view_payDetail .pay_leftSpan {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 14px;
+}
+
+
+.view_payDetail .content {
+    position: absolute;
+    top: 0.88rem;
+    bottom:0.9rem;
+    width: 100%;
+    color: #898f95;
+    overflow: hidden;
+    background: #F8F8F8;
+    z-index: 5;
+    font-size: 14px;
+    -webkit-transition: top 0.5s, bottom 0.5s;
+    -moz-transition: top 0.5s, bottom 0.5s;
+    -ms-transition: top 0.5s, bottom 0.5s;
+    -o-transition: top 0.5s, bottom 0.5s;
+    transition: top 0.5s, bottom 0.5s;
+}
+
+
+.view_payDetail .content .main_Info div {
+    height: 0.64rem;
+    line-height: 0.64rem;
+}
+
+
+.view_payDetail .content .main_Info .money {
+    border: 1px solid rgba(204, 204, 204, 0.5);
+    border-radius: 0.1rem;
+    overflow: hidden;
+    margin-left: 1.4rem;
+}
+
+
+.view_payDetail .content .main_Info .money input {
+    height: 100%;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    padding-right: 7%;
+    width: 93%;
+    color: #EF5215;
+    opacity: 1;
+    display: block;
+    text-align: right;
+    background: #fff;
+    font-size: 18px;
+}
+
+.view_payDetail .pay_DateDiv {
+    height: 100%;
+    border: 1px solid rgba(204, 204, 204, 0.5);
+    border-radius: 0.1rem;
+    overflow: hidden;
+}
+
+.view_payDetail .pay_DateDiv input {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    display: block;
+    height: 100%;
+    width: 100%;
+    padding-left: 0.1rem;
+    border-radius: 0.1rem;
+    color: #373d48;
+    font-size: 16px;
+    float: left;
+    background-repeat: no-repeat;
+    background-position: 93%;
+    background-size: 0.24rem;
+}
+
+
+.view_payDetail .main_Detail div {
+    margin-bottom: 0.2rem;
+}
+
+.view_payDetail .main_Detail div:last-child {
+    margin-bottom: 0;
+}
+
+.view_payDetail .main_Detail div span:last-child {
+    color: #363636;
+    font-size: 14px;
+    display: block;
+}
+
+.view_payDetail .pay_Detail .pay_Money {
+    font-size: 15px !important;
+}
+
+.view_payDetail .pay_Detail .message {
+    margin-bottom: 0;
+    min-height: 0.6rem;
+    line-height: 0.6rem;
+}
+
+.view_payDetail .content .order {
+    height: 0.8rem;
+    line-height:0.8rem;
+    padding-left: 0.2rem;
+    background-color: #fff;
+    border-bottom: 1px solid rgba(204, 204, 204, 0.4);
+    border-top: 1px solid rgba(204, 204, 204, 0.6);
+}
+
+.view_payDetail .content .order span:first-child {
+    font-size: 15px;
+    display: inline-block;
+    width: 1.32rem;
+}
+
+.view_payDetail .content .order span:last-child {
+    font-size: 15px;
+    color: #FF6427;
+    text-decoration: underline;
+    height: 0.7rem;
+    line-height: 0.7rem;
+    display: inline-block;
+}
+
+.view_payDetail .extra_Info {
+    border-top: 1px solid rgba(204, 204, 204, 0.6);
+    padding: 0.2rem;
+}
+
+.view_payDetail .pay_Box {
+    padding: 0.2rem;
+    background-color: #fff;
+    border-bottom: 1px solid rgba(204, 204, 204, 0.4);
+    margin-bottom: 0.2rem;
+}
+
+.view_payDetail .extra_Info .message {
+    height:1.6rem;
+}
+
+
+.view_payDetail .extra_Info .message span {
+    letter-spacing: 0.2rem;
+}
+
+.view_payDetail .pay_inputTxt {
+    border: 1px solid rgba(204, 204, 204, 0.5);
+    height: 1.3rem;
+    border-radius: 0.1rem;
+    padding: 0.1rem 0.04rem;
+    overflow: hidden;
+}
+
+.view_payDetail .pay_inputTxt textarea {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    outline: none;
+    color: #acaeaf;
+    resize: none;
+    word-break: break-all;
+    overflow: hidden;
+}
+
+.view_payDetail .extra_Info .image {
+    margin-bottom: -0.1rem;
+}
+
+.view_payDetail .pay_Image > div:first-child {
+    border-bottom: 1px solid rgba(204, 204, 204, 0.5);
+    padding-bottom: 0.2rem;
+}
+
+.view_payDetail .pay_Image span:first-child {
+    font-size: 14px !important;
+}
+
+.view_payDetail .pay_Image span:last-child {
+    font-size: 12px;
+    color: #acaeaf;
+    margin-left: 0.1rem;
+}
+
+.view_payDetail .content .moreBtn {
+    height: 0.8rem;
+    line-height: 0.8rem;
+    text-align: center;
+    position: relative;
+    margin: 0.2rem 0;
+    padding-bottom: 0.4rem;
+}
+
+.view_payDetail .content .moreBtn span {
+    font-size: 16px;
+    height: 0.64rem;
+    line-height: 0.64rem;
+    width: 2.4rem;
+    display: inline-block;
+    color: #ff8e2a;
+    text-decoration: underline;
+}
+
+.view_payDetail .hideModule {
+    display: none !important;
+}
+
+.view_payDetail .moreDiv {
+    position: relative;
+    width: 100%;
+    z-index: 10;
+    margin: 12px 0;
+    padding: 0 0 0.2rem 0;
+}
+
+
+.view_payDetail .more_Info {
+    padding: 0.2rem 0.16rem 0.16rem 0.16rem;
+    background-color: #fff;
+    margin: 0 0.2rem;
+    border: 1px solid rgba(204, 204, 204, 0.6);
+    border-radius: 0.1rem;
+    position: relative;
+    margin-bottom: 3.2rem;
+}
+
+.view_payDetail .more_Info div {
+    line-height: 0.64rem;
+}
+
+.view_payDetail .more_Info .bank_Account input {
+    color: #373d48;
+    width: 90%;
+}
+
+.view_payDetail .more_Info .closeBtn {
+    position: absolute;
+    height: 0.7rem;
+    width: 0.7rem;
+    padding: 0;
+    margin: 0;
+    top: -0.38rem;
+    right: -0.3rem;
+    border-radius: 1px;
+    background-repeat: no-repeat;
+    background-size: 0.5rem;
+    background-position: center;
+}
+
+.view_payDetail .pay_selectDiv {
+    height: 0.64rem;
+    border: 1px solid #E2E3E5;
+    border-radius: 0.1rem;
+    position: relative;
+    padding-left:0.06rem;
+    padding-right: 0.32rem;
+    top:0.06rem;
+}
+
+.view_payDetail .pay_selectDiv ul {
+    position: absolute;
+    display: block;
+    width: 100%;
+    margin-left: -0.08rem;
+    color: #373d48;
+    background-repeat: no-repeat;
+    background-position: 95%;
+    background-size: 0.28rem;
+    background-color: #f5f5f5;
+    top: 100%;
+    border: 1px solid rgba(204, 204, 204, 0.5);
+    z-index: 10;
+}
+
+.view_payDetail .pay_selectDiv input {
+    position: absolute;
+    top: 0;
+    width: 80%;
+    border: 0;
+    padding: 0 0 0 0.1rem;
+    margin: 0;
+    float: left;
+    outline: none;
+    display: block;
+    font-size: 16px;
+    height: 0.64rem;
+}
+
+.view_payDetail .pay_selectDiv .showUl {
+    position: absolute;
+    width: 20%;
+    display: block;
+    height: 100%;
+    top: 0;
+    right: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 0.24rem;
+}
+
+.view_payDetail .pay_selectDiv li {
+    border-bottom: 1px solid #E2E3E5;
+    padding-left: 0.16rem;
+    font-size: 15px;
+}
+.view_payDetail .pay_selectDiv li:last-child{
+    border-bottom:0 !important;
+}
+
+.view_payDetail .textFocus{
+    color: #363636 !important;
+}
+
+
+.view_payDetail .footer {
+    font-size: 16px;
+    position: absolute;
+    bottom: 0;
+    height: 0.88rem;
+    width: 100%;
+    text-align: center;
+    background: #FFFFFF;
+    border-top: 1px solid rgba(204, 204, 204, 0.6);
+    z-index: 2;
+    padding: 0.14rem 0.3rem;
+    box-sizing: border-box;
+}
+
+.view_payDetail .footer span {
+    height: 0.56rem;
+    line-height: 0.56rem;
+    display: inline-block;
+    border-radius: 0.1rem;
+    width: 100%;
+    border: 1px solid #FF6427;
+    color: #fff;
+    background-color: #FF6427;
+}
+
+@media (max-height: 8rem) {
+    .footer {
+        display: none;
+    }
+}
+
+.view_payDetail .touched_border {
+    border-color: #FFAB8A !important;
+}
+
+
+.view_payDetail .order_Touching {
+    background-color: #ebebeb !important;
+}
+
+.view_payDetail  .imgDiv {
+    display: table-cell;
+    padding: 0.2rem 0 0.1rem 0;
+}
+
+.view_payDetail  .imgListDiv {
+    display: inline-block;
+    float: left;
+}
+
+.view_payDetail .imgBox {
+    height: 1.3rem;
+    width: 1.3rem;
+    margin-right: 0.12rem;
+    border-radius: 0.1rem;
+    border: 1px solid #ececec;
+    position: relative;
+    line-height: 1.3rem;
+    text-align: center;
+    display: inline-block;
+}
+
+.view_payDetail  .imgBox .deleteImg {
+    position: absolute;
+    top: -0.14rem;
+    right: -0.14rem;
+    height: 0.4rem;
+    width: 0.4rem;
+    border-radius: 0.4rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 0.4rem;
+}
+
+.view_payDetail .imgBox div {
+    overflow: hidden;
+    height: 1.3rem;
+    width: 1.3rem;
+    border-radius: 0.1rem;
+    display: inline-block;
+}
+
+.view_payDetail .imgBox img {
+    max-height: 1.3rem;
+    max-width: 1.3rem;
+    background-repeat: no-repeat;
+    background-size: 1.3rem;
+    background-position: center;
+    vertical-align: middle;
+    top: -0.04rem;
+    position: relative;
+}
+
+.view_payDetail  .addImgBtn {
+    height: 1.3rem;
+    width: 1.3rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 1.4rem;
+    border: 1px solid #ececec;
+    border-radius: 0.1rem;
+    display: inline-block;
+    float: left;
+}
+
+
+.view_payDetail .invalid_Btn {
+    background-color: #ebebeb !important;
+    border: 1px solid #ebebeb !important;
+}
+
+.view_payDetail input:disabled {
+    background-color: #fff !important;
+}
+
+.view_payDetail .msg {
+    top: 0.08rem;
+}
+
+.view_payDetail textarea:disabled {
+    background-color: #fff !important;
+}
+
+.view_payDetail .paymoney {
+    position: relative;
+    margin-bottom: 0.2rem;
+}
+
+.view_payDetail .payNoDiv {
+    position: relative;
+}
+
+.view_payDetail .payNoDiv span{
+    position: relative;
+    margin-bottom: 0.04rem;
+    top: -0.1rem;
+}
+
+.view_payDetail .payNoDiv .payno{
+    padding-left: 0.3rem;
+    position: relative;
+}

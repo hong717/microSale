@@ -1,0 +1,36 @@
+﻿<!--搜索页面开始-->
+<div class="view_searchPage" id="viewid_searchPage" style="display:none">
+    <div class="header">
+        <div class="searchTxt">
+            <!-- 这里添加form元素来响应enter按键的输入 -->
+            <form>
+                <img src="img/kdpx.gif" class="imgSearch sprite-search" />
+                <input type="text" id="inputTxt" />
+                <img src="img/kdpx.gif" class="imgClear sprite-clear" />
+            </form>
+        </div>
+        <div class="cancelBtn">搜索</div>
+    </div>
+    <div class="content" id="viewid_searchPage_content">
+        <div>
+            <ul class="historyList">
+                <!-- <li class="listItem historyPic">{historyTxt}</li> -->
+            </ul>
+            <div class="emptyDiv">
+                <span class="historyPic sprite-iview">暂无搜索记录</span>
+            </div>
+            <div class="clearDiv">
+                <input type="button" value="清空历史记录" />
+            </div>
+        </div>
+    </div>
+    <div class="filter">
+        <div class="lable">搜索范围</div>
+        <div  id="div_viewid_searchPage_filter" class="list" >
+            <ul id="viewid_searchPage_filter">
+                <!--<li data-id={id} class="{selected}">{name}</li>-->
+            </ul>
+        </div>
+    </div>
+</div>
+<!--搜索页面结束-->

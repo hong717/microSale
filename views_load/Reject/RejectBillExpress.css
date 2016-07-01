@@ -1,0 +1,179 @@
+﻿.view_RejectBillExpress {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    background: #f5f5f5;
+    z-index: 5;
+}
+
+.view_RejectBillExpress .content {
+    position: absolute;
+    top: 0;
+    background: #f5f5f5;
+    bottom: 0.9rem;
+    width: 100%;
+    z-index: 5;
+}
+
+.view_RejectBillExpress .headerTop {
+    background: #EFEFEF;
+    border-bottom: 1px solid #ececec;
+    padding: 0.2rem 0.26rem;
+}
+
+.view_RejectBillExpress .billNoSpan {
+    font-size: 15px;
+    color: #363636;
+}
+
+.view_RejectBillExpress .rejectDateSpan {
+    font-size: 14px;
+    color: #686f76;
+    margin-top: 0.2rem;
+}
+
+.view_RejectBillExpress .expressDiv {
+    border-top: 1px solid #ececec;
+    border-bottom: 1px solid #ececec;
+    background: #fff;
+    padding: 0.2rem 0.26rem;
+}
+
+.view_RejectBillExpress .expressDiv > span {
+    font-size: 15px;
+    color: #363636;
+}
+
+.view_RejectBillExpress .companyDiv {
+    padding-top: 0.2rem;
+    font-size: 15px;
+    position: relative;
+    height: 0.8rem;
+    line-height: 0.8rem;
+    display: none;
+}
+
+.view_RejectBillExpress .companySpan {
+    position: absolute;
+    display: inline-block;
+    color: #686f76;
+}
+
+.view_RejectBillExpress .selectDiv {
+    margin-left: 1.5rem;
+    border: 1px solid #ececec;
+    border-radius: 5px;
+    padding: 0.18rem 0.16rem;
+    height: 0.4rem;
+    line-height: 0.4rem;
+    color: #b1b1b1;
+    font-size: 15px;
+
+}
+
+.view_RejectBillExpress .selectDiv .expressCompany {
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 0.28rem;
+    width: 100%;
+    display: inline-block;
+}
+
+.view_RejectBillExpress .expressNoDiv {
+    margin-top: 0.2rem;
+    height: 0.72rem;
+    line-height: 0.72rem;
+    padding: 0.04rem 0;
+    position: relative;
+    font-size: 15px;
+}
+
+.view_RejectBillExpress .expressNoDiv > span {
+    color: #686f76;
+    position: absolute;
+}
+
+.view_RejectBillExpress .expressNoDiv > div {
+    margin-left: 1.5rem;
+    height: 100%;
+    border: 1px solid #ececec;
+    padding-left: 0.16rem;
+    border-radius: 5px;
+}
+
+.view_RejectBillExpress .expressNoDiv input {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    display: inherit;
+    height: 100%;
+    width: 100%;
+    outline: none;
+    color: #b1b1b1;
+    font-size: 15px;
+}
+
+.view_RejectBillExpress .remindDiv {
+    margin-top: 0.2rem;
+    border-top: 1px solid #ececec;
+    border-bottom: 1px solid #ececec;
+    background: #fff;
+    padding: 0.2rem 0.26rem;
+}
+
+.view_RejectBillExpress .remindDiv span {
+    font-size: 15px;
+    color: #363636;
+    display: block;
+}
+
+.view_RejectBillExpress .remindDiv textarea {
+    margin-top: 0.2rem;
+    width: 96%;
+    min-height: 1rem;
+    resize: none;
+    padding: 2%;
+    color: #b1b1b1;
+    font-size: 13px;
+    border: 1px solid #ececec;
+    border-radius: 3px;
+    outline: none;
+}
+
+.view_RejectBillExpress .footer {
+    position: absolute;
+    bottom: 0;
+    height: 0.88rem;
+    width: 100%;
+    text-align: center;
+    line-height: 0.9rem;
+    border-top: 1px solid #ececec;
+    background: #fff;
+    z-index: 2;
+}
+
+.view_RejectBillExpress .footer span {
+    display: inline-block;
+    width: 50%;
+    float: left;
+    border-right: 1px solid #ececec;
+}
+
+.view_RejectBillExpress .footer .cancelBtn {
+    color: #686f76;
+}
+
+.view_RejectBillExpress .footer .submitBtn {
+    color: #ff6427;
+    border-right: 0;
+    margin-left: -1px;
+}
+
+.view_RejectBillExpress .textFocus {
+    color: #363636 !important;
+}
+
+.view_RejectBillExpress .border_touched {
+    border-color: #ff6427 !important;
+}

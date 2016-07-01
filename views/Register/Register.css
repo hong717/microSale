@@ -1,0 +1,215 @@
+.view_registerPage {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    background: #fff;
+}
+
+.view_registerPage .header {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0.4rem;
+}
+
+.view_registerPage .header .inviteDiv {
+    position: absolute;
+    height: 0.56rem;
+    line-height: 0.56rem;
+    background: #f3f3f3;
+    width: 100%;
+    text-align: left;
+}
+
+.view_registerPage .header .inviteMsg {
+    padding-left: 0.66rem;
+    font-size: 13px;
+    color: #363636;
+    background-repeat: no-repeat;
+    background-position: 0.24rem center;
+    background-size: 0.3rem;
+}
+
+.view_registerPage .header .logo {
+    max-width: 75%;
+    max-height: 1.42rem;
+    margin-top: 1.24rem;
+    display: inline-block;
+}
+
+.view_registerPage .header .companyName {
+    display: block;
+    margin-top:0.08rem;
+    font-size: 15px;
+    color: #363636;
+}
+
+.view_registerPage .header .platformName {
+    font-size: 13px;
+    color: #96d157;
+    margin-top: 0.02rem;
+    display: none;
+}
+
+.view_registerPage .content {
+    width: 100%;
+}
+
+.view_registerPage .content .numDiv {
+    margin-left: 4%;
+    margin-bottom: 0.2rem;
+    font-size: 12px;
+    color: #878b8d;
+    display: none;
+}
+
+.view_registerPage .content .userNum {
+    color: #157efb;
+}
+
+.view_registerPage .content li {
+    margin: 0 0.3rem;
+}
+
+.view_registerPage .content li input {
+    height: 0.686rem;
+    border: 1px solid rgba(215, 217, 214, 0.6);
+    padding: 0;
+    width: 97.5%;
+    display: block;
+    border-radius: 5px;
+    padding-left: 2.5%;
+    outline: none;
+    color: #b5b9bc;
+    font-size: 15px;
+    background: #f9f9f9;
+}
+
+.view_registerPage .content li input:focus {
+    color: #363636;
+    border-color: rgba(255, 100, 39, 0.6);
+}
+
+.view_registerPage .content li div {
+    height: 0.72rem;
+    line-height: 0.72rem;
+    padding: 0;
+    margin: 0 auto;
+    display: block;
+    border-radius: 5px;
+    padding-left: 2%;
+    outline: none;
+    font-size: 16px;
+}
+
+.view_registerPage .content .phone {
+    margin-bottom: 12px;
+    margin-right: 16px;
+}
+
+.view_registerPage .content .code {
+    width: 52%;
+    margin-bottom: 35px;
+    margin-right: 0;
+}
+
+.view_registerPage .content .code input {
+    width: 95.5% !important;
+    padding-left: 4.5%;
+}
+
+.view_registerPage .content .sendCodeli {
+    float: right;
+    width: 34%;
+    margin-left: 0;
+}
+
+.view_registerPage .content .checkli {
+    display: block;
+    margin: 0 15px;
+}
+
+.view_registerPage li .check {
+    text-align: center;
+    line-height: 40px;
+    background-color: #F57325;
+    color: #fff;
+}
+
+.view_registerPage li .sendCode {
+    text-align: center;
+    line-height: 40px;
+    background-color: #CCCCCC;
+    color: #fff;
+}
+
+.view_registerPage .footer {
+     position: absolute;
+     bottom: 0;
+     text-align: center;
+     width: 100%;
+     color: #7C7E7D;
+ }
+
+.view_registerPage .footer .hint{
+    position: relative;
+    top: -3px;
+    width: 124px;
+    height: 9px;
+}
+
+.view_registerPage .be_touched {
+    color: #5bb000 !important;
+}
+
+.view_registerPage .msg {
+    position: absolute;
+    width: 100%;
+    top: 98px;
+    text-align: center;
+}
+
+.view_registerPage .textFocus {
+    color: #363636 !important;
+}
+
+@media (max-height: 400px) {
+    .view_registerPage .footer {
+        display: none;
+    }
+}
+
+/*解决调用屏幕按键时footer会把content的内容遮挡问题*/
+.view_registerPage .code_touched {
+    background-color: #ff6741!important;
+}
+
+
+.view_registerPage .footer .company {
+    display: inline-block;
+    height: 21px;
+    background-repeat: no-repeat;
+    background-size: 180px;
+    background-position: top;
+    width: 182px;
+}
+
+.view_registerPage .retailCust{
+    display: block;
+    height: 30px;
+    line-height: 40px;
+    color: #7e8184;
+    font-size: 12px;
+    margin-bottom: 8px;
+    text-decoration: underline;
+}
+
+.view_registerPage .helpBtn {
+
+}
+
+
+.view_registerPage .retailCust_touched{
+    color: #9d9fa1 !important;
+}
+

@@ -1,0 +1,200 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,
+          user-scalable=no,minimum-scale=1.0,maximum-scale=1.0"/>
+    <title>登录中,别捉急...</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Microsoft YaHei", Helvetica, Arial, sans-serif;
+        }
+
+        .logo {
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAG4AAABdCAMAAABza6PKAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAK1UExURQAAAP///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////3xE8mEAAADmdFJOUwCWpWbhPPBV3cwBDx6H/i14gcUMtPxaYwr4d8H1AlsN/VQi5IM9B88IFA7l+4k+GrvCBLquijD3e1eF3uhlWFzvR+5gaKwREk6obyrbSfP6A6DqELZE9L9RBpmrvRU4janOXVO+rx+cCUh/FtDr2TWMXoBfMdEdYkwgLj8X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');
+            background-size: 1.1rem 0.93rem;
+            background-repeat: no-repeat;
+            background-position: 50% 0;
+            color: #fff;
+            font-size: 20px;
+            padding-top: 1.26rem;
+            text-align: center;
+            position: absolute;
+            top: 20%;
+            left: 0;
+            right: 0;
+        }
+
+        .startpage {
+            width: 100%;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, from(#797e84), to(#edb796), color-stop(11%, #918c88), color-stop(21%, #a6948a), color-stop(34%, #be968a), color-stop(52%, #d9a48f), color-stop(73%, #e5b094));
+
+        }
+
+        footer {
+            position: absolute;
+            bottom: 0.3rem;
+            left: 0;
+            right: 0;
+            color: #fff;
+            font-size: 10px;
+            text-align: center;
+            font-family: "Microsoft YaHei", Helvetica, Arial, sans-serif;
+            height: 0.3rem;
+            padding-top: 0.12rem;
+        }
+
+        footer:after {
+            content: '';
+            width: 0.5rem;
+            height: 0.3rem;
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAcCAMAAAAQssz4AAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAHvUExURQAAAP///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////x2mzFwAAACkdFJOUwAG/G35BAfdMwHjVhxBBfpG/s/snDZ3Unh79Q/RTxNFmZY14b8JP0R/ovbBA3RD51NbldQgfFryAqERF9+n8Pc4DKsu6hKe0jc7zLe0ORAx7T5+/bOuyS9ux0u9HuZj3IhlSRjopam7bK+wfSFoUdvrCIZhdrGaJCKEJ2uoyoOKKgqFxdeU5e/e4kLDgZA6JqDCgBR5ifFnYLjOWJhycMgZky0VmnKXTgAAAgpJREFUOMuVU2dXE1EQHZIlIcWEVBJII1RBpAtI79KrCvZeQEXBghVQULD3XuH+UN6+3SjnsG/B+2HnzZx7z5t5d5ZIF/2Vj56MWO8N0TbR9RgKvEnb4u9Lx2JaxNRa5sSEZUt28nxfa3ipmZ93V+HyFvRdAQ/rZLlUTffg6jV9wU6gsbwKuK3mbnRcadbhl8BQ5KCFOWCHUphm93lsYsFhVPIYcKqCS2XeKbhShYICHFFH3/AKNQiJ+DlAzuaqHcgQKfLyTJuLDhdq6X8QxlHZvgF/lKepfjZfrl+ea+9k4XF3vZH1b0r5C5+xAfkycRhvuZlSJ2vQiwdEd6ywFhbDwAS52IhsvlGZ+MTXxmxnoRd3qTqE69VEB4MsLzX/w/iYg7eyH2GiV21tt+SkG2nUhPu6oxxAnOzWBh9PitHE9satK8iCPdIpPVVWzoAK8gFBvWWWRjJ+GdQtOQ2w928BeiqE/DUMjuK9mqTAw75JbFULLoguWUWoB92qr4dQzqPtDHBR8FdG8eXdCm4qyTGcVw7t54AT2oLP6KAuJ2ZIMbEmUT8Ls7YggIdERUgfUEz8kKifwqC24AWMRJYbMPdzE38m6ieRrS1oQYm8bnUYtcgm2ihqbGeF2TrmuSae4aUc4hKCsolD9APSm9e9ja58wbM+jyk/xbdYZoT+xH5T/PvXj1JWfZ+Avw7cH4l/cNA1xgAAAABJRU5ErkJggg==');
+            background-size: 0.48rem 0.28rem;
+            background-repeat: no-repeat;
+            background-position: center;
+            position: absolute;
+            top: 0;
+        }
+    </style>
+
+</head>
+
+<body>
+<div class="startpage">
+    <div class="logo">
+        微<br>商<br>城
+    </div>
+    <footer>金蝶</footer>
+</div>
+
+<script>
+    var deviceWidth = document.documentElement.clientWidth;
+    if (deviceWidth > 640) {
+        deviceWidth = 640;
+    }
+    document.documentElement.style.fontSize = deviceWidth / 6.4 + "px";
+    window.onresize = function () {
+        var deviceWidth = document.documentElement.clientWidth;
+        if (deviceWidth > 640) {
+            deviceWidth = 640;
+        }
+        document.documentElement.style.fontSize = deviceWidth / 6.4 + "px";
+    };
+</script>
+<script>
+    function GetQueryString(name, urlStr) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = urlStr ? urlStr.match(reg) : window.location.search.substr(1).match(reg);
+        if (r != null) {
+            var qstr = r[2];
+            return qstr == "null" ? "" : qstr;
+        }
+        return "";
+    }
+
+    function setCache(obj, key) {
+        if (window.localStorage) {
+            var storage = window.localStorage;
+            var strJson = JSON.stringify(obj);
+            storage.setItem(key, strJson);
+        }
+    }
+
+    function setAppParamInfo() {
+
+        var openid = GetQueryString("openid") || "";
+        var appcode = GetQueryString("appcode") || "";
+        var isdebug = GetQueryString("isdebug") || "";
+        var eid = GetQueryString("eid") || "";
+        if (openid == "") {
+            var keyflag = '__ServerUrl__';
+            setCache({}, keyflag);
+            var urlnew = window.location.href;
+            urlnew = encodeURIComponent(urlnew);
+            window.location.href = "http://mob.cmcloud.cn/ServerCloud/WeiXin/KisApp?from=" + urlnew + "&type=0&focus=0&eid=" + eid;
+            return;
+        }
+        var hash = window.location.hash;
+        eid = GetQueryString("eid") || 0;
+        openid = GetQueryString("openid") || "";
+
+        var nickname = '';
+        var headimgurl = '';
+        try {
+            var wxUserStr = decodeURIComponent(GetQueryString("userinfo")) || "";
+            var wxUser = JSON.parse(wxUserStr);
+            nickname = decodeURIComponent(wxUser.nickname) || "";
+            headimgurl = decodeURIComponent(wxUser.headimgurl) || "";
+        } catch (ex) {
+        }
+
+        if (headimgurl != '') {
+            var wxinfo = "wdhlogininfo" + openid;
+            var param2 = {  headimgurl: headimgurl };
+            setCache(param2, wxinfo);
+        }
+
+        var appid = GetQueryString("appid") || "";
+        //微CRM 业务员电话
+        var mobilePhone = GetQueryString("mobilePhone") || "";
+        var crmOpenid = GetQueryString("crmOpenId") || "";
+        //订单导购  billid
+        var guideBillId = GetQueryString("guideBillId") || "";
+        //是否开通微信支付
+        var wxpay = GetQueryString("wxpay") || 0;
+        var shareManagerId = GetQueryString("shareManagerId") || "";
+        var firstview = GetQueryString("firstview") || "";
+        //是否关注服务号
+        var isSubscribe = GetQueryString("isSub") || 0;
+
+        var keyv = "wdhlogininfo" + eid;
+        var shareGoodsId = GetQueryString("shareGoodsId") || "";
+        var sharePhoneNum = GetQueryString("sharePhoneNum") || "";
+        var sharePhoneMsg = GetQueryString("sharePhoneMsg") || "";
+
+
+        //这个是云端的参数 带过来的  &extData={"firstview": "newlist"}
+        //对 {"firstview": "newlist"} decodeURIComponent 2次
+        var extData = decodeURIComponent(decodeURIComponent(GetQueryString("extData"))) || "";
+        if (extData) {
+            try {
+                var oData = JSON.parse(extData);
+                firstview = oData.firstview || firstview;
+                //商品详情跳转需要
+                shareGoodsId = oData.goodsId || shareGoodsId;
+                //分享者的guid
+                shareManagerId = oData.shareManagerId || shareManagerId;
+                //商品类目跳转需要
+                var ItemType = oData.ItemType || '';
+                var ChildType = oData.ChildType || '';
+                var MiddleType = oData.MiddleType || '';
+
+            } catch (e) {
+            }
+        }
+
+        var param = {openid: openid, hash: hash, eid: eid, appid: appid, wxpay: wxpay,
+            mobilePhone: mobilePhone, crmOpenid: crmOpenid, shareManagerId: shareManagerId,
+            headimgurl: headimgurl, nickname: nickname, firstview: firstview,
+            guideBillId: guideBillId, isSubscribe: isSubscribe, appcode: appcode,
+            shareGoodsId: shareGoodsId, sharePhoneNum: sharePhoneNum, sharePhoneMsg: sharePhoneMsg,
+            ItemType: ItemType, ChildType: ChildType, MiddleType: MiddleType
+        };
+        setCache(param, keyv);
+        var domver = document.getElementById('ver-num');
+        var vnum = '2016-04-29';
+        if (domver) {
+            vnum = domver.getAttribute('data-cmd');
+        }
+        var appUrl = 'start.html?eid=' + eid + '&v=' + vnum;
+        window.location.replace(appUrl);
+    }
+    setAppParamInfo();
+</script>
+</body>
+</html>

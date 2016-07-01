@@ -1,0 +1,45 @@
+.view_map{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #f5f5f5;
+}
+
+.view_map .map{
+    height: 4rem;
+}
+
+.view_map .maplistdiv{
+    position: absolute;
+    top: 4.02rem;
+    bottom: 0;
+    width: 100%;
+    background-color: #f5f5f5;
+    overflow: hidden;
+}
+
+.view_map .maplist {
+    border-top: 1px solid #e2e2e2;
+    padding-bottom: 0.1rem;
+}
+
+.view_map .maplist li{
+    padding: 0.16rem 0.2rem;
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.view_map .name{
+
+}
+
+.view_map .address{
+    font-size: 9px;
+    color: #797C80;
+    margin-top: 0.02rem;
+}
+
+
+.view_map .li_touched {
+    background-color: #e5e6e8 !important;
+}

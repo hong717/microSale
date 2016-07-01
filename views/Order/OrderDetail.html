@@ -1,0 +1,161 @@
+﻿
+<!--订单详情 begin-->
+<div id="view_orderdetail" class="view_orderdetail" style="display: none">
+    <div class="orderdetail_top">
+        <ul class="orderdetail_head">
+            <li class="top-center-top">
+                <div class="moneyDiv">
+                    <img class="moneyimg" src="img/kdpx.gif" />
+                    <span>订单金额<em class="freight">: </em></span>
+                    <em id="orderdetail-money" class="money"></em>
+                </div>
+                <div id="orderdetail-status" class="status"></div>
+            </li>
+            <li class="orderdetail_express">
+                运费: <em id="orderdetail_freight">0</em><span class="btn-freightRule">计算规则</span>
+            </li>
+        </ul>
+        <img class="buyagain" src="img/kdpx.gif" />
+        <ul data-cmd="express" class="ReceivingHead">
+            <li>
+                <img class="receiveimg" src="img/kdpx.gif" />
+                <span>收货人</span>:
+                <em id="orderdetail_receivename"></em>
+                <span class="phone" id="orderdetail_receivephone"></span>
+            </li>
+            <li class="identity">
+                身份证号码: <span id="orderdetail_identity"></span>
+            </li>
+            <li class="re-address">
+                <span class="addressh">收货地址:</span>
+                <span id="orderdetail_address"></span>
+            </li>
+        </ul>
+
+    </div>
+    <img class="payinfo" style="display: none" src="img/kdpx.gif" />
+
+    <div id="orderscrollarea" class="orderdetail">
+        <div>         
+            <ul id="view_orderdetail_store" class="self-mention">
+                <!--<li class="store-name">
+                    <div>
+                        <p>{name}</p>
+                        <p class="address">{address}</p>
+                    </div>
+                    <a href="tel:{phone}"></a>
+                </li>
+                <li class="goods-code">
+                    <p  data-type="takecode" class="code">提货码：{takeCode}</p>
+                    <p class="code-num"></p>
+                    <p class="date">提货日期：{date}</p>
+                    <img class="kdcImage2" data-type="codeImg" src="img/kdpx.gif"/>
+                    <span style="display: none" data-type="imgHint"  >点击可放大</span>
+                </li>-->
+            </ul>
+
+
+            <ul class="detail-list" id="orderdetailarea">
+                <!--                <li index={index}>
+                                              <div class="rowhead" attrListFlag={attrListFlag}  index={index}>
+                                                  <div class="orderdetail-li-left">
+                                                      <div>
+                                                          <span>
+                                                              <img src="{img}">
+                                                          </span>
+                                                      </div>
+                                                  </div>
+                                                  <div class="orderdetail-li-center">
+                                                      <p><span class="gift {gift}">(赠)</span>{name}</p>
+                                                      <p>规格型号:{model}</p>
+                                                      <div class="li-center-bottom">
+                                                          <div class="sumMsg" style="{hasAttrList}">
+                                                              <div  class="unfold sprite-unfold"></div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="clearfloat"> </div>
+                                              </div>
+                                              <div class="attrList" style="display: none">
+                                               #--row.begin--#
+                                                  <div class="attrRow">
+                                                      <div class="name">{attrname}</div>
+                                                      <div class="price showPrice">{attrprice}</div>
+                                                      <div class="num">{attrnum}</div>
+                                                  </div>
+                                               #--row.end--#
+                                              </div>
+                                              <div class="good_sumMsg">
+                                                  <span style="{totalTxt}">小计：</span>
+                                                  <span class="showPrice">{totalMoney}</span>
+                                                  <span class="totalnum">{num} </span>
+                                              </div>
+                                               <div class="goods-out" style="{out_good}">
+                                                  <span >（已出库数量：{OutAuxQty}，金额{OutAmount}）</span>
+                                               </div>
+                                          </li>-->
+            </ul>
+            <div class="orderdetail-sum">
+                <span>合计：</span>
+
+                <p class="totalMoney"><em id="orderdetail-amount-1">0</em></p>
+
+                <p class="totalNum"><em id="orderdetail-count-1">0</em></p>
+            </div>
+            <div class="ordertotalInfo">
+                <p>&nbsp;&nbsp;&nbsp;下单人：<em class="maker"></em></p>
+
+                <p>订单编号：<em class="order"></em></p>
+
+                <p>下单时间：<em class="bookDate"></em></p>
+                <p data-cmd="orderDetail-deliverway">交货方式：<em class="deliverway"></em></p>
+                <p id="orderDetail-Point">本单获得：<em class="orderPoint"></em></p>
+                <p data-cmd="orderDetail-billexPoint">本单消费：<em class="billexPoint"></em></p>
+
+                <p class="last">订单备注：<em class="note"></em></p>
+            </div>
+        </div>
+    </div>
+    <div class="orderdetail_btnctrl">
+        <div class="btnctrl_right" id="goodsdetail_popmenu">
+            <img src="img/kdpx.gif" />
+        </div>
+        <div data-cmd="btnCtrl" class="btnctrl_left">
+            <div class="menu_share sprite-me-link-client">
+                <span class="name">客服</span>
+            </div>
+            <div class="orderdetail_btn">
+                <div class="orderdetail_receive" id="orderdetail_receive_btn">
+                    <span class="sprite-open">确认收货</span>
+                </div>
+            </div>
+            <div class="orderdetail_btn orderdetail_payBtn " id="orderdetail_payBtn">
+                <span class="sprite-open">付款</span>
+            </div>
+            <div class="paybuttonList">
+                <ul>
+                    <li class="payNow"><span>立即付款</span></li>
+                    <li class="payNotify"><span>付款通知</span></li>
+                </ul>
+                <div class="triangle"></div>
+            </div>
+            <div class="orderbuttonList">
+                <ul>
+                    <li class="cancelOrder"><span>取消订单</span></li>
+                    <li class="changeOrder"><span>修改订单</span></li>
+                </ul>
+                <div class="triangle"></div>
+            </div>
+            <div class="orderdetailRejectDiv">
+                <span class="rejectBtn">申请退货</span>
+            </div>
+
+            <div id="orderdetail_return_btn" style="display: none" class="orderdetail_btn">
+                <div class="orderdetail_receive orderdetail_return" >
+                    <span class="sprite-open">退货</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--订单详情end-->

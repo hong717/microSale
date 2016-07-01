@@ -1,0 +1,251 @@
+.view-express {
+    display: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+
+    background: #ffffff;
+}
+
+.view-express .express-query {
+    color: #FB5F39;
+    text-decoration: underline;
+}
+
+.express-top {
+    position: absolute;
+    top: 0;
+    height: 1.3rem;
+    overflow: hidden;
+    width: 100%;
+    margin: 0 auto;
+    background: #f0f0f0;
+    border-bottom: 1px solid rgba(204, 204, 204, 0.6);
+}
+
+.express-top .express-top-left {
+    position: relative;
+    float: left;
+    width: 10%;
+    height: 100%;
+    border-right: 1px solid #cecece;
+    display: none;
+}
+
+.express-top .express-top-left .express-return {
+    position: absolute;
+    top: 0.3rem;
+    left: -0.1rem;
+    z-index: 2;
+    border: solid 17px black;
+    border-color: rgba(255, 0, 0, 0) #0076FF rgba(0, 0, 255, 0) rgba(154, 205, 50, 0);
+    display: block;
+    border-width: 0.32rem;
+    border-radius: 50%;
+}
+
+.express-top .express-top-left .express-return:after {
+    content: '';
+    border: solid 0px black;
+    border-width: 0.32rem;
+    border-color: rgba(255, 0, 0, 0) #F1F1F1 rgba(0, 128, 0, 0) rgba(255, 255, 0, 0);
+    display: block;
+    position: absolute;
+    top: -0.32rem;
+    left: -0.24rem;
+}
+
+.express-top .express-top-right {
+    position: relative;
+    float: left;
+    width: 98%;
+    margin-left: -0.02rem;
+    height: 100%;
+}
+
+.express-top .express-top-right p:first-child {
+    margin-top: 0.2rem;
+    margin-left: 0.2rem;
+    font-size: 15px;
+    color: #232323;
+}
+
+.express-top .express-top-right p:last-child {
+    margin-top: 0.16rem;
+    margin-left: 0.2rem;
+    font-size: 14px;
+    color: #686f76;
+}
+
+.express-top .express-top-right p .express-duration {
+    float: right;
+}
+
+.express-bottom {
+    position: absolute;
+    top: 1.3rem;
+    bottom: 0px;
+    overflow: hidden;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.express-bottom .express-express {
+    position: relative;
+    width: 100%;
+    margin-top: 0.3rem;
+}
+
+.express-bottom .express-express .express-express-title {
+    color: #686f76;
+}
+
+.express-bottom .express-express .express-express-title p {
+    margin-top: 0.2rem;
+    color: #686f76;
+    line-height: 0.66rem;
+}
+
+.express-bottom .express-express .express-express-title p:first-child {
+    width: 30%;
+    float: left;
+}
+
+.express-bottom .express-express .express-express-title p:first-child span {
+    height: 0.56rem;
+    border: 1px solid #cecece;
+    margin-left: 0.2rem;
+    padding-left:0.2rem;
+    padding-right: 0.2rem;
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+}
+
+.express-bottom .express-express .express-express-title p:nth-child(2) {
+    width: 30%;
+    float: left;
+    font-size: 15px;
+    text-align: center;
+}
+
+.express-bottom .express-express .express-express-title p:nth-child(3) {
+    width: 40%;
+    float: left;
+    font-size:15px;
+}
+
+.express-express-area {
+    position: relative;
+    width: 100%;
+    border-bottom: 1px solid #dcdedf;
+    padding-bottom: 0.4rem;
+}
+
+.express-bottom .express-status {
+    position: relative;
+    width: 100%;
+    padding-bottom:0.4rem;
+}
+
+.express-bottom .express-status .express-status-title p {
+    line-height: 0.66rem;
+}
+
+.express-bottom .express-status .express-status-area {
+    padding-bottom: 0.4rem;
+}
+
+.express-table {
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.express-table li {
+    position: relative;
+    overflow: hidden;
+    margin-left: 0.2rem;
+    margin-right: 0.2rem;
+    color: #AEB1B5;
+}
+
+.express-table li:first-child {
+    color: #16B359;
+}
+
+.express-table li:last-child .second-td p:last-child {
+    border-bottom: 0;
+}
+
+.express-table li .failarea {
+    color: #ff0000;
+    line-height: 0.8rem;
+    font-size: 14px;
+}
+
+.express-table li table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.express-table li table tbody {
+    width: 100%;
+}
+
+.express-express-area ul li table tbody tr {
+    width: 100%;
+}
+
+.express-table-normal {
+    width: 15%;
+    background: url(img/line.png) center center no-repeat;
+    background-size: 0.64rem;
+}
+
+.second-td p:first-child {
+    margin-top: 0.2rem;
+    padding-bottom: 0.06rem;
+}
+
+.second-td p {
+    font-size:14px;
+}
+.second-td p a{
+    color:#45DFF1;
+}
+
+.second-td p:last-child {
+    margin-top: 0.1rem;
+    padding-bottom: 0.2rem;
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.express-table-end {
+    width: 15%;
+    background-position: center;
+    position: relative;
+    background-size: 0.6rem;
+    left: 0.02rem;
+}
+
+.express-table li table tbody tr td:last-child {
+    width: 85%;
+}
+
+.express-status-title {
+    color: #686f76;
+    border-bottom: 1px solid #e2e2e2;
+    margin: 0.14rem 0.1rem;
+    padding-bottom: 0.1rem;
+    font-size:16px;
+}
+
+.express-status-title p span {
+    height:0.56rem;
+    margin-left: 0.2rem;
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+    font-size:16px;
+}

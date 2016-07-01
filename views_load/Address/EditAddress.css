@@ -1,0 +1,274 @@
+.view_editAddress {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #f5f5f5;
+    overflow: hidden;
+}
+
+.view_editAddress .content {
+    position: absolute;
+    top: 0;
+    bottom: 0.9rem;
+    width: 100%;
+    z-index: 5;
+    background-color: #f5f5f5;
+}
+
+.view_editAddress li {
+    padding: 0.24rem 0.2rem;
+    border-bottom: 1px solid #ECECEC;
+    background: #fff;
+    position: relative;
+    font-size: 16px;
+}
+
+
+.view_editAddress li input {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    color: #b5b9bc;
+    font-size: 16px;
+    outline: none;
+    width: 80%;
+}
+
+.view_editAddress li.selectItem {
+    background-repeat: no-repeat;
+    background-position: 95%;
+    background-size: 0.2rem;
+    color: #363636;
+    font-size: 15px;
+    min-height: 1em;
+}
+
+.view_editAddress li textarea {
+    resize: none;
+    outline: none;
+    font-size: 15px;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    left: 1.4rem;
+    right: 0.2rem;
+    height: 1.2rem;
+    top: 8px;
+}
+
+.view_editAddress .footer {
+    font-size: 20px;
+    position: absolute;
+    bottom: 0;
+    height: 0.9rem;
+    line-height: 0.9rem;
+    border-top: 1px solid #ECECEC;
+    width: 100%;
+    text-align: center;
+    background: #fff;
+    z-index: 2;
+    display: box;
+    display: -webkit-box;
+    padding: 0.14rem 0.3rem;
+    box-sizing: border-box;
+}
+
+.view_editAddress .footer span {
+    border-radius: 5px;
+    font-size: 16px;
+    line-height: 0.6rem;
+    color: #fff;
+    background: #FF6427;
+    display: block;
+    height: 0.6rem;
+    box-sizing: border-box;
+}
+
+.view_editAddress .footer .saveBtn {
+    -webkit-box-flex: 2;
+    box-flex: 2;
+}
+
+.view_editAddress .footer .saveBtn_touched {
+    background: #EF5215 !important;
+}
+
+.view_editAddress .li_touched {
+    background-color: #e5e6e8 !important;
+}
+
+.view_editAddress li span {
+    color: #b5b9bc;
+    font-size: 16px;
+
+}
+
+.view_editAddress .nameh {
+
+}
+
+.view_editAddress .name {
+    margin-left: 0.1rem;
+    color: #535456;
+}
+
+.view_editAddress .phoneh {
+    letter-spacing: 16px;
+}
+
+.view_editAddress .phone {
+    margin-left: -0.24rem;
+    color: #535456;
+}
+
+.view_editAddress .addressh {
+    letter-spacing: 0.32rem;
+    position: relative;
+    top: -0.14rem;
+}
+
+.view_editAddress .area {
+    margin-left: -0.18rem;
+
+}
+
+.view_editAddress .areah {
+    letter-spacing: 0.32rem;
+}
+
+.view_editAddress .AutoLocate {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 1.12rem;
+    bottom: 0;
+    text-align: center;
+}
+
+.view_editAddress .AutoLocate img {
+    width: 0.44rem;
+    height: 0.44rem;
+    position: absolute;
+    right: 50%;
+    top: 0.1rem;
+    margin-right: -0.22rem;
+}
+
+.view_editAddress .AutoLocate span {
+    position: relative;
+    top: 0.44rem;
+    font-size: 10px;
+}
+
+.view_editAddress .province {
+    font-size: 14px;
+    color: #535456;
+    border-right: 1px solid #ECECEC;
+    padding-right: 0.06rem;
+    min-width: 1.2rem;
+    display: inline-block;
+    text-align: center;
+}
+
+.view_editAddress .city {
+    font-size: 14px;
+    color: #535456;
+    border-right: 1px solid #ECECEC;
+    padding-right: 0.06rem;
+    min-width: 1.2rem;
+    display: inline-block;
+    text-align: center;
+}
+
+.view_editAddress .district {
+    font-size: 14px;
+    color: #535456;
+    min-width: 1rem;
+    display: inline-block;
+    text-align: center;
+}
+
+.view_editAddress .detail_address {
+    height: 1.2rem;
+}
+
+.view_editAddress .footer .deleteBtn {
+    color: #8c9093;
+    border: 1px solid #8c9093;
+    background: #fff;
+    margin-right: 0.4rem;
+    -webkit-box-flex: 1;
+    box-flex: 1;
+}
+
+.view_editAddress .deleteBtn_touched {
+    color: #fff !important;
+    background: #8c9093 !important;
+}
+
+.view_editAddress .setDefaultDiv {
+    margin-top: 0.4rem;
+    height: 0.84rem;
+    line-height: 0.84rem;
+    border-top: 1px solid #ECECEC;
+    border-bottom: 1px solid #ECECEC;
+    background: #fff;
+    position: relative;
+    padding-left: 0.2rem;
+}
+
+.view_editAddress .setDefaultDiv div {
+    font-size: 15px;
+    color: #ff3f3f;
+    position: relative;
+}
+
+.view_editAddress .addressDefaultState {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-repeat: no-repeat;
+    background-size: 0.26rem;
+    background-position: center;
+    width: 0.96rem;
+    border: 1px solid #ccc;
+    height: 0.52rem;
+    margin: 0.14rem 0.2rem;
+    border-radius: 0.96rem;
+    overflow: hidden;
+    opacity: 0.7;
+}
+
+.view_editAddress .addressDefaultState::after {
+    content: '';
+    height: 0.52rem;
+    width: 0.52rem;
+    box-shadow: 0px 1px 1px #ccc;
+    -webkit-box-shadow: 0px 1px 1px #ccc;
+    border-right: 1px solid #ccc;
+    background: #fff;
+    border-radius: 0.52rem;
+    position: absolute;
+    transition: left 0.5s;
+    -webkit-transition: left 0.5s;
+    left: 0;
+}
+
+.view_editAddress .addressDefaultState_touched {
+    background-color: #4cd964 !important;
+    border: 1px solid #4cd964 !important;
+}
+
+.view_editAddress .addressDefaultState_touched::after {
+    left: 0.44rem !important;
+    box-shadow: 0px 0px 0.5px rgba(0, 0, 0, 0) !important;
+    -moz-box-shadow: 0px 0px 0.5px rgba(0, 0, 0, 0) !important;
+    -webkit-box-shadow: 0px 0px 0.5px rgba(0, 0, 0, 0) !important;
+}
+
+.view_editAddress .bom_space {
+    height: 140px;
+}
+

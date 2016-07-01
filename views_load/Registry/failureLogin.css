@@ -1,0 +1,75 @@
+.view_failureLogin {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    background: #fff;
+    z-index: 999;
+}
+
+.view_failureLogin .content {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.view_failureLogin .messageDiv > span {
+    width: 100%;
+    height: 1.04rem;
+    display: block;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 1.04rem;
+    margin-bottom: 0.3rem;
+}
+
+.view_failureLogin .messageDiv div {
+    text-align: center;
+    display: inline-block;
+}
+
+.view_failureLogin .messageDiv p {
+    text-align: left;
+    font-size: 15px;
+    line-height: 0.42rem;
+    color: #363636;
+    margin: 0 auto;
+    word-break: break-all;
+    width: 96%;
+    white-space: nowrap;
+}
+
+.view_failureLogin .messageDiv .phone {
+    color: #65C000;
+}
+
+.view_failureLogin .phoneDiv {
+    margin-top:0.66rem;
+}
+
+.view_failureLogin .joinDiv {
+    margin-top: 1.14rem;
+}
+
+.view_failureLogin .title {
+    display: block;
+    font-size: 15px;
+    color: #a4a3a3;
+}
+
+.view_failureLogin .button {
+    margin: 0 auto;
+    margin-top: 10px;
+    display: block;
+    height: 0.76rem;
+    line-height: 0.76rem;
+    background: #65C300;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 15px;
+    text-decoration: none;
+    width: 72%;
+}
+
+.view_failureLogin .button_touched {
+    background: #5bb000 !important;
+}

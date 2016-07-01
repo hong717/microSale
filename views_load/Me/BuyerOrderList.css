@@ -1,0 +1,126 @@
+﻿
+
+
+.view-buyer-order-list {
+    font-size: 15px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    display: none;
+}
+.view-buyer-order-list ul {
+  margin: 0;
+  padding: 0;
+}
+.view-buyer-order-list li {
+  list-style: none;
+}
+.view-buyer-order-list .select-way {
+  background-color: #fff;
+  height: 0.88rem;
+  border-bottom: 1px solid #d1d4d8;
+  font-size: 0;
+}
+.view-buyer-order-list .select-way li:last-child span {
+  border-right: none;
+}
+.view-buyer-order-list .select-way li {
+  color: #3a3a3a;
+  text-align: center;
+  width: 33.33%;
+  box-sizing: border-box;
+  display: inline-block;
+  border-bottom: 2px solid transparent;
+}
+.view-buyer-order-list .select-way li span {
+  padding: 0px 0.16rem;
+  width: 100%;
+  height: 0.58rem;
+  line-height: 0.58rem;
+  font-size: 16px;
+  display: inline-block;
+  box-sizing: border-box;
+  margin: 0.16rem 0 0.1rem 0;
+  border-right: 1px solid #ccc;
+}
+.view-buyer-order-list .select-way li.on {
+  color: #fc4e01;
+  border-bottom: 2px solid #fc4e01;
+}
+
+.view-buyer-order-list .buyerorderlist {
+    position: absolute;
+    top: 0.9rem;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    width: 100%;
+}
+
+.view-buyer-order-list .list li {
+  background-position: 74% 0.12rem;
+}
+.view-buyer-order-list .list p {
+  margin: 0;
+}
+.view-buyer-order-list .list .order-num {
+  padding-top: 0.2rem;
+  font-size: 16px;
+  color: #434343;
+  margin: 0 0.2rem;
+}
+.view-buyer-order-list .list .message {
+  padding: 0.16rem 0px 0.2rem 0px;
+  font-size: 15px;
+  color: #898989;
+  margin: 0 0.2rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+.view-buyer-order-list .list .order-state {
+  float: right;
+  color: #ff6427;
+  font-size: 14px;
+}
+.view-buyer-order-list .list .count {
+  float: right;
+  font-size: 13px;
+  color: #686f76;
+}
+.view-buyer-order-list .list .state {
+  text-align: right;
+  padding: 0.16rem 0.2rem 0 0.2rem;
+}
+.view-buyer-order-list .list .state span {
+  display: inline-block;
+  width: 1.48rem;
+  text-align: center;
+  border: 1px solid #ccc;
+  height: 0.52rem;
+  line-height: 0.52rem;
+  border-radius: 3px;
+  font-size: 14px;
+  color: #686f76;
+}
+
+.view-buyer-order-list .list .touched {
+    background-color: rgb(217, 218, 219);
+}
+.view-buyer-order-list .list .pressed {
+    color: rgb(255, 255, 255);
+    background: rgb(140, 144, 147);
+}
+
+.view-buyer-order-list .line {
+    width: 100%;
+    height: 0.42rem;
+    line-height:  0.42rem;
+}
+.view-buyer-order-list .lineb {
+    background: url('img/lineb.png') no-repeat;
+    background-size: 100%  0.22rem;
+}
+.view-buyer-order-list .line img {
+    width: 100%;
+    height:  0.22rem;
+}

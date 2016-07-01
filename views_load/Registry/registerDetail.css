@@ -1,0 +1,274 @@
+.view_registerDetail {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    background: #f2f2f2;
+}
+
+.view_registerDetail input {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.view_registerDetail > div {
+    min-height: 100%;
+}
+
+.view_registerDetail .header {
+    text-align: center;
+    padding-top: 0.6rem;
+}
+
+.view_registerDetail .logoDiv {
+    height: 1.4rem;
+    width: 95%;
+    margin: 0 auto;
+    margin-bottom: 0.16rem;
+}
+
+.view_registerDetail .logoDiv img {
+    max-width: 95%;
+    height: 1.42rem;
+    border-radius: 0.24rem;
+}
+
+.view_registerDetail .header .companyName {
+    font-size: 15px;
+    color: #363636;
+    display: inherit;
+}
+
+.view_registerDetail .content {
+    position: relative;
+    padding: 0 0.24rem;
+    text-align: center;
+    margin-top: 0.6rem;
+    z-index: 3;
+}
+
+.view_registerDetail ul {
+    background: #fff;
+    padding: 0.24rem;
+    border-radius: 3px;
+    border: 1px solid rgba(218, 218, 218, 0.7);
+}
+
+.view_registerDetail li {
+    height: 0.76rem;
+    line-height: 38px;
+    border: 1px solid rgba(215, 217, 214, 0.6);
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 0.24rem;
+}
+
+.view_registerDetail li.submit {
+    height: 0.78rem;
+    margin-bottom: 0px;
+    color: #fff;
+    border: 0;
+    font-size: 18px;
+    margin-top: 0.3rem;
+}
+
+
+
+.view_registerDetail li input {
+    height: 100%;
+    width: 98%;
+    padding-left: 2%;
+    display: inherit;
+    background: #f9f9f9;
+    color: #b5b5bc;
+    font-size: 14px;
+    outline: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-user-modify: read-write-plaintext-only;
+}
+
+.view_registerDetail .gender {
+    border: 0;
+    height: 0.6rem;
+    line-height: 0.6rem;
+    overflow: visible;
+}
+
+.view_registerDetail .gender span {
+    width: 47%;
+    border: 1px solid #d7d9d6;
+    color: #b5b5bc;
+    border-radius: 3px;
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: 0.28rem;
+    font-size: 14px;
+    height: 0.46rem;
+    line-height: 0.46rem;
+}
+
+.view_registerDetail .gender .female {
+    float: right;
+}
+
+.view_registerDetail .gender .man {
+    float: left;
+}
+
+.view_registerDetail .footer {
+    position: relative;
+    width: 100%;
+    z-index: 2;
+    padding-bottom: 0.02rem;
+}
+
+.view_registerDetail .footer div {
+    position: relative;
+    padding: 0.7rem 0.24rem 0.14rem 0.24rem;
+}
+
+.view_registerDetail .footer p {
+    display: block;
+    font-size: 12px;
+    color: #8b8b8c;
+    margin-bottom: 0.08rem
+}
+
+.view_registerDetail .footer p:first-child {
+    font-size: 12px;
+    line-height: 0.32rem;
+    color: #a1a1a1;
+    margin-bottom: 0.2rem;
+    width: 100%;
+    word-break: break-all;
+}
+
+.view_registerDetail .footer p:nth-child(2) {
+    font-size: 14px;
+    margin-bottom: 0.1rem;
+    color: #b5b5bc;
+}
+
+.view_registerDetail .footer .address {
+    margin-bottom: 0px;
+}
+
+.view_registerDetail .footer a {
+    color: #65c300;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 1px solid #65c300;
+}
+
+.view_registerDetail .footer .phoneImg {
+    position: absolute;
+    right: 0.2rem;
+    bottom: 0.1rem;
+    display: block;
+    height: 0.6rem;
+    width:0.6rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 0.48rem;
+    padding: 0.1rem;
+    margin-bottom: 0px;
+    cursor: pointer;
+}
+
+.view_registerDetail .afterRegisterDiv {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 5;
+    background: #fff;
+    display: none;
+}
+
+.view_registerDetail .afterRegisterDiv p {
+    margin-top: 2rem;
+    padding-top: 1.4rem;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size:1.04rem;
+}
+
+.view_registerDetail .afterRegisterDiv p span {
+    display: block;
+    text-align: center;
+    margin-bottom: 0.08rem;
+    color: #6d6969;
+    font-size: 15px;
+}
+
+.view_registerDetail .afterRegisterDiv .returnBtn {
+    display: block;
+    text-align: center;
+    margin: 0 0.3rem;
+    margin-top: 1rem;
+    background: #65c300;
+    color: #fff;
+    border-radius: 0.1rem;
+    line-height: 0.76rem;
+    font-size: 16px;
+    position: relative;
+    z-index: 5;
+}
+
+.view_registerDetail .afterRegisterDiv .backauto{
+text-align:center;
+margin-top:0.5rem;
+color: #EF6767;
+font-size: 14px;
+}
+
+.view_registerDetail .afterRegisterDiv .curtain {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 2;
+}
+
+.view_registerDetail .input_touched {
+    color: #363636 !important;
+}
+
+.view_registerDetail .input_li_touched {
+    border: 1px solid #65c300 !important;
+}
+
+.view_registerDetail .gender_touched {
+    color: #65c300 !important;
+    border: 1px solid #65c300 !important;
+}
+
+.view_registerDetail .submit_touched {
+    background: #5bb000 !important;
+}
+
+.view_registerDetail .footer .a_touched {
+    color: #5bb000 !important;
+}
+
+.view_registerDetail .retailCust_touched{
+    color: #9d9fa1 !important;
+}
+
+
+.view_registerDetail .retailCust{
+    display: inline-block;
+    color: #7e8184;
+    font-size: 13px;
+    text-decoration: underline;
+    width: 46%;
+    float: left;
+}
+
+.view_registerDetail .submitbtn{
+    display: inline-block;
+    background: #65c300;
+    width: 100%;
+    border-radius: 0.1rem;
+}

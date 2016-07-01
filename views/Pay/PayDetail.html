@@ -1,0 +1,95 @@
+﻿<!-- 付款单详情begin-->
+<div class="view_payDetail" style="display:none">
+    <div class="header">
+        <span>付款通知</span>
+        <span class="check_logo hideModule"></span>
+    </div>
+    <div class="content">
+        <div>
+            <div class="main_Info pay_Box">
+                <div class="payNoDiv">
+                    <span class="pay_leftSpan">付款单号</span>
+                    <span class="payno"></span>
+                </div>
+                <div class="paymoney">
+                    <span class="pay_leftSpan">付款金额</span>
+
+                    <div class="money pay_boxDiv">
+                        <input type="text" id="pay_Money" value="请输入金额" disabled="" />
+                    </div>
+                </div>
+                <div class="date pay_boxDiv">
+                    <span class="pay_leftSpan">付款时间</span>
+
+                    <div class="pay_DateDiv kdcDateParent">
+                        <input class="kdcDate sprite-down" type="text" value="2015-01-01" />
+                    </div>
+                </div>
+            </div>
+            <div class="extra_Info pay_Box">
+                <div class="message pay_boxDiv">
+                    <span class="pay_leftSpan msg">捎句话</span>
+
+                    <div class="inputTxt pay_inputTxt">
+                        <textarea class="pay_Msg"> 请输入需告知供应商的信息 </textarea>
+                    </div>
+                </div>
+                <div class="image pay_Image">
+                    <div>
+                        <span>上传图片</span>
+                        <span>(最多3张小于5M的JPG,PNG,BMP图片) </span>
+                    </div>
+                    <div class="imgDiv">
+                        <div class="imgListDiv">
+                            <!--                            <div class="imgBox">
+                                                   <div>
+                                                       <img src="{src}" class="kdcImage sprite-loading" />
+                                                   </div>
+                                                   <span class="deleteImg sprite-closeMore"></span>
+                                               </div>     -->
+                        </div>
+                        <div class="addImgBtn sprite-addImg"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="order">
+                <span>关联订单</span>
+                <span class="pay_Order">sdk125847586</span>
+            </div>
+            <div class="moreBtn">
+                <span>录入更多信息</span>
+            </div>
+            <div class="moreDiv hideModule">
+                <div class="more_Info">
+                    <div class="bank pay_boxDiv">
+                        <span class="pay_leftSpan">汇入银行</span>
+
+                        <div class="pay_selectDiv">
+                            <ul class="bankList hideModule">
+                                <!-- <li class="bankItem" index="{index}">{item}</li> -->
+                            </ul>
+                            <input type="text" id="bankName" />
+                            <span class="showUl sprite-down"></span>
+                        </div>
+                    </div>
+                    <div class="bank_Account pay_boxDiv">
+                        <span class="pay_leftSpan">银行帐号</span>
+
+                        <div class="pay_selectDiv">
+                            <ul class="accountList hideModule">
+                                <!-- <li class="accountItem">{item}</li> -->
+                            </ul>
+                            <input class="account" type="tel" />
+                            <span class="showAccountUl hideModule"></span>
+                        </div>
+                    </div>
+                    <div class="closeBtn sprite-closeMore"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer" id="payDetailFooter">
+        <span class="submit">提交</span>
+    </div>
+</div>
+<!-- 付款单详情end -->

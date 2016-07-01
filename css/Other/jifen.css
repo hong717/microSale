@@ -1,0 +1,28 @@
+
+
+.jifenpoint {
+    color: #3e3e3e;
+    font-size: 13px;
+    overflow: hidden;
+}
+
+.jifenpoint .change {
+    background-color: #ff6427;
+    color: #fff;
+    padding: 0 0.04rem;
+    font-size: 12px;
+    border-radius: 3px;
+    font-style: normal;
+}
+
+.old-price:before{
+    content: "原价:";
+}
+
+.old-price {
+    font-size: 12px;
+    text-decoration: line-through;
+    color: #aaa;
+    line-height: 0.4rem;
+}
+

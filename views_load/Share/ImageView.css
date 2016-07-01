@@ -1,0 +1,170 @@
+
+.divImgView {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    z-index: 200;
+    top: 0;
+    left: 0;
+    font-size:16px;
+    display: none;
+}
+
+.divImgView .ImgViewBox {
+
+    position: relative;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    display: table;
+    vertical-align: middle;
+
+}
+
+.divImgView .ImgViewBox span {
+    height: 100%;
+    vertical-align: middle;
+    display: table-cell;
+/*    background-image: url('../img/loading.png');
+    background-repeat: no-repeat;
+    background-position: center;*/
+}
+
+
+.divImgView .imgv {
+    vertical-align: middle;
+    position: relative;
+}
+
+.divImgView .imgvInit {
+    max-width: 100%;
+    max-height: 6.4rem;
+    margin-top: -0.4rem;
+}
+
+.divImgView .imgc {
+    top: 10%;
+    left: 90%;
+    margin-top: -0.7em;
+    margin-left: -0.7em;
+    position: absolute;
+    width: 0.54rem;
+    height: 0.54rem;
+    display: none;
+}
+
+.divImgView .focusme{
+    color: #ff6427;
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    top: 0.4rem;
+    font-size: 18px;
+    opacity: 0.8;
+}
+
+.divImgView .hinttap{
+    color: #151414;
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    top: 0.4rem;
+    font-size: 15px;
+    opacity: 0.8;
+}
+
+.divImgView .qrcode{
+    color: #151414;
+    display: inline-block;
+    text-align: center;
+    position: absolute;
+    bottom: 0.2rem;
+    font-size: 15px;
+    opacity: 0.8;
+    z-index: 2;
+    border: 1px solid #151414;
+    padding: 0.06rem 0;
+    left: 50%;
+    margin-left: -1rem;
+    width: 2rem;
+    border-radius: 2px;
+}
+
+.divImgView .swipe {
+    overflow: hidden;
+    visibility: hidden;
+    position: relative;
+}
+
+.divImgView .swipe-wrap {
+    overflow: hidden;
+    position: relative;
+}
+
+.divImgView .swipe-wrap > div {
+    float:left;
+    width:100%;
+    position: relative;
+}
+
+.divImgView .wrapinner{
+
+}
+
+.divImgView nav .position {
+    position: relative;
+    height: 0.5rem;
+    margin: -0.52rem 0 0 0;
+    padding: 0;
+    text-align: center;
+    list-style: none;
+    width: 100%;
+}
+
+.divImgView nav .position li.on {
+    background-color: #FB773E;
+    background: #FB773E;
+}
+
+.divImgView nav .position li {
+    display: inline-block;
+    width: 0.18rem;
+    height: 0.18rem;
+    border-radius: 50%;
+    background: #8B7256;
+    margin: 0 0.04rem;
+    cursor: pointer;
+}
+
+.divImgView .swipe .middiv {
+    display: table-cell;
+    vertical-align: middle;
+    height: 80%;
+    width: 100%;
+}
+
+
+.divImgView  .swipe  img {
+    vertical-align: middle;
+    position: relative;
+    max-width: 100%;
+    max-height: 100%;
+    background-image: url('img/loading.png');
+    background-repeat: no-repeat;
+    background-position: 50%;
+    min-width: 120px;
+    min-height: 120px;
+    z-index: 3;
+}
+
+
+.divImgView .ImgViewBox .afterImgLoaded {
+    background-image: url(img/kdpx.gif) !important;
+}
+
+.divImgView .ImgViewBox .hideImg {
+    display: none !important;
+}

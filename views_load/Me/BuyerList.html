@@ -1,0 +1,49 @@
+﻿<!-- 我的买家视图-->
+<div class="buyerList" id="view_buyerList" style="display: none">
+    <header class="head">
+        我的买家
+        <span id="span-buyer-count"></span>
+    </header>
+    <div class="search-row">
+        <div class="datePan" style="display: block;">
+            <div class="dateBeginv kdcDateParent">
+                <input id="buyerlist_dateBegin" class="kdcDate sprite-down" type="text" readonly="" value="2015-01-01">
+            </div>
+            <span>至</span>
+
+            <div class="dateEndv kdcDateParent">
+                <input id="buyerlist_dateEnd" class="kdcDate sprite-down" type="text" readonly="" value="2016-01-01">
+            </div>
+            <div class="btnDate">
+                <img src="img/kdpx.gif" class="sprite-downext downext">
+            </div>
+        </div>
+        <div class="search" style="display: none">
+            <div class="search-box">
+                <img src="img/kdpx.gif" class="search-icon"/>
+                <input type="text" id="buyerList-searchBox" placeholder="买家昵称"/>
+                <img src="img/kdpx.gif" class="clear-icon"/>
+            </div>
+            <div class="search-btn" id="buyerList-searchBtn">查询</div>
+        </div>
+    </div>
+    <div class="div-list" id="template-buyer-List">
+        <ul class="list">
+            <!--
+                   <li data-cmd="buyer" data-index="{index}">
+                       <span class="name}">{name}</span>
+                       <label class="date {date-show}">加入时间：<span>{time}<span></label>
+                       <div class="money {money-show}" ><span class="desc">{desc}</span>￥{money}</div>
+                       <img src="img/more.png" class="more-btn"  style="display: none;" />
+                       <div class="disabled-btn" style="display:none;">
+                           <div class="text-box" >
+                               <span class="left">禁用</span>
+                               <span class="right">启用</span>
+                           </div>
+                           <i class="icon"></i>
+                       </div>
+                   </li>
+                   -->
+        </ul>
+    </div>
+</div>

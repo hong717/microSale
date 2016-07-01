@@ -1,0 +1,302 @@
+﻿.view_RejectSelectList {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background: #fff;
+    width: 100%;
+}
+
+.view_RejectSelectList .header {
+    top: 0;
+    width: 100%;
+    position: absolute;
+    background: #EFEFEF;
+    border-bottom: 1px solid #DADADA;
+}
+
+.view_RejectSelectList .header .search {
+    width: 100%;
+    display: -webkit-box;
+}
+
+.view_RejectSelectList .header .divSearch {
+    height: 0.64rem;
+    line-height: 0.64rem;
+    text-align: left;
+    cursor: pointer;
+    color: #393939;
+    font-size: 16px;
+    top: 0.12rem;
+    border-radius: 6px;
+    position: relative;
+    background: #fff;
+    -webkit-box-flex: 1;
+    margin-left: 0.22rem;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.view_RejectSelectList .header .imgSearch {
+    position: absolute;
+    top: 0.18rem;
+    left: 0.14rem;
+    background-repeat: no-repeat;
+    background-size: 0.3rem;
+    opacity: 0.8;
+    height: 0.36rem;
+    width: 0.36rem;
+    z-index: 1;
+}
+
+.view_RejectSelectList .header .txtSearch {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    width: 75%;
+    height: 0.48rem;
+    font-size: 16px;
+    border-style: none;
+    left: 0.5rem;
+    top: 0.08rem;
+    padding-left: 0.1rem;
+    outline: none;
+    color: #b1b1b1;
+}
+
+.view_RejectSelectList .header .imgClear {
+    position: absolute;
+    top: 0.14rem;
+    right: 0.12rem;
+    width: 0.36rem;
+    height: 0.36rem;
+    background: url(img/clear.png) no-repeat;
+    background-size: 0.36rem;
+}
+
+.view_RejectSelectList .header .btnSearch {
+    position: relative;
+    height: 0.88rem;
+    line-height: 0.9rem;
+    width: 0.9rem;
+    text-align: center;
+    color: #969a9f;
+    margin-left: 0.06rem;
+    margin-right: -0.04rem;
+    font-size:16px;
+}
+
+.view_RejectSelectList .header .btnDate {
+    position: relative;
+    height: 0.88rem;
+    line-height: 0.92rem;
+    width: 0.8rem;
+    text-align: center;
+    font-size: 14px;
+    color: #606060;
+}
+
+.view_RejectSelectList .header .btnDate img {
+    width: 0.3rem;
+    height: 0.3rem;
+    top:0.06rem;
+    position: relative;
+    background: url(img/upext.png) no-repeat;
+    background-size: 0.3rem;
+}
+
+.view_RejectSelectList .header .datePan {
+    height: 0.88rem;
+    line-height: 0.88rem;
+    display: none;
+    font-size:16px;
+}
+
+.view_RejectSelectList .dateBeginDiv {
+    background: #fff;
+    width: 36%;
+    border: 1px solid rgba(204, 204, 204, 0.4);
+    border-radius: 4px;
+    line-height: 0.62rem;
+    height: 0.6rem;
+    text-align: center;
+    font-size: 16px;
+    color: #727a82;
+    position: relative;
+    margin-top: 0.12rem;
+    display: inline-block;
+    margin-left: 0.2rem;
+}
+
+.view_RejectSelectList .dateBeginDiv .dateBegin {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    font-size: 15px;
+    position: relative;
+    width: 1.66rem;
+    border: 0;
+    padding-right: 0.22rem;
+    background: url(img/down.png) no-repeat;
+    background-size: 0.24rem;
+    background-position: right;
+}
+
+.view_RejectSelectList .header .datePan span {
+    font-size: 14px;
+    color: #686f76;
+    width: 8%;
+    text-align: center;
+}
+
+.view_RejectSelectList .dateEndDiv {
+    background: #fff;
+    width: 36%;
+    border: 1px solid rgba(204, 204, 204, 0.4);
+    border-radius: 4px;
+    line-height: 0.62rem;
+    height: 0.6rem;
+    text-align: center;
+    font-size: 16px;
+    color: #727a82;
+    position: relative;
+    margin-top: 0.12rem;
+    display: inline-block;
+}
+
+.view_RejectSelectList .dateEnd {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    font-size: 15px;
+    position: relative;
+    width: 1.66rem;
+    border: 0;
+    padding-right:  0.22rem;
+    background: url(img/down.png) no-repeat;
+    background-size: 0.24rem;
+    background-position: right;
+}
+
+.view_RejectSelectList .RejectSelectDiv {
+    position: absolute;
+    top: 0.9rem;
+    bottom: 0px;
+    left: 0px;
+    overflow: hidden;
+    width: 100%;
+    background: #f7f7f7;
+}
+
+.view_RejectSelectList ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: relative;
+    background: #f0f0f0;
+    clear: both;
+}
+
+.view_RejectSelectList li {
+    background: #fff;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: 100% 0.22rem;
+    padding-bottom:0.12rem;
+}
+
+.view_RejectSelectList li:last-child {
+    background-image: none !important;
+    padding-bottom: 0 !important;
+}
+
+.view_RejectSelectList li .ItemInfo {
+    background-color: #ffffff;
+    font-size: 16px;
+    position: relative;
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+    overflow: hidden;
+}
+
+.view_RejectSelectList li .leftInfoDiv {
+    width: 65%;
+    float: left;
+}
+
+.view_RejectSelectList li .billSpan {
+    width: 100%;
+    line-height: 0.4rem;
+    margin-bottom: 0.06rem;
+    position: relative;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    word-break: break-all;
+    margin-top: 0.2rem;
+    font-size: 16px;
+    color: #646464;
+}
+
+.view_RejectSelectList li .dateSpan {
+    font-size: 14px;
+    color: #686f76;
+    width: 100%;
+    line-height: 0.4rem;
+    margin-bottom: 0.2rem;
+    position: relative;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    word-break: break-all;
+    margin-top: 0.2rem;
+}
+
+.view_RejectSelectList li .rightInfoDiv {
+    width: 30%;
+    float: right;
+    text-align: right;
+    margin-right: 0.1rem;
+}
+
+.view_RejectSelectList li .itemStatus {
+    margin-top: 0.2rem;
+    color: #ff3f3f;
+    display: block;
+}
+
+.view_RejectSelectList li .numSpan {
+    margin-top: 0.2rem;
+    color: #686f76;
+    font-size: 16px;
+    display: inline-block;
+}
+
+.view_RejectSelectList li .bottomDiv {
+    overflow: hidden;
+    text-align: right;
+    border-top: 1px dotted #ccc;
+    margin-left: 0.2rem;
+    margin-right: 0.2rem;
+    font-size:14px;
+}
+
+.view_RejectSelectList li .rejectBtn {
+    line-height: 0.6rem;
+    padding: 0 0.34rem;
+    margin: 0.2rem 0;
+    display: inline-block;
+    font-size: 15px;
+    border-radius: 3px;
+    color: #ff6427;
+    border: 1px solid #ff6427;
+}
+
+.view_RejectSelectList .unfoldDate {
+    top: 1.78rem !important;
+}
+
+.view_RejectSelectList .search_touched {
+    color: #363636 !important;
+}

@@ -1,0 +1,698 @@
+.view_goodslist {
+    display: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+}
+
+.main-searchOuter {
+    width: 100%;
+    height: 0.88rem;
+    background: #ff5c23;
+    border-bottom: 1px solid rgba(204, 204, 204, 0.6);
+}
+
+    .main-searchOuter .order {
+        position: absolute;
+        top: 0;
+        width: 0.9rem;
+        text-align: center;
+        right: 0;
+        height: 0.88rem;
+        line-height: 1.4rem;
+        font-size: 8px;
+        color: #fff;
+        background-size: 0.36rem;
+        background-position: 50% 0.26rem;
+    }
+
+.view_goodslist .listviewtype {
+    position: absolute;
+    width: 0.8rem;
+    height: 0.88rem;
+    text-align: center;
+    cursor: pointer;
+    color: #a9a9a9;
+    font-size: 10px;
+    top: 0;
+    right: 0.9rem;
+}
+
+    .view_goodslist .listviewtype img {
+        position: relative;
+        width: 0.38rem;
+        height: 0.38rem;
+        margin-top: 0.28rem;
+        margin-left: 0.04rem;
+        background-repeat: no-repeat;
+        background-size: 0.36rem;
+    }
+
+.view_goodslist .back-div {
+    position: absolute;
+    width: 0.86rem;
+}
+
+.view_goodslist .icon-category {
+    padding-left: 0.86rem;
+    padding-top: 0.6rem;
+    background-repeat: no-repeat;
+    background-position: center 2px;
+    background-size: 0.6rem;
+    position: absolute;
+    top: 0;
+}
+
+.view_goodslist .back-div .title {
+    font-size: 12px;
+    text-align: center;
+    margin-top: 0.54rem;
+    color: #fff;
+}
+
+.main-searchinput {
+    height: 0.66rem;
+    line-height: 0.66rem;
+    text-align: left;
+    cursor: pointer;
+    background: #ef5722;
+    color: #fff;
+    font-size: 15px;
+    top: 0.12rem;
+    overflow: hidden;
+    margin-right: 1.8rem;
+    border-radius: 6px;
+    position: relative;
+    margin-left: 0.1rem;
+}
+
+.view_goodslist .hasBackDiv {
+    margin-left: 0.86rem;
+}
+
+
+.main-searchinput input {
+    padding: 0;
+    position: absolute;
+    height: 0.58rem;
+    top: 0.04rem;
+    padding-left: 1px;
+    float: left;
+    width: 80%;
+    font-size: 14px;
+    border-style: none;
+    outline: none;
+    color: #fff;
+    display: inline-block;
+    background-color:#ef5722;
+}
+
+.main-imgSearch {
+    margin-left: 0.14rem;
+    margin-right: 0.1rem;
+    float: left;
+    margin-top: 0.14rem;
+    position: relative;
+    background-position: center;
+    background-size: 0.28rem;
+    background-repeat: no-repeat;
+    width: 0.38rem;
+    height: 0.38rem;
+}
+
+.main-imgClear {
+    background-size: 0.4rem;
+    width: 0.48rem;
+    height: 0.5rem;
+    alt: searchimg;
+    margin-left: -0.4rem;
+    margin-top: 0.14rem;
+    margin-right: 0.06rem;
+    float: right;
+    position: relative;
+    display: none;
+}
+
+.main-btnsearch {
+    float: right;
+    top: -0.6rem;
+    position: relative;
+    height: 0.8rem;
+    width: 1rem;
+    background: #efefef;
+    font-size: 14px;
+    border: 0;
+    text-align: center;
+    color: #686f76;
+    padding-top: 0.14rem;
+}
+
+    .main-btnsearch img {
+        height: 0.6rem;
+        width: 0.6rem;
+    }
+
+
+.view_goodslist .listdiv {
+    position: absolute;
+    top: 0.9rem;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    -webkit-transition: top .4s;
+    background-color: #F0EFF4;
+}
+
+.view_goodslist .hasCategory1 {
+    top: 1.72rem;
+}
+
+.view_goodslist .hasCategory2 {
+    top: 2.54rem;
+}
+
+.view_goodslist .hasBottom {
+    bottom: 1rem;
+}
+
+.bookPage .ullistType {
+    min-height: 100%;
+}
+
+    .bookPage .ullistType .hide {
+        display: none;
+    }
+
+    .bookPage .ullistType .show {
+        display: block;
+    }
+
+
+
+    .bookPage .ullistType > li {
+        border-bottom: 1px solid rgba(204, 204, 204, 0.3);
+        padding: 0.2rem;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .bookPage .ullistType .infoDiv {
+        position: relative;
+        height: 1.8rem;
+    }
+
+    .bookPage .ullistType .leftDiv {
+        position: absolute;
+        top: 0.06rem;
+        left: 0;
+        text-align: center;
+    }
+
+    .bookPage .ullistType .imgDiv {
+        height: 1.62rem;
+        width: 1.62rem;
+        vertical-align: middle;
+        display: table-cell;
+        border: 1px solid #ececec;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+
+        .bookPage .ullistType .imgDiv img {
+            max-width: 1.62rem;
+            max-height: 1.62rem;
+            margin: 0 auto;
+            vertical-align: middle;
+        }
+
+    .bookPage .ullistType .flagDiv {
+        position: absolute;
+        top: 0;
+        left: 0.06rem;
+        height: 0.34rem;
+    }
+
+    .bookPage .ullistType .leftDiv span {
+        float: left;
+        height: 0.34rem;
+        width: 0.3rem;
+        margin-left: 0.04rem;
+        background-repeat: no-repeat;
+        background-size: 0.3rem;
+        background-position: top;
+    }
+
+    .bookPage .ullistType .rightInfo {
+        padding-left: 1.84rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .bookPage .ullistType .name-detail {
+        -webkit-box-align: center;
+        display: -webkit-box;
+        height: 1.66rem;
+    }
+
+    .bookPage .ullistType .name {
+        font-size: 15px;
+        color: #363636;
+        display: -webkit-box;
+        line-height: 0.32rem;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .bookPage .ullistType .price {
+        font-size: 15px;
+        color: #ff6427;
+        margin-top: 0.03rem;
+    }
+
+    .bookPage .ullistType .stockLi {
+        font-size: 12px;
+        margin-top: 0.03rem;
+        color: #8b8b8c;
+        max-width: 65%;
+    }
+
+    .bookPage .ullistType .addBtn {
+        position: absolute;
+        right: 0;
+        bottom: 0.08rem;
+        background-size: 0.48rem;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 1.2rem;
+        height: 0.8rem;
+        /*display: none;*/
+    }
+
+    .bookPage .ullistType .count-bar {
+        position: absolute;
+        right: 0.2rem;
+        bottom: 0.38rem;
+        display: inline-block;
+    }
+
+    .bookPage .ullistType .add-icon, .minus-icon {
+        height: 0.66rem;
+        line-height: 0.66rem;
+        text-align: center;
+        display: inline-block;
+        width: 0.6rem;
+    }
+
+    .bookPage .ullistType .minus-icon .icon-m {
+        background-color: #fff;
+        color: #555;
+        border: 1px solid #ddd;
+        line-height: 0.36rem;
+    }
+
+    .bookPage .ullistType .icon-pm {
+        height: 0.4rem;
+        width: 0.4rem;
+        line-height: 0.4rem;
+        text-align: center;
+        background-color: #ff6427;
+        color: #fff;
+        display: inline-block;
+        border-radius: 50%;
+        box-sizing: border-box;
+        font-style: normal;
+    }
+
+    .bookPage .ullistType .count {
+        display: inline-block;
+        width: 0.64rem;
+        text-align: center;
+        height: 0.66rem;
+        vertical-align: top;
+        line-height: 0.66rem;
+        color: #646464;
+    }
+
+.btnAddtogwc {
+    background: #FF6427;
+    height: 0.6rem;
+    line-height: 0.6rem;
+    width: 2.2rem;
+    font-size: 13px;
+    color: #fff;
+    float: right;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.ullistType .title {
+    float: left;
+    width: 100%;
+    padding-top: 0px;
+    position: relative;
+}
+
+.img_goods {
+    float: left;
+    display: block;
+    margin: 0.2rem 0.2rem 0.18rem 0;
+    width: 1.6rem;
+    height: 1.6rem;
+    background: url(../css/img/no_img.png) no-repeat top left;
+}
+
+.emtext2 {
+    line-height: 0.3rem;
+    margin-bottom: 0.06rem;
+    position: relative;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-break: break-all;
+}
+
+.OuterID {
+    float: left;
+    text-align: left;
+    font-size: 14px;
+    color: #939393;
+    width: 100%;
+    display: block;
+}
+
+.OuterID1 {
+    float: left;
+    text-align: left;
+    font-size: 14px;
+    color: #939393;
+    width: 100%;
+    display: block;
+}
+
+.OuterID2 {
+    float: left;
+    text-align: left;
+    font-size: 14px;
+    color: #939393;
+    width: 50%;
+    display: block;
+}
+
+.submitOrder {
+    float: right;
+    text-align: left;
+    font-size: 12px;
+    color: #939393;
+    width: 2rem;
+    display: block;
+    padding-bottom: 0.04rem;
+    margin-top: 0px;
+}
+
+.OuterIDem {
+    margin-left: 8px;
+}
+
+.OuterIDem1 {
+    color: #FC9721;
+    margin-left: 8px;
+    font-size: 1.3em;
+}
+
+.kdimg-del {
+    background: url(../css/img/del.png) no-repeat top left;
+    background-size: 28px 28px;
+    width: 0.56rem;
+    height: 0.56rem;
+}
+
+.touch-li-background {
+    background-color: #cccccc;
+}
+
+#btnWeixinMsg {
+    position: relative;
+    height: 0.66rem;
+    line-height: 0.66rem;
+    width: 0.9rem;
+    text-align: center;
+    color: #969a9f;
+    margin-left: 0.06rem;
+    float: right;
+    top: 0;
+    background: #E7E8EA;
+    font-size: 15rem;
+    border: 0;
+    padding-top: 0.06rem;
+    margin-top: -0.52rem;
+    display: none;
+}
+
+.view_goodslist .category-wrap {
+    position: absolute;
+    display: none;
+    top: 0.9rem;
+    width: 100%;
+}
+
+.view_goodslist .imgrow {
+    border-bottom: 0 !important;
+    padding: 0 !important;
+}
+
+    .view_goodslist .imgrow .imgbox:nth-child(even) .imgul {
+        margin-left: 0.08rem;
+    }
+
+    .view_goodslist .imgrow .imgbox:nth-child(odd) .imgul {
+        margin-right: 0.08rem;
+    }
+
+.view_goodslist .imgbox {
+    width: 50%;
+    float: left;
+}
+
+.view_goodslist .imgul {
+    margin: 0.16rem 0.16rem 0 0.16rem;
+    padding: 0 0 0.12rem 0;
+    background: #ffffff;
+}
+
+.view_goodslist .imgboxDiv {
+    text-align: center;
+    display: block;
+    height: 2.96rem;
+    line-height: 2.96rem;
+    font-size: 0;
+}
+
+
+.view_goodslist .imgbox .footer {
+    font-size: 14px;
+}
+
+.view_goodslist .imgbox .image {
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0 auto;
+    vertical-align: middle;
+}
+
+
+.view_goodslist .imgbox .name {
+    font-size: 14px;
+    padding: 0.08rem 0.1rem 0 0.1rem;
+}
+
+.view_goodslist .imgbox .price {
+    display: inline-block;
+    width: 40%;
+    padding-left: 0.06rem;
+}
+
+.view_goodslist .imgbox .stockNum {
+    padding-left: 0.12rem;
+    font-size: 12px;
+}
+
+.view_goodslist .footer .icon-buy {
+    float: right;
+    height: 0.48rem;
+    width: 0.48rem;
+    margin: 0.1rem 0.32rem 0.12rem 0;
+    background-size: 0.48rem;
+}
+
+
+/*类目样式*/
+.view_goodslist .category-container > li:first-child {
+    -webkit-transform: translate(0, 0);
+    background-color: #fff;
+    z-index: 1;
+}
+
+.view_goodslist .div-category {
+    /*-webkit-transform: translate(0, -41.5px);*/
+    -webkit-transition-timing-function: linear;
+    -webkit-transition-duration: .3s;
+    width: 100%;
+    height: 0.8rem;
+    line-height: 0.8rem;
+    font-size: 14px;
+    position: relative;
+    border-bottom: 1px solid #ccc;
+    overflow: hidden;
+}
+
+
+    .view_goodslist .div-category .active {
+        color: #ff6427;
+        border-bottom:2px solid #ff6427;
+        box-sizing:border-box;
+        height: 0.8rem;
+    }
+
+    .view_goodslist .div-category li {
+        max-width: 1.7rem;
+        padding: 0 0.12rem;
+        margin-bottom: -1px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-transition-timing-function: ease-in-out;
+        -webkit-transition-duration: .3s;
+    }
+
+    .view_goodslist .div-category > ul {
+        display: -webkit-box;
+    }
+
+.view_goodslist .category-container > li:last-child.active::before {
+    display: none;
+}
+
+.view_goodslist .category-container > li:last-child.active::after {
+    display: none;
+}
+
+
+
+/*底部样式*/
+.view_goodslist .category-footer {
+    height: 1rem;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid #eee;
+    /*display: -webkit-box;*/
+    display: none;
+}
+
+
+    .view_goodslist .category-footer .icon-cart {
+        background-size: 0.72rem;
+        display: inline-block;
+        width: 0.72rem;
+        height: 0.72rem;
+        vertical-align: middle;
+    }
+
+    .view_goodslist .category-footer .span-cart-count {
+        background-color: #ff6427;
+        color: #fff;
+        border-radius: 50%;
+        position: absolute;
+        height: 0.4rem;
+        line-height: 0.4rem;
+        width: 0.4rem;
+        text-align: center;
+        font-size: 12px;
+        left: 0.68rem;
+        top: 0.12rem;
+    }
+
+    .view_goodslist .category-footer .left {
+        width: 1rem;
+        padding-left: 0.12rem;
+        line-height: 1rem;
+        font-size: 12px;
+    }
+
+    .view_goodslist .category-footer .right {
+        line-height: 1rem;
+        width: 2rem;
+        position: absolute;
+        right: 0;
+        font-size: 12px;
+    }
+
+    .view_goodslist .category-footer .center {
+        -webkit-box-flex: 1;
+        font-size: 16px;
+    }
+
+        .view_goodslist .category-footer .center > div {
+            padding-left: 0.28rem;
+        }
+
+
+.view_goodslist .input-submit {
+    border: none;
+    background-color: #ff6427;
+    color: #fff;
+    border-radius: 2px;
+    padding: 0.14rem 0.24rem;
+    margin-left: 0.24rem;
+    font-size: 14px;
+}
+
+@media (min-width: 481px) and (max-width: 999px) {
+    .view_goodslist .input-submit {
+        padding: 0.2rem 0.24rem;
+    }
+}
+
+.view_goodslist .category-footer .title {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.view_goodslist .title-main {
+    font-size: 14px;
+    color: #545454;
+    padding-left: 0.08rem;
+}
+
+.view_goodslist .title-remark {
+    font-size: 12px;
+    color: #777;
+}
+
+.view_goodslist .money {
+    line-height: 1rem;
+    color: #ff6427;
+}
+
+.view_goodslist .money-integer {
+    font-size: 18px;
+}
+
+.view_goodslist .money-decimal {
+    font-size: 14px;
+}
+
+.view_goodslist .list-bgcolor {
+    background-color: #ffffff !important;
+}
+
+
+.view_goodslist .hide-input {
+    display: none !important;
+}

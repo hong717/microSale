@@ -1,0 +1,125 @@
+.view_aboutPage {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    background: #f2f2f2;
+}
+
+.view_aboutPage > div {
+    min-height: 100%;
+    position: relative;
+}
+
+.view_aboutPage .header {
+    height: 2.7rem;
+    position: relative;
+    font-size: 16px;
+}
+
+.view_aboutPage .header div {
+    position: absolute;
+    bottom: 0.34rem;
+    text-align: center;
+    width: 100%;
+}
+
+.view_aboutPage .header div img {
+    max-width: 90%;
+    max-height: 1.16rem;
+}
+
+.view_aboutPage .content {
+    padding: 0 0.24rem;
+}
+
+.view_aboutPage .content .btnBar {
+    overflow: hidden;
+    margin-bottom: -0.04rem;
+    position: relative;
+    z-index: 6;
+}
+
+.view_aboutPage .content .btnBar span {
+    display: inline-block;
+    float: left;
+    line-height: 0.6rem;
+    padding: 0 0.2rem;
+    text-align: center;
+    font-size: 15px;
+    color: #363636;
+    border: 1px solid transparent;
+}
+
+.view_aboutPage .content .btnBar span:last-child {
+    display: none;
+}
+
+.view_aboutPage .aboutDiv {
+    border: 1px solid rgba(211, 213, 216, 0.6);
+    padding: 10px 12px;
+    background: #fff;
+    min-height: 4.6rem;
+}
+
+.view_aboutPage .aboutDiv iframe {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    min-height: 100%;
+    width: 100%;
+}
+
+.view_aboutPage .aboutDiv > div {
+    font-size: 14px;
+    color: #8b8b8c;
+}
+
+.view_aboutPage .aboutDiv span {
+    font-size: 14px;
+    color: #8b8b8c;
+    background: #fff;
+    display: block;
+    text-indent: 0.57rem;
+    line-height: 0.4rem;
+    margin-bottom: 0.14rem;
+}
+
+.view_aboutPage .footer {
+    padding: 0 0.24rem;
+    padding-top: 0.48rem;
+    padding-bottom: 0.2rem;
+    width: 100%;
+    font-size: 16px;
+}
+
+.view_aboutPage .footer span {
+    display: inline-block;
+    margin-bottom: 0.12rem;
+    color: #8b8b8c;
+    font-size: 14px;
+}
+
+.view_aboutPage .footer a {
+    color: #65c300;
+    text-decoration: none;
+    border-bottom: 1px solid #65c300;
+}
+
+.view_aboutPage .footer p {
+    display: block;
+    margin-bottom: 0.12rem;
+    font-size: 13px;
+    color: #8b8b8c;
+}
+
+.view_aboutPage .btn_touched {
+    background: #fff;
+    color: #65c000 !important;
+    border: 1px solid rgba(211, 213, 216, 0.6) !important;
+    border-bottom-color: #fff !important;
+}
+
+.view_aboutPage .call_touched {
+    color: #5bb000 !important;
+}

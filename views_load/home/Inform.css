@@ -1,0 +1,98 @@
+﻿.view_inform {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #F9F9F9;
+}
+
+.view_inform .inform-model {
+    padding: 0 0.24rem;
+    padding-bottom: 0.76rem;
+}
+
+.view_inform .inform-model li {
+    background-color: #fff;
+    position: relative;
+    padding: 0.4rem 0 0.22rem 0;
+    box-shadow: 0 1px 2px rgba(224, 224, 224, 0.8);
+    margin-top: 0.56rem;
+}
+
+.view_inform .inform-model li:before {
+    content: '';
+    position: absolute;
+    top: -0.32rem;
+    left: 50%;
+    margin-left: -0.32rem;
+    display: inline-block;
+    width: 0.64rem;
+    height: 0.64rem;
+    background: url('../../img/gonggao.png') no-repeat;
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABmJLR0QAAAAAAAD5Q7t/AAAACXBIWXMAAAsSAAALEgHS3X78AAAFJ0lEQVRo3t2bXWgcVRTHf3eyRorGNIRI06hYKqaQNGiCFWOSZhoV1FJpbSVV2oJURvCztolPbUl9sR95U3RQVFpF2tjmRYxU6qQhiVHcIqSKilbRSCM2NdkUUZJ0fLizze5ms7szO7N30x8sszu7987575mPe+49RxAQtqHfANQDdUA1sAyoABYD1zs/uwSMA+eBc8BZIAwMCtOaCMIu4bPICqAVWOeIDXnsagb4CjgBHBOm9VteCbYNvRFoBx4ECvwyzuEy0AMcFKZ1Wqlg29CbgQ6gyWeR8zEA7BamZeVUsG3o5cAB4AmvfWTJh8BOYVrnAxdsG/oG4G2gRIHQWCLAdmFaXYEItg29EOgEnlUsNJE3gB3CtP7zTbBt6EVAN9CiWt089AOPCNO6mLVg29DLkHfJOtWq0jAMtAjT+suzYNvQi4HPgLtUq3EhujHVoEVLIbYQ+eBfKGIBVgInHNvdCUbeoNaoVuCBNcgbWVKSntK2oT8KfKTa8izZKkzrSFrBtqEvAb5D/XM2WyaAKmFaf8TuTHZKH7oKxAIUO1riiBNsG3oT8LhqS+MoWgxP7YH9XVC9ym3rVtvQ48YOiR5+BTVj4+TUroY970BdMxSXwpY2L710xH64Is4J8fpUawSkV1ufl0ITedrTg0MXptUL8QF6u2qdgPTq5hekaP9oA3rB8bBt6DcBv+J/8J45qbwaizcPTwM3C9MajV7DjykVG3utBkMIGbtfOaXXe+vmGmlkTT3cWglFJVB4bY7/rYzZCHQKZ3ZxDLcTbpV3wtY2KF2SW7O9ndIgJwbLQsDdrsXe0SCfjQUhGB6CgU/g959gYgymp1K3ffPzuYZH9wVLAVAfAmpdNSsuhW0vg1YAhw/CYE8ujPWLOg2odNVEXw+LrpNeXVhiAao04HZXTWrq5bb/Y9XGe2G5BpS7anJjhdyOnFNtvBfKNaDIVRORP0NtD5RozC5sZcafI3K7dJlq472wSMNtdHR2SG4bH1ZtvBemNWDSVZNTx+Hff6BhLaxep1qAWy65FzwxBu+9CpdnYPOLsKMTVrVA2dJ8HlZGiQjb0PuBe103XVELW3YtpKElQFgDfvTU9PszsHeb9PaZrJdtc8XPIeAHz82np2DopHylGiOn80pds4yF/Q36k/GtBnwT9FHSEu6FfU9COPAzJawBXyBDJ7VMjsNbHfI1OR7EEWaAQU2YVsQRnR+ETwfl7a+Faf0dneLpVq0zjvm8HUm7/JuKLpidlz5GPpzWicR6e/yCjL+9MQ18AM5MhzCtEdvQe4C1qjXOIert7DgpTGsU4lceDvhi4G0r5XZ5dc7/mxR0Rt/EBQ62ofcBjZ663N8lp38SiVyE9o0qxQ4I02qIfkhcW9oN2J66PXJo7k0lu+vOL/bGfki2Pvw+zqT1VcBRYVqtsTuSrQ/vQma4LnQiwM7EnXMEO3ez7aqt9YHnElf/kwp2RB8HXldtcRa8K0zrcLIvUmXxvATkZEnAZ74Enpnvy0wS0/qAGtUqMiRtNl4qD+NktN2HTMvPd4aBB9KlHmrpenE60IFTqhWloB+Z1jCa7odpBTuiJ4GHgNdUK0uCCdwvTGssIy1ue7cNfZNzENW5XJ4SxDPycCzOAapwwi1FHAVWuBUL/hR57MNrwOGeQWSRh+fHpV9lPE3I1KCgyng+RZbx9Gbbmd+FWrcAm4ANyFQKr+KjhVrdyAAgvwq15hFfDNyDLB2oQZbilTNbijfFbCneBeAXZkvxBoIqxfsfC51scemyNs4AAAAASUVORK5CYII=') no-repeat;
+    background-position: center;
+    background-size: 0.6rem;
+    background-color: transparent;
+    border-radius: 50%;
+}
+
+.view_inform .inform-model p {
+font-size: 13px;
+color: #515151;
+width: 100%;
+height: 100%;
+text-align: center;
+position: relative;
+height: 0.6rem;
+padding-top: 0.1rem;
+}
+
+.view_inform .inform-model p .title {
+    border-bottom: 1px dashed #ff6741;
+    padding: 0rem 0.6rem 0rem 0.6rem;
+    height: 0.6rem;
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.view_inform .inform-model p .dot {
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    width: 0.72rem;
+    height: 3px;
+    background-color: #fff;
+    margin-left: -0.36rem;
+    z-index: 2;
+}
+
+.view_inform .inform-model p .dot i {
+    height: 3px;
+    width: 3px;
+    border-radius: 50%;
+    background-color: #ff6741;
+    display: inline-block;
+    margin: 0 0.05rem;
+    vertical-align: top;
+}
+
+.view_inform .inform-model .pre {
+    box-sizing: border-box;
+    font-size: 12px;
+    color: #787878;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    word-break: break-all;
+    padding: 0.3rem 0.22rem 0.18rem 0.22rem;
+}
+
+.view_inform .desc-img {
+    background-image: url('img/loading.png');
+    background-repeat: no-repeat;
+    background-position: 50%;
+    display: block;
+    max-width: 100%;
+    text-align: center;
+    margin-top: 0.1rem;
+}

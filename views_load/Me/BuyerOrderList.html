@@ -1,0 +1,43 @@
+﻿<!--我的买家订单begin-->
+<div class="view-buyer-order-list" id="view-buyer-order-list" style="display: none">
+    <!--on类表示选中此项时的样式-->
+
+    <ul class="select-way">
+        <li data-cmd="li" class="on" data-index="0"><span>全部</span></li>
+        <li data-cmd="li" data-index="1"><span>已支付</span></li>
+        <li data-cmd="li" data-index="2"><span>未支付</span></li>
+    </ul>
+
+    <div id="buyerorderlist_listwrap0" class="buyerorderlist">
+        <!--wechat-pay类为微信支付，card-pay为储值卡支付时样式-->
+        <ul class="list" id="buyerorderlist_list0">
+            <!--<li class="{paystyle}" index={index} billid={billid} >
+                        <div data-cmd ="buyer-orderlistdetail" index={index}>
+                            <p class="order-num">
+                                <span>{billno}</span>
+                                <span class="order-state">{status}</span>
+                            </p>
+                            <p class="message">
+                                <span>{time}</span>
+                                <span class="count">￥{money}（{num}件）</span>
+                            </p>
+                        </div>
+
+                        <div index={index} >
+                            <p class="state" ><span data-cmd="buyer-orderliststate" index={index} >订单状态</span></p>
+                        </div>
+                        <div class="line">
+                            <img src="img/kdpx.gif" class="lineb sprite-lineb">
+                        </div>
+            </li>-->
+
+        </ul>
+    </div>
+    <div id="buyerorderlist_listwrap1" class="buyerorderlist">
+        <ul class="list" id="buyerorderlist_list1"></ul>
+    </div>
+    <div id="buyerorderlist_listwrap2" class="buyerorderlist">
+        <ul class="list" id="buyerorderlist_list2"></ul>
+    </div>
+</div>
+<!--我的买家订单end-->

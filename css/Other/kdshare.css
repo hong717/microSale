@@ -1,0 +1,413 @@
+﻿.keyboard {
+    color: #000000;
+    text-align: center;
+    width: 100%;
+    background: #f5f5f5;
+    position: absolute;
+    left: 0;
+    z-index: 100;
+    display: block;
+    -webkit-box-sizing: border-box;
+}
+
+.keyboard .rowhead {
+    height: 0.9rem;
+    line-height: 0.9rem;
+    color: #363636;
+    padding: 0 2%;
+}
+
+.keyboard .rowhead .input {
+    color: #FF6427;
+}
+
+.keyboard .rowhead .name {
+    display: inline-block;
+    width: 30%;
+    float: left;
+    text-align: left;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #343434;
+    font-size: 16px;
+}
+
+.keyboard .rowhead .input {
+    display: inline-block;
+    float: left;
+    font-size: 24px;
+    width: 40%;
+    text-align: center;
+}
+
+.keyboard .rowhead .ok {
+    display: inline-block;
+    float: right;
+    font-size: 19px;
+}
+
+.keyboard .rowhead .ok span {
+    padding: 0.1rem 0.4rem;
+}
+
+.keyboard .rowbody {
+    width: 100%;
+    background: #F9FBFA;
+}
+
+.keyboard .row {
+    height: 0.9rem;
+    line-height: 0.9rem;
+    border-top: 1px solid rgba(221, 221, 221, 0.6);
+}
+
+.keyboard .row:last-child {
+    border-bottom: 0;
+}
+
+.keyboard .row .btnkey {
+    display: inline-block;
+    width: 34%;
+    float: left;
+    height: 0.9rem;
+    color: #363636;
+    font-size:24px;
+}
+
+.keyboard .row .btnkey:first-child {
+    width: 33%;
+}
+
+.keyboard .row .btnkey:last-child {
+    width: 33%;
+    border-right: 0;
+}
+
+.keyboard .btnkey span {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    border-right: 1px solid #dddddd;
+    font-size: 24px;
+}
+
+.keyboard .btnkey .clear1 {
+    background: #C1C4C9;
+    height:100%;
+}
+
+.keyboard .btnkey .clear1 img {
+    width: 100%;
+    height: 0.9rem;
+    background-repeat: no-repeat;
+    background-size: 0.5rem;
+    background-position: center;
+}
+
+.msgNumHint {
+    position: absolute;
+    top: 0.14rem;
+    left: 0.32rem;
+    width: 0.3rem;
+    height: 0.3rem;
+    line-height: 0.32rem;
+    text-align: center;
+    color: #fff;
+    font-size: 12px;
+    border-radius: 0.2rem;
+    background: #ff5656;
+}
+
+.msgNumHint2 {
+    position: relative;
+    top: 0.66rem;
+    left: 0.3rem;
+    width: 0.3rem;
+    height: 0.3rem;
+    line-height: 0.3rem;
+    text-align: center;
+    color: #fff;
+    font-size: 12px;
+    border-radius: 0.2rem;
+    background: #ff5656;
+    margin-top: -0.4rem;
+}
+
+.chatapp {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+
+}
+
+#div-chatiframe {
+    position: absolute;
+    top: 0px;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    left: 0;
+
+}
+
+.onclick {
+    background-color: #D9DADB !important;
+}
+
+.hintflag {
+    padding: 0.2rem 0;
+    text-align: center !important;
+    border-bottom: 0 !important;
+}
+
+.spacerow {
+    width: 100%;
+    height:1.2rem;
+    border-bottom: 0 !important;
+}
+
+.toolbar {
+    display: -webkit-box;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    background: #F1F1F1;
+    height: 0.86rem;
+    border-bottom: solid 1px rgba(204, 204, 204, 0.6);
+    font-weight: bold;
+}
+
+.docked-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    font-size:16px;
+}
+
+.titlefont {
+    font-size: 16px;
+    color: #2E343D;
+}
+
+input {
+    -webkit-appearance: none;
+    border-radius: 0;
+    font-family:'Microsoft YaHei';
+}
+
+input:disabled{
+    opacity: 1 !important;
+}
+
+.clearfloat {
+    clear: both;
+}
+
+.divMask {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.wxShareMark {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: #000000;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0.8;
+    z-index: 100;
+    background-repeat: no-repeat;
+    background-position: center 0.6rem;
+    background-size: 4.4rem;
+
+}
+
+.wxShareMark span {
+    color: #ffffff;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    margin-top: 40%;
+    font-size: 22px;
+}
+
+.divlistMark {
+    position: absolute;
+    bottom: 0;
+    background: #000;
+    opacity: 0.4;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.keyboardMark {
+    position: absolute;
+    bottom: 50px;
+    background: #000000;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    opacity: 0.4;
+}
+
+.keyboardMarkImg {
+    position: absolute;
+    bottom: 50px;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+}
+
+.emptySearch {
+    background: #fff;
+    height: 20rem;
+    font-size: 12px;
+}
+
+.emptySearch img {
+    width: 1.6rem;
+    height: 1.6rem;
+    position: relative;
+    left: 50%;
+    margin-left: -0.8rem;
+    margin-top: 1.64rem;
+}
+
+.emptySearch span {
+    display: inline-block;
+    position: relative;
+    top: 0.5rem;
+    width: 100%;
+    font-size: 17px;
+    color: #909498;
+    text-align: center;
+}
+
+.kdShare-show_loading {
+    background-color: #fff !important;
+}
+
+.mutilPrice {
+    width: 100%;
+    position: relative;
+    background: url('img/priceLine.png') no-repeat;
+    background-size: 100%;
+    background-position: center;
+}
+
+.mutilPrice .singlePrice {
+    width: 30%;
+    background: url('img/priceDot.png') no-repeat;
+    background-size: 16px;
+    background-position: center;
+    text-align: center;
+    float: left;
+}
+
+.mutilPrice .price {
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    color: #ff4b4b;
+    font-size: 16px;
+}
+
+.mutilPrice .number {
+    display: block;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    color: #696969;
+    font-size: 14px;
+}
+
+.mutilPrice .clearDiv {
+    clear: both;
+}
+
+.isPC_Html {
+    position: relative;
+    height: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.5);
+    font-size:95px!important;
+}
+
+.isPC_Html .view-pay-code .detail img{
+    height:2.8rem;
+    width:2.8rem;
+    margin-top:1rem;
+}
+
+.redBtn_touched {
+    color: #fff !important;
+    background-color: #ff6427 !important;
+}
+
+.grayBtn_touched {
+    color: #fff !important;
+    background-color: #8c9093 !important;
+}
+
+.kd_fullRedBtn_touched {
+    background-color: #ef5215 !important;
+}
+
+
+.kdMsgHint {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    bottom: 90px;
+    height: 40px;
+    line-height: 40px;
+    -webkit-animation: animation_msghint 300ms;
+    z-index: 1000;
+}
+
+@-webkit-keyframes animation_msghint {
+    from {
+        bottom: 0px;
+    }
+    to {
+        bottom: 90px;
+    }
+}
+
+.kdMsgHint span {
+    display: inline-block;
+    opacity: 0.65;
+    background: #000;
+    line-height: 33px;
+    padding: 0 20px 0 20px;
+    color: #ffffff;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+
+.popMenuShare{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    z-index: 3;
+ }
+
+.popMenuShare img {
+    vertical-align: middle;
+    width: 30px;
+    height: 30px;
+}

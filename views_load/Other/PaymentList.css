@@ -1,0 +1,179 @@
+.view_paymentList {
+    display: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.view_paymentList .headtab {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 0.88rem;
+    width: 100%;
+    background: #FFFFFF;
+    border-bottom: 1px solid #DADADA;
+    font-size: 14px;
+}
+
+.view_paymentList .headtab .tab{
+    width: 33.333%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0;
+    position: relative;
+    float: left;
+    color: #686f76;
+}
+
+.view_paymentList .headtab .tab .name{
+    display: block;
+    width: 100%;
+    border-right: 1px solid #b6b6b6;
+    text-align: center;
+    margin-top: 0.24rem;
+    font-size: 16px;
+}
+
+.view_paymentList .headtab .tab .last {
+    border-right: none !important;
+}
+.view_paymentList .headtab  .lineb {
+    width: 100%;
+    height: 0.04rem;
+    background: #FF7E56;
+    position: absolute;
+    bottom: -0.02rem;
+    display: none;
+}
+
+.view_paymentList .paymentlist {
+    position: absolute;
+    width: 100%;
+    font-size:20px;
+    top:0.9rem;
+    bottom: 0.88rem;
+    overflow: hidden;
+}
+
+.view_paymentList .paymentlistul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: relative;
+    background: #f0f0f0;
+    clear: both;
+}
+
+.view_paymentList .paymentlistul li {
+    background: #fff;
+}
+
+
+
+.view_paymentList  .line {
+    width: 100%;
+    height: 0.42rem;
+    line-height: 0.42rem;
+}
+
+.view_paymentList  .line img {
+    width: 100%;
+    height:0.22rem;
+}
+
+.view_paymentList  .line img.lineb {
+    background: url('img/lineb.png') no-repeat;
+    background-size: 100% 0.22rem;
+}
+
+.view_paymentList .pay_Item {
+    padding: 0.2rem 0 0.1rem 0;
+    position: relative;
+    background: #fff;
+    border-bottom: 1px solid rgba(204, 204, 204, 0.5);
+}
+
+.view_paymentList .pay_Info {
+    padding: 0 0.3rem;
+}
+
+.view_paymentList .pay_Info .pay_No {
+    color: #363636;
+    font-size: 15px;
+    padding-bottom: 0.12rem;
+}
+
+.view_paymentList .pay_Info .pay_Money {
+    color: #808080;
+    font-size: 14px;
+    padding-bottom: 0.16rem;
+}
+
+.view_paymentList .pay_Info .pay_Money span {
+    color: #FF6427;
+    font-size: 15px;
+    padding-bottom: 0.16rem;
+}
+
+.view_paymentList .pay_Info .pay_Date {
+    color: #898f95;
+    font-size: 14px;
+    padding-bottom: 0.1rem;
+}
+
+.view_paymentList .pay_Item .pay_State {
+    position: absolute;
+    top: 0;
+    right: 0.2rem;
+    padding-right: 1rem;
+    display: table;
+    height: 4em;
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 0.55em;
+}
+.view_paymentList .pay_Item .pay_State span {
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 16px;
+}
+.view_paymentList .checking {
+    color: #ef433f;
+}
+.view_paymentList .checked {
+    color: #7AC376;
+}
+.view_paymentList .lost {
+    color: #A9A9A9;
+}
+
+.view_paymentList .footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    height: 0.88rem;
+    background-color: #FAFAFA;
+    border-top: 1px ridge rgba(204, 204, 204, 0.6);
+    padding: 0.14rem 0.3rem;
+    box-sizing: border-box;
+}
+
+.view_paymentList .footer span {
+    font-size: 14px;
+    height: 0.6rem;
+    line-height: 0.6rem;
+    display: inline-block;
+    border-radius: 0.1rem;
+    background-color: #FF6427;
+    color: #fff;
+    position: relative;
+    width: 100%;
+}
+
+.view_paymentList .addNo_Touched {
+    background-color: #ef5215 !important;
+}
