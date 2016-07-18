@@ -13,7 +13,6 @@
         })();*/
 
     //开始
-
     (function () {
 
         if (kdAppSet.isPcBrower()) {
@@ -106,7 +105,8 @@
 
         }
 
-        var custCssEidList = ['2467638', '2193738', '4391056'];
+
+        var custCssEidList = ['2467638', '2193738', '4391056','4547956'];
         //var custJsEidList = ['4391056'];
 
         function loadCustFile(eid) {
@@ -139,7 +139,7 @@
 
                 Lib.API.get('GetUserInfos', para,
                     function (data, json) {
-                        //kdAppSet.setKdLoading(false);
+                        kdAppSet.setKdLoading(false);
                         checkVersion(data.apiversion);
                         dealUserInfo(data);
 
@@ -249,6 +249,11 @@
                     offlinesubpay: MiniQuery.Object.clone(data.offlinesubpay) || [],
                     fetchstylelist: MiniQuery.Object.clone(data.fetchstylelist) || [],
                     taglist: MiniQuery.Object.clone(data.taglist) || [],
+                    //商品列表快速录入
+                    quickInput:1,
+                    //订单发货方式
+                    sendList: MiniQuery.Object.clone(data.sendList) || [],
+                    sendPara: MiniQuery.Object.clone(data.sendpara),
                     cmpInfo: {
                         name: otherPara.signshortname,
                         phone: otherPara.signtel,
@@ -580,7 +585,7 @@
                 getUserInfo();
             }
         } else {
-            if (!kdShare.is_chromebrower()) {
+            if (!kdShare.is_chromebrower() && !kdAppSet.getAppParam().isdebug) {
                 jAlert("请在谷歌浏览器中使用微商城轻应用!", "", function () {
                     var chromeUrl = 'http://rj.baidu.com/soft/detail/14744.html';
                     window.location.href = chromeUrl;
