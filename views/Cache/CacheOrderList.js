@@ -1,10 +1,10 @@
 /*购物车 订单显示界面*/
+
 var CacheOrderList = (function () {
 
     var div,
         scroller,
         samples,
-        sampleStore,
         cacheOrderList_ul,
         goodsListArr,
         bsummiting,
@@ -14,18 +14,20 @@ var CacheOrderList = (function () {
         viewPage,
         payInfo,
         promptTxt,
-        isOutInStore, //是否门店自提
-        isNeedInvoice,//是否需要发票
+    //isOutInStore, //是否门店自提
+    //isNeedInvoice,//是否需要发票
         privilegeInfo,
-        storeInfo,//自提门店信息
+    //storeInfo,//自提门店信息
         billInfo,//单据信息 金额
         enablePoints,//是否允许积分兑换
         billPoint,//本单积分
-        hasInit,
-        lng = 0,
-        lat = 0;
+        hasInit;
     var deliverway = 0;//交货方式
     var deliverList = [];
+
+    var SendListInfo;
+    var storeSendFreight = 0;
+
     //初始化视图
     function initView() {
         if (!hasInit) {
@@ -53,20 +55,17 @@ var CacheOrderList = (function () {
                     outer: '{rowsli}'
                 }
             ]);
-            var storeTemplate = document.getElementById('cacheOrderList_store_view').innerHTML;
-            sampleStore = $.String.between(storeTemplate, '<!--', '-->');
+
             bsummiting = false;
             billId = 0;
             billInfo = {};
             viewPage = $(div);
             initAddressInfo();
             initInvoiceInfo();
-            initStore();
-            bindEvents();
+
             // 备注信息栏获取焦点
             promptTxt = '请在此处输入要备注的信息';
-            isOutInStore = false;
-            isNeedInvoice = false;
+
             $('.view_cacheOrderList .editgoods img').attr('src', 'img/edit_img.png');
             $('.view_cacheOrderList .add_goods img').attr('src', 'img/add_img.png');
             var identity = kdAppSet.getUserInfo().identity;
@@ -80,22 +79,27 @@ var CacheOrderList = (function () {
             if (kdAppSet.getUserInfo().allowoutinstore == 0) {
                 $('#cacheOrderList_store').css({ 'visibility': 'hidden' });
             }
-            setInvoiceView();
+
             setWxCardInfo();
             deliverList = kdAppSet.getUserInfo().fetchstylelist;
             if (deliverList.length <= 1) {
                 setDeliverway(deliverList);
             }
+            sendListInfo = CacheOrderList_Send;
+            sendListInfo.render({
+                scroller: scroller,
+                viewPage: viewPage,
+                fn: refreshFreight,
+                addr: addressInfo
+            });
+            bindEvents();
             hasInit = true;
         }
     }
 
-    function refreshPayBtn(billMoney){
-        if (kdAppSet.getIsShowPrice() && billMoney>0) {
-            $('#getlistbill')[0].innerText = '立即付款';
-        } else {
-            $('#getlistbill')[0].innerText = '查看订单';
-        }
+    function refreshPayBtn(billMoney) {
+        var b = (kdAppSet.getIsShowPrice() && billMoney > 0);
+        $('#getlistbill')[0].innerText = b ? '立即付款' : '查看订单';
     }
 
     //设置微信卡券是否显示
@@ -106,67 +110,6 @@ var CacheOrderList = (function () {
         } else {
             wxCard.show();
         }
-    }
-
-    function initStore() {
-        var date = new Date();
-        //用户自定义取货时间
-        var laydate = kdAppSet.getUserInfo().cmpInfo.outinstoretakedelaydate;
-        var newDate = new Date(date.setDate(date.getDate() + laydate));//加上延时收货时间
-        var currentdate = newDate.getFullYear() + "-" + ((newDate.getMonth() + 1) < 10 ? "0" : "") + (newDate.getMonth() + 1) + "-" + (newDate.getDate() < 10 ? "0" : "") + newDate.getDate();
-        storeInfo = {
-            newDate: newDate,
-            date: currentdate,
-            id: 0
-        };
-    }
-
-    function fillStore() {
-
-        $('#cacheOrderList_store_view')[0].innerHTML = $.String.format(sampleStore, {
-            'store': storeInfo.store || '选择门店',
-            'address': storeInfo.address || '',
-            'date': storeInfo.date
-        });
-        setTimeout(function () {
-            var dateStore = viewPage.find('[data-cmd="date"]');
-            initDate(dateStore, {
-                'onSelect': function () {
-                    storeInfo.date = dateStore.val();
-                }
-            });
-        }, 50);
-    }
-
-    function initDate(dateCtrl, event) {
-        var fn = function () {
-        };
-
-        var startDate = $.Date.format(storeInfo.newDate, "yyyy-MM-dd").split("-");
-        var minDate = new Date(startDate[0], startDate[1] - 1, startDate[2], 00, 00, 00);
-        //初始化日期控件
-        var maxDate = new Date(2020, 12, 30, 23, 59, 59);
-        dateCtrl.mobiscroll().date({
-            'theme': 'android-ics',
-            'lang': 'zh',
-            'maxDate': maxDate,
-            'minDate': minDate,
-            'display': 'bottom',
-            'mode': 'scroller',
-            'dateFormat': "yy-mm-dd",
-            'inputDateFormat': "yy-mm-dd",
-            'showLabel': false,
-            'dateOrder': 'yymmdd',
-            'cancelText': "取消",
-            'setText': "确定",
-            'rows': 5,
-            //点击确定按钮，触发事件。
-            'onSelect': event.onSelect || fn,
-            //当时间选择的内容发生变化触发的事件
-            'onChange': event.onChange || fn,
-            //点击取消按钮触发的事件
-            'onCancel': event.onCancel || fn
-        });
     }
 
     //初始化收货地址 以及发票信息
@@ -235,21 +178,29 @@ var CacheOrderList = (function () {
     }
 
     function bindEvents() {
+
+        viewPage.delegate('[data-cmd="send-list"] li', {
+            'click': function () {
+
+                caculateFreight();
+            }
+        });
+
         //经销商选择交货方式
         viewPage.delegate('[data-cmd="manage"]', {
-            'click': function () {
-                var identity = kdAppSet.getUserInfo().identity;
-                if (deliverList.length > 1 && (identity == "manager" || identity == "buyer"))
-                    jSelect.showSelect({
-                        title: "交货方式",
-                        data: deliverList,
-                        onselect: onSelect(),
-                        fnselect: function (data) {
-                            setDeliverway(data);
-                        }
-                    });
+                'click': function () {
+                    var identity = kdAppSet.getUserInfo().identity;
+                    if (deliverList.length > 1 && (identity == "manager" || identity == "buyer"))
+                        jSelect.showSelect({
+                            title: "交货方式",
+                            data: deliverList,
+                            onselect: onSelect(),
+                            fnselect: function (data) {
+                                setDeliverway(data);
+                            }
+                        });
+                }
             }
-        }
         );
 
         //刷新购物车列表 处理库存不足
@@ -329,7 +280,7 @@ var CacheOrderList = (function () {
         });
 
         //选择收货地址
-        viewPage.delegate('.liaddress', {
+        viewPage.delegate('.userMsgDiv', {
             'click': function () {
                 MiniQuery.Event.trigger(window, 'toview', ['AddressList', {
                     mode: 'select',
@@ -377,52 +328,6 @@ var CacheOrderList = (function () {
         });
 
 
-        //选择门店
-        viewPage.delegate('[data-cmd="store-select"]', {
-            'click': function () {
-                if (lng == 0 && lat == 0) {
-                    kdAppSet.setKdLoading(true, '正在加载...');
-                    Gaode.getlocation(function (data) {
-                        kdAppSet.setKdLoading(false);
-                        if (data.type == "complete") {
-                            lng = data.position.getLng(),
-                            lat = data.position.getLat()
-                        }
-                        goTostore();
-                    });
-                } else {
-                    goTostore();
-                }
-
-            },
-            'touchstart': function () {
-                $(this).addClass('address_touched');
-            },
-            'touchend': function () {
-                $(this).removeClass('address_touched');
-            }
-        });
-
-        //快递收货
-        viewPage.delegate('#cacheOrderList_express', {
-            'click': function () {
-                //显示发票信息
-                setInvoiceView(true);
-                changeExpressMode(true);
-            }
-        });
-
-        //门店自提
-        viewPage.delegate('#cacheOrderList_store', {
-            'click': function () {
-                //隐藏发票信息
-                setInvoiceView(false);
-                changeExpressMode(false);
-                //如果只有一个门店 则自动选择
-                setOneStore();
-            }
-        });
-
         //微信卡券
         viewPage.on({
             'click': function (event) {
@@ -464,19 +369,8 @@ var CacheOrderList = (function () {
             }
         }, '#cacheOrderList_wxCard');
 
-        //需要发票
-        viewPage.delegate('#cacheOrderList_invoice_on', {
-            'click': function () {
-                changeInvoiceMode(true);
-            }
-        });
 
-        //不需要发票
-        viewPage.delegate('#cacheOrderList_invoice_off', {
-            'click': function () {
-                changeInvoiceMode(false);
-            }
-        }).delegate('[data-cmd="expoint"]', {
+        viewPage.delegate('[data-cmd="expoint"]', {
             //是否使用积分兑换
             'click': function () {
                 enablePoints = Number(!enablePoints);
@@ -504,7 +398,7 @@ var CacheOrderList = (function () {
         $('#getlistbill').bind('click', function () {
             freshListView([]);
             var billMoney = payInfo.billmoney + payInfo.freight;
-            if (kdAppSet.getIsShowPrice() && billMoney>0) {
+            if (kdAppSet.getIsShowPrice() && billMoney > 0) {
                 toPayView();
             } else {
                 MiniQuery.Event.trigger(window, 'toview', ['Orderlist', { item: "" }]);
@@ -526,8 +420,6 @@ var CacheOrderList = (function () {
                 }
             }
         });
-        //日期点击效果控制
-        $('#orderReceiveDate').on(kdShare.clickfnIcon($('#orderReceiveDate'), 'date', 'date_s'));
 
         viewPage.delegate('.btn-freightRule', 'click', function () {
             MiniQuery.Event.trigger(window, 'toview', ['FreightRule']);
@@ -541,21 +433,6 @@ var CacheOrderList = (function () {
 
     }
 
-    function goTostore() {
-        MiniQuery.Event.trigger(window, 'toview', ['StoreList', {
-            'lng': lng,
-            'lat': lat,
-            'selectId': storeInfo.id,
-            'fnselect': function (data) {
-                $.Object.extend(storeInfo, {
-                    id: data.id,
-                    store: data.name,
-                    address: data.address
-                });
-                fillStore();
-            }
-        }]);
-    }
 
     //获取能积分兑换商品的金额
     function getPointMoney() {
@@ -571,117 +448,11 @@ var CacheOrderList = (function () {
         return sumMoney;
     }
 
-    //设置只有一个门店的情况
-    function setOneStore() {
-        var user = kdAppSet.getUserInfo();
-        var one = user.oneStore;
-        if (one && !storeInfo.id) {
-            $.Object.extend(storeInfo, {
-                store: one.name,
-                address: one.address,
-                id: one.id
-            });
-            fillStore();
-        }
-    }
-
-    //设置发票信息是否可见
-    function setInvoiceView(bview) {
-        //判断后台参数 是否允许选择发票
-        var setting = kdAppSet.getUserInfo().cmpInfo;
-        var aview = false;
-        if (setting.allowChooseInvoice) {
-            aview = true;
-        }
-        if (bview == undefined) {
-            bview = aview;
-        } else {
-            bview = bview && aview;
-        }
-        var invoice = $('#cacheOrderList_invoice');
-        var invoiceView = $('#cacheOrderList_invoice_view');
-
-        if (bview) {
-            invoice.show();
-            //hong
-            if (isNeedInvoice) {
-                invoiceView.show();
-            } else {
-                invoiceView.hide();
-            }
-        } else {
-            invoice.hide();
-            invoiceView.hide();
-        }
-        scroller && scroller.refresh();
-    }
-
-    //更改送货方式
-    function changeExpressMode(isExpress) {
-        var liaddress = $('#cacheOrderList_liaddress');
-        var listore = $('#cacheOrderList_store_view');
-        var SendMode = $('#cacheOrderList_SendMode');
-        var express = $('#cacheOrderList_express');
-        var store = $('#cacheOrderList_store');
-
-        if (isExpress) {
-            isOutInStore = false;
-            SendMode.removeClass('borderBottom');
-            express.addClass('sprite-style-on');
-            store.removeClass('sprite-style-on');
-            liaddress.addClass('borderBottom');
-            liaddress.show();
-            listore.hide();
-        } else {
-            isOutInStore = true;
-            SendMode.addClass('borderBottom');
-            express.removeClass('sprite-style-on');
-            store.addClass('sprite-style-on');
-            liaddress.hide();
-            listore.show();
-            fillStore();
-        }
-        caculateFreight();
-        checkOverseaGoods();
-        scroller.refresh();
-    }
-
-    //是否需要发票
-    function changeInvoiceMode(needInvoice) {
-
-        var liinvoice = $('#cacheOrderList_invoice_view');
-        var invoice = $('#cacheOrderList_invoice');
-        var invoice_on = $('#cacheOrderList_invoice_on');
-        var invoice_off = $('#cacheOrderList_invoice_off');
-
-        if (needInvoice) {
-            isNeedInvoice = true;
-            invoice.removeClass('borderBottom');
-            invoice_on.addClass('sprite-style-on');
-            invoice_off.removeClass('sprite-style-on');
-            liinvoice.addClass('borderBottom');
-            liinvoice.show();
-        } else {
-            isNeedInvoice = false;
-            invoice.addClass('borderBottom');
-            invoice_on.removeClass('sprite-style-on');
-            invoice_off.addClass('sprite-style-on');
-            liinvoice.hide();
-        }
-        scroller.refresh();
-
-    }
-
     //检测单据是否能提交
     function checkBillCanSubmit() {
         var identity = kdAppSet.getUserInfo().identity;
-        /*        if (deliverList.length > 1 && (identity == "manager" || identity == "buyer")) {
-                    if (deliverway == 0) {
-                        jAlert("请选择交货方式!");
-                        return false;
-                    }
-                }*/
-        if (!isOutInStore) {
+        var sendid = sendListInfo.getContext().sendId;
+        if (sendid == 0 || sendid == 2) {
             if (addressInfo.address == "") {
                 jAlert("收货地址不能为空,请修改!");
                 return false;
@@ -690,8 +461,10 @@ var CacheOrderList = (function () {
                 jAlert("收货地址中 省,市,区都不能为空,请修改!");
                 return false;
             }
-        } else {
-            //门店提货
+        }
+        if (sendid == 1 || sendid == 2) {
+            //门店提货 或者门店配送
+            var storeInfo = sendListInfo.getContext().storeInfo;
             var today = kdShare.getToday();
             if (storeInfo.date < today) {
                 jAlert("提货日期不能小于今天!");
@@ -703,7 +476,6 @@ var CacheOrderList = (function () {
                 return false;
             }
         }
-
 
         var display = $('#cacheOrderList_identity').css("display");
         if (display != 'none') {
@@ -761,8 +533,8 @@ var CacheOrderList = (function () {
         var user = kdAppSet.getUserInfo();
         if (user.identity == 'retail') {
             $('#summitOrder').hide();
-            CacheOrderList_Retail.getPromotion(data, scroller, function(point){
-                billPoint=point;
+            CacheOrderList_Retail.getPromotion(data, scroller, function (point) {
+                billPoint = point;
                 caculateFreight();
             }, billInfo, points);
             $('.view_cacheOrderList [data-cmd="totalHead"]').show();
@@ -793,18 +565,18 @@ var CacheOrderList = (function () {
                 attrsum: attrsum + item.unitname,
                 attrsumMoney: kdAppSet.getRmbStr + kdAppSet.formatMoneyStr(attrsumMoney),
                 'rows': $.Array.map([""], function (row) {
-                    return $.String.format(samples['row'], {
-                        'rowsli': $.Array.map(attrList, function (row) {
-                            return $.String.format(samples['rowli'], {
-                                attrname: row.name,
-                                attrprice: kdAppSet.getRmbStr + kdAppSet.formatMoneyStr(row.price),
-                                num: row.num,
-                                money: kdAppSet.getRmbStr + kdAppSet.formatMoneyStr(kdShare.calcMul(Number(row.num), Number(row.price)))
-                            });
-                        }
-                        ).join('')
-                    });
-                }
+                        return $.String.format(samples['row'], {
+                            'rowsli': $.Array.map(attrList, function (row) {
+                                    return $.String.format(samples['rowli'], {
+                                        attrname: row.name,
+                                        attrprice: kdAppSet.getRmbStr + kdAppSet.formatMoneyStr(row.price),
+                                        num: row.num,
+                                        money: kdAppSet.getRmbStr + kdAppSet.formatMoneyStr(kdShare.calcMul(Number(row.num), Number(row.price)))
+                                    });
+                                }
+                            ).join('')
+                        });
+                    }
                 ).join('')
             });
         }).join('');
@@ -821,12 +593,12 @@ var CacheOrderList = (function () {
         $('.view_cacheOrderList [data-cmd="totalMoney"]')[0].innerText = moneyStr;
     }
 
-    //检测是否有跨境商品
-    function checkOverseaGoods() {
+    //检测是否有跨境商品(快递送货时检查)
+    function checkOverseaGoods(bExpress) {
         var data = goodsListArr;
         var inum = data.length;
         var bcheck = false;
-        if (!isOutInStore) {
+        if (bExpress) {
             for (var i = 0; i < inum; i++) {
                 if (data[i].isoverseas == 1) {
                     bcheck = true;
@@ -840,14 +612,14 @@ var CacheOrderList = (function () {
 
     //刷新收货信息
     function freshReceiveInfo(datainfo) {
-        $("#orderReceiveName").text(datainfo.name);
-        var phone = $("#orderReceivePhone");
+        viewPage.find('[data-cmd="addr-name"]').text(datainfo.name);
+        var phone = viewPage.find('[data-cmd="addr-phone"]');
         if (datainfo.name == datainfo.mobile) {
             phone.text('');
         } else {
             phone.text(datainfo.mobile);
         }
-        $("#orderReceiveAddress").text(datainfo.addressdetail);
+        viewPage.find('[data-cmd="addr-info"]').text(datainfo.addressdetail);
         addressInfo = datainfo;
     }
 
@@ -872,6 +644,8 @@ var CacheOrderList = (function () {
                 temp.Price = attrList0[0].price;
                 temp.DiscountPrice = attrList0[0].price;
                 temp.DeliverDate = recDate;
+                temp.ParentID = '';
+                temp.GroupID = '';
                 tempdata.push(temp);
 
             } else if (iauxtype == 1) {
@@ -882,7 +656,7 @@ var CacheOrderList = (function () {
                     var temp1 = {};
                     temp1.MaterialID = attrList1[j].fitemid;
                     temp1.IsOverseas = data[i].isoverseas;
-                    temp1.UnitID = data[i].unitid;
+                    temp1.UnitID = attrList1[j].unitid;
                     temp1.AuxID = 0;
                     temp1.IsGift = 0;
                     temp1.ActivityID = 0;
@@ -890,6 +664,8 @@ var CacheOrderList = (function () {
                     temp1.Price = attrList1[j].price;
                     temp1.DiscountPrice = attrList1[j].price;
                     temp1.DeliverDate = recDate;
+                    temp1.ParentID = data[i].itemid;
+                    temp1.GroupID = '';
                     tempdata.push(temp1);
                 }
 
@@ -909,8 +685,31 @@ var CacheOrderList = (function () {
                     temp2.DeliverDate = recDate;
                     temp2.IsGift = 0;
                     temp2.ActivityID = 0;
+                    temp2.ParentID = '';
+                    temp2.GroupID = '';
                     tempdata.push(temp2);
                 }
+            } else if (iauxtype == 3) {
+
+                var attrList3 = data[i].attrList;
+                var hnum = attrList3.length;
+                for (var h = 0; h < hnum; h++) {
+                    var temp3 = {};
+                    temp3.MaterialID = attrList3[h].fitemid;
+                    temp3.IsOverseas = data[i].isoverseas;
+                    temp3.UnitID = attrList3[h].unitid;
+                    temp3.AuxID = 0;
+                    temp3.IsGift = 0;
+                    temp3.ActivityID = 0;
+                    temp3.Qty = attrList3[h].num;
+                    temp3.Price = attrList3[h].price;
+                    temp3.DiscountPrice = attrList3[h].price;
+                    temp3.DeliverDate = recDate;
+                    temp3.ParentID = attrList3[h].parentid;
+                    temp3.GroupID = attrList3[h].groupid;
+                    tempdata.push(temp3);
+                }
+
             }
         }
         return tempdata;
@@ -968,6 +767,10 @@ var CacheOrderList = (function () {
         var nameStr = addressInfo.name;
 
         var mobileStr = addressInfo.mobile;
+        var ctx = sendListInfo.getContext();
+        var isOutInStore = (ctx.sendId == 1);
+        var isNeedInvoice = ctx.isNeedInvoice;
+        var storeInfo = ctx.storeInfo;
         if (isOutInStore) {
             nameStr = contactName || '';
             mobileStr = userinfo.senderMobile || '';
@@ -985,9 +788,10 @@ var CacheOrderList = (function () {
             districtnumber: isOutInStore ? '0' : addressInfo.districtnumber,
             name: nameStr,
             mobile: mobileStr,
+            sendWay: ctx.sendId,
+            TakeTime: storeInfo.sendTime || '',
             IdNumber: identityStr,
             address: isOutInStore ? '现场提货' : addressStr,
-            OutInStore: isOutInStore ? 1 : 0,
             NeedInvoice: isNeedInvoice ? 1 : 0,
             InvoiceName: invoiceInfo.invoiceHead,
             InvoiceReceiver: invoiceInfo.name,
@@ -999,6 +803,7 @@ var CacheOrderList = (function () {
             TakeDate: storeInfo.date,
             EnablePoints: enablePoints,
             BillPoint: billPoint,
+            freight: storeSendFreight,
             SODetail: tempdata,
             FetchStyle: deliverway//交货方式
         };
@@ -1020,11 +825,6 @@ var CacheOrderList = (function () {
             //通知购物车刷新数量
             MiniQuery.Event.trigger(window, 'freshListBoxCount', []);
 
-            //初始化门店数据
-            if (isOutInStore) {
-                initStore();
-                fillStore();
-            }
             var billMoney = payInfo.billmoney + payInfo.freight;
             refreshPayBtn(billMoney);
             //如果是经销商身份，并且只有线下支付方式，则不出来付款页面
@@ -1032,7 +832,7 @@ var CacheOrderList = (function () {
             var payls = user.allowpayway || [];
             var offpayls = user.offlinesubpay || [];
             if (user.identity != 'retail' && payls.length == 1
-                && payls.indexOf('offline') >= 0 && offpayls.length<=1) {
+                && payls.indexOf('offline') >= 0 && offpayls.length <= 1) {
                 $('#orderpopupTip').show();
             } else if (kdAppSet.getIsShowPrice() && (billMoney > 0)) {
                 //付款
@@ -1047,7 +847,7 @@ var CacheOrderList = (function () {
     //跳到微信支付页面
     function toPayView() {
         if (payInfo.billno) {
-            payInfo.sendType = isOutInStore ? 1 : 0;
+            payInfo.sendType = (sendListInfo.getContext().sendId == 1) ? 1 : 0;
             OrderPay.payBill(payInfo);
             kdShare.clearBackView(1);
         }
@@ -1126,8 +926,8 @@ var CacheOrderList = (function () {
 
             saveBillDataToCache(data.list);
             getDatafromCache();
-            isOutInStore = !!data.OutInStore;
-            changeExpressMode(!isOutInStore);
+            //to do
+            SendListInfo.refresh(data.sendType || 0);
             freshReceiveInfo({
                 provincenumber: data.provincenumber || 0,
                 citynumber: data.citynumber || 0,
@@ -1137,10 +937,12 @@ var CacheOrderList = (function () {
                 address: data.address || '',
                 addressdetail: data.receiveraddress || ''
             });
-            setDeliverway([{
-                name: data.FetchStyleName,
-                id: data.FetchStyleID
-            }]);//交货方式
+            setDeliverway([
+                {
+                    name: data.FetchStyleName,
+                    id: data.FetchStyleID
+                }
+            ]);//交货方式
             changeInvoiceMode(data.NeedInvoice == 1);
             invoiceInfo = {
                 invoiceHead: data.InvoiceName,
@@ -1150,15 +952,15 @@ var CacheOrderList = (function () {
             };
             freshInvoiceInfo(invoiceInfo);
             viewPage.find('.view_cacheOrderList').text('￥' + data.freight); //设置运费
-            //设置门店信息
-            $.Object.extend(storeInfo, {
-                id: data.StoreID,
-                store: data.StoreName,
-                date: data.TakeDate,
-                address: data.StoreAddress || ''
-            });
-            fillStore();
-            setInvoiceView(!isOutInStore);
+            /* //设置门店信息
+             $.Object.extend(storeInfo, {
+             id: data.StoreID,
+             store: data.StoreName,
+             date: data.TakeDate,
+             address: data.StoreAddress || ''
+             });
+             fillStore();
+             setInvoiceView(!isOutInStore);*/
             kdAppSet.setKdLoading(false);
         }, function (code, msg) {
             jAlert("获取订单信息出错," + msg);
@@ -1272,17 +1074,25 @@ var CacheOrderList = (function () {
         viewPage.find('[data-cmd="expoint"]').removeClass('sprite-area_select');
     }
 
+
+    function refreshFreight() {
+
+        sendListInfo.calcFreight(addressInfo, billInfo.money, function (money) {
+            storeSendFreight = money;
+            var freightSpan = viewPage.find('.freight');
+            freightSpan.text('￥' + money);
+        });
+    }
+
     function render(config) {
         initView();
         privilegeInfo = config.privilegeInfo || '';
         setPrivilegeInfo(privilegeInfo);
         var identityStr = kdShare.cache.getCacheDataObj('identityStr');
         $('.view_cacheOrderList .identity input').val(identityStr);
-        if (isOutInStore) {
-            setOneStore();
-        }
+
         payInfo = {};
-        billPoint=0;
+        billPoint = 0;
         initCardInfo();
         billId = config.billId || 0;
         show();
@@ -1314,13 +1124,15 @@ var CacheOrderList = (function () {
 
     function caculateFreight() {
         var freightSpan = viewPage.find('.freight');
-        if (kdAppSet.getUserInfo().ueVersion < 4) {
-            viewPage.find('#div-freight-line').hide();
+
+        viewPage.find('#div-freight-line').show();
+        var sendId = sendListInfo.getContext().sendId;
+        if (sendId == 1 || !kdAppSet.getIsShowPrice()) {
+            freightSpan.text('￥0');
             return;
         }
-        viewPage.find('#div-freight-line').show();
-        if (isOutInStore || !kdAppSet.getIsShowPrice()) {
-            freightSpan.text('￥0');
+        if (sendId == 2 || !kdAppSet.getIsShowPrice()) {
+            refreshFreight();
             return;
         }
         var aitemlist = [];
@@ -1354,6 +1166,7 @@ var CacheOrderList = (function () {
             switch (iauxtype) {
                 case 0:
                     arr.push({
+                        ParentID: '',
                         ItemID: item.itemid,
                         Price: item.attrList[0].price,
                         Qty: item.attrList[0].num
@@ -1363,6 +1176,7 @@ var CacheOrderList = (function () {
                     var attrList1 = item.attrList;
                     for (var j = attrList1.length - 1; j > -1; j--) {
                         arr.push({
+                            ParentID: item.itemid,
                             ItemID: attrList1[j].fitemid,
                             Price: attrList1[j].price,
                             Qty: attrList1[j].num
@@ -1373,11 +1187,23 @@ var CacheOrderList = (function () {
                     var attrList2 = item.attrList;
                     for (var k = attrList2.length - 1; k > -1; k--) {
                         arr.push({
+                            ParentID: '',
                             ItemID: item.itemid,
                             Price: attrList2[k].price,
                             Qty: attrList2[k].num
                         });
                     }
+                case 3:
+                    var attrList3 = item.attrList;
+                    for (var h = attrList3.length - 1; h > -1; h--) {
+                        arr.push({
+                            ParentID: attrList3[h].parentid,
+                            ItemID: attrList3[h].fitemid,
+                            Price: attrList3[h].price,
+                            Qty: attrList3[h].num
+                        });
+                    }
+                    break;
             }
         }
         return arr;

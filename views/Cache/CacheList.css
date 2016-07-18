@@ -592,6 +592,10 @@
     line-height:0.4rem;
 }
 
+.goodslist .attrnum .hide-border {
+    border: none !important;
+}
+
 .goodslist .attrCtrl {
     padding-top: 0.2rem;
     border-top: 1px solid #f0f0f0;

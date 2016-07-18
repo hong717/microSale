@@ -74,15 +74,17 @@ var StoreList = (function () {
     // 获取门店列表
     function getStoreList() {
         //loadingHint();
+        //门店类型 type 增加传入项： "send" --- 表示允许配送的门店
         Lib.API.get('GetStoreList', {
-            currentPage: currentPage,
-            ItemsOfPage: itemsOfPage,
-            para: {
-                'region': getPara(),
-                'lng': config.lng,
-                'lat': config.lat
-            }
-        },
+                currentPage: currentPage,
+                ItemsOfPage: itemsOfPage,
+                para: {
+                    'region': getPara(),
+                    'lng': config.lng,
+                    'lat': config.lat,
+                    'type': config.type || ''
+                }
+            },
             function (data, json) {
                 TotalPage = json.TotalPage ? json.TotalPage : 0;
                 var list = getListData(data.storelist);
@@ -101,12 +103,12 @@ var StoreList = (function () {
     //获取门店列表 判断是否只有一个门店
     function getOnlyOneStore(fn) {
         Lib.API.get('GetStoreList', {
-            para: {
-                'region': '',
-                'lng': 0,
-                'lat': 0
-            }
-        },
+                para: {
+                    'region': '',
+                    'lng': 0,
+                    'lat': 0
+                }
+            },
             function (data, json) {
                 var list = data.storelist;
                 if (list.length == 1) {
@@ -137,7 +139,8 @@ var StoreList = (function () {
                 ismatch: item.ismatch,
                 lat: item.lat,
                 lng: item.lng,
-                distance: item.distance
+                distance: item.distance,
+                phone: item.phone || ""
             };
             if (aitem.ismatch == 1) {
                 showHint = false;
@@ -299,17 +302,17 @@ var StoreList = (function () {
         kdAppSet.setKdLoading(true, '获取地址编码...');
 
         Lib.API.post('GetAddressNumber', {
-            para: getLocationPara(address)
-        }, function (data, json, root, userflag) {
-            kdAppSet.setKdLoading(false);
-            dealLocationCode(data);
-        }, function (code, msg, json, root, userflag) {
-            kdAppSet.setKdLoading(false);
-            OptMsg.ShowMsg(msg);
-        }, function () {
-            kdAppSet.setKdLoading(false);
-            OptMsg.ShowMsg('网络错误，请稍候再试', '', 3000);
-        }
+                para: getLocationPara(address)
+            }, function (data, json, root, userflag) {
+                kdAppSet.setKdLoading(false);
+                dealLocationCode(data);
+            }, function (code, msg, json, root, userflag) {
+                kdAppSet.setKdLoading(false);
+                OptMsg.ShowMsg(msg);
+            }, function () {
+                kdAppSet.setKdLoading(false);
+                OptMsg.ShowMsg('网络错误，请稍候再试', '', 3000);
+            }
         );
     }
 

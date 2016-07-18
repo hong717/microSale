@@ -1,5 +1,4 @@
-﻿
-<!--订单确认 模块 begin-->
+﻿<!--订单确认 模块 begin-->
 
 <div class="view_cacheOrderList" id="viewid_cacheOrderList" style="display: none">
 
@@ -22,12 +21,10 @@
     <div class="contentList">
         <ul class="cacheOrderTopList">
             <li id="cacheOrderList_SendMode" style="display: none" data-cmd="retail">
-                <span class="pattern">送货方式：</span>
-                <div class="pattern-style">
-                    <span id="cacheOrderList_express" class="sprite-style-chose chose sprite-style-on">快递送货</span>
-                    <span id="cacheOrderList_store" class="sprite-style-chose chose">门店自提</span>
-                </div>
-
+                <span data-cmd="send-title" class="pattern">送货方式：</span>
+                <ul data-cmd="send-list" class="pattern-style">
+                    <!--<li data-send={id}  data-index={index}  class="sprite-style-chose  chose">{name}</li>-->
+                </ul>
             </li>
             <li class="deliver-bar" data-cmd="manage" style="display: none">
                 <div class="sprite-more deliverstyle">
@@ -41,12 +38,12 @@
                         <div class="selectAddress sprite-more">
                             <div class="phoneDiv">
                                 <span>收货人：</span>
-                                <span class="name" id="orderReceiveName"></span>
-                                <span class="phone" id="orderReceivePhone"></span>
+                                <span class="name" data-cmd="addr-name"></span>
+                                <span class="phone" data-cmd="addr-phone"></span>
                             </div>
                             <div class="addressDiv">
                                 <span>收货地址：</span>
-                                <span id="orderReceiveAddress"></span>
+                                <span data-cmd="addr-info"></span>
                             </div>
                         </div>
                     </div>
@@ -55,7 +52,7 @@
 
             <ul id="cacheOrderList_identity" class="li-identity">
                 <li class="li-title">您选择了跨境商品，请输入您的身份证号码</li>
-                <li class="identity"><span>身份证:</span><input /></li>
+                <li class="identity"><span>身份证:</span><input/></li>
                 <li>
                             <span class="hint">
                                 温馨提示：收件人请使用和身份证号对应的真实姓名，
@@ -66,24 +63,55 @@
 
 
             <ul id="cacheOrderList_store_view" class="li-store">
-                <!--                    <li data-cmd="store-select" class="store-name">{store}</li>
+                <!--                <li data-cmd="store-select" class="store-name">{store}</li>
                                     <li>
                                         <p class="address">提货地址:<span>{address}</span></p>
                                         <p class="mention">(温馨提示:付款后,在订单详情中,凭提货码到自提点提货)</p>
                                     </li>
                                     <li class="time">
-                                        提货时间<span>（*必填）</span>:
+                                        提货时间:
                                         <input data-cmd="date" type="text" readonly="" value="{date}">
                                     </li>-->
             </ul>
+
+
+            <ul id="cacheOrderList_store_send" class="li-store ">
+                <!--
+                    <li data-cmd="store-select" class="store-name">{store}</li>
+                    <li>
+                          <div class="userMsgDiv">
+                                <div class="goodsAddress">
+                                    <div class="selectAddress sprite-more">
+                                        <div class="phoneDiv">
+                                            <span>收货人：</span>
+                                            <span class="name" data-cmd="addr-name">{rec-name}</span>
+                                            <span class="phone" data-cmd="addr-phone">{rec-phone}</span>
+                                        </div>
+                                        <div class="addressDiv">
+                                            <span>收货地址：</span>
+                                            <span data-cmd="addr-info">{rec-addr}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </li>
+                    <li class="time">
+                        送货时间<span>*</span>:
+                        <input data-cmd="time" type="text" readonly="" value="">
+                        <input data-cmd="date" type="text" readonly="" value="{date}">
+                    </li>
+                 -->
+            </ul>
+
             <ul class="receipt-info">
                 <li id="cacheOrderList_invoice" class="invoiceHead borderBottom">
                     <span class="pattern">发票信息：</span>
-                    <div class="pattern-style">
-                        <span id="cacheOrderList_invoice_on" class="sprite-style-chose chose">需要发票</span>
-                                <span id="cacheOrderList_invoice_off"
-                                      class="sprite-style-chose chose sprite-style-on">无需发票</span>
-                    </div>
+                    <ul class="pattern-style">
+                        <li id="cacheOrderList_invoice_on" class="sprite-style-chose chose">需要发票</li>
+                        <li id="cacheOrderList_invoice_off"
+                            class="sprite-style-chose chose sprite-style-on">无需发票
+                        </li>
+                    </ul>
                 </li>
                 <li id="cacheOrderList_invoice_view" class="liinvoice" style="display: none">
                     <div class="userMsgDiv">
@@ -93,7 +121,7 @@
                                     <span>发票抬头：</span>
                                     <span id="orderInvoiceHead"></span>
                                 </div>
-                                <div class="addressDiv">
+                                <div data-cmd="addr" class="addressDiv">
                                     <span>寄送地址：</span>
                                     <span id="orderInvoiceAddress"></span>
                                 </div>
@@ -108,6 +136,7 @@
             </li>
             <li data-cmd="expoint-view" class="score-pay">
                 <span class="pattern">使用积分兑换：</span>
+
                 <p data-cmd="expoint" class="chose-outer">
                     <span class="chose-y "></span>
                 </p>
@@ -117,11 +146,12 @@
         <div class="goodDetailDiv">
             <div class="headTitie">
                 <span class="title">商品清单</span>
+
                 <div class="editgoods" id="cacheOrderEdit">
-                    <img src="img/kdpx.gif" />编辑清单
+                    <img src="img/kdpx.gif"/>编辑清单
                 </div>
                 <div class="add_goods">
-                    <img src="img/kdpx.gif" />添加商品
+                    <img src="img/kdpx.gif"/>添加商品
                 </div>
             </div>
             <ul id="cacheOrderList_ul" class="">

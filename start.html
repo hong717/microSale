@@ -6,6 +6,11 @@
           user-scalable=no,minimum-scale=1,maximum-scale=1" />
     <meta content="telephone=no" name="format-detection" />
     <meta content="yes" name="apple-mobile-web-app-capable" />
+
+<!--
+    <meta http-equiv="Cache-Control" content="max-age=86400" />
+    <meta http-equiv="Expires" content="Mon, 20 Jul 2100 23:00:00 GMT" />-->
+
     <title id="appTitle">微商城</title>
     <!-- build:css css/home.min.css?v=-->
     <link href="css/home.css?v=442" rel="stylesheet" />
@@ -245,25 +250,34 @@
     </div>
 
     <div class="divbody" id="addgoodsbody">
-        <div>
-            <div class="goodAttr1" id="goodsAttr1">
-                <p>颜色</p>
-                <ul id="goodAttrList1">
-                    <!--<li class="attr attr_select sprite-attr_select  {attrcheck}">{attrname}</li>-->
-                </ul>
-            </div>
-            <div class="goodAttr2" id="goodsAttr2">
-                <p>材料</p>
-                <ul id="goodAttrList2">
-                    <!-- <li class="attr2 attr_select sprite-attr_select {attrcheck}">{attrname}</li>-->
-                </ul>
-            </div>
-            <div id="goodsAuxdetail">
-            </div>
+        <div >
+            <ul data-cmd="add-single" >
+                <li class="goodAttr1" id="goodsAttr1">
+                    <p>颜色</p>
+                    <ul id="goodAttrList1">
+                        <!--<li class="attr attr_select sprite-attr_select  {attrcheck}">{attrname}</li>-->
+                    </ul>
+                </li>
+                <li class="goodAttr2" id="goodsAttr2">
+                    <p>材料</p>
+                    <ul id="goodAttrList2">
+                        <!-- <li class="attr2 attr_select sprite-attr_select {attrcheck}">{attrname}</li>-->
+                    </ul>
+                </li>
+            </ul>
+            <ul id="view-addgoods-grouplist"  style="display: none">
+<!--                <li class="goodAttr1">
+                    <p>{groupName}</p>
+                    <ul>
+                       #--row.begin--#
+                       <li data-pindex={pindex} data-index={index} class="attr attr_select sprite-attr_select">{attrname}</li>
+                       #--row.end--#
+                    </ul>
+                </li>-->
+            </ul>
+
             <div class="divNum">
-
                 <p class="msgl">购买数量</p>
-
                 <div class="numArea_kdshare1">
                     <div class="numl" id="divNumLeft">
                         <p class="sprite-sub_n"></p>
@@ -355,7 +369,7 @@
                                                <div attrIndex={attrIndex}  attrPindex={attrPindex}  class="attrRow" >
                                                    <div class="attrname">{attrname}</div>
                                                    <div class="attrnum" attrIndex={attrIndex}  attrPindex={attrPindex} >
-                                                       <input type="text" id="numInput" value={attrnum} disabled>
+                                                       <input  class="{canedit}" type="text" id="numInput" value={attrnum} disabled>
                                                    </div>
                                                    <div class="attrprice"  >
                                                        <span>{attrprice}</span>
@@ -398,7 +412,6 @@
 </div>
 <!--购物车 模块 end-->
 
-
 <!--订单确认 模块 begin-->
 
 <div class="view_cacheOrderList" id="viewid_cacheOrderList" style="display: none">
@@ -422,12 +435,10 @@
     <div class="contentList">
         <ul class="cacheOrderTopList">
             <li id="cacheOrderList_SendMode" style="display: none" data-cmd="retail">
-                <span class="pattern">送货方式：</span>
-                <div class="pattern-style">
-                    <span id="cacheOrderList_express" class="sprite-style-chose chose sprite-style-on">快递送货</span>
-                    <span id="cacheOrderList_store" class="sprite-style-chose chose">门店自提</span>
-                </div>
-
+                <span data-cmd="send-title" class="pattern">送货方式：</span>
+                <ul data-cmd="send-list" class="pattern-style">
+                    <!--<li data-send={id}  data-index={index}  class="sprite-style-chose  chose">{name}</li>-->
+                </ul>
             </li>
             <li class="deliver-bar" data-cmd="manage" style="display: none">
                 <div class="sprite-more deliverstyle">
@@ -441,12 +452,12 @@
                         <div class="selectAddress sprite-more">
                             <div class="phoneDiv">
                                 <span>收货人：</span>
-                                <span class="name" id="orderReceiveName"></span>
-                                <span class="phone" id="orderReceivePhone"></span>
+                                <span class="name" data-cmd="addr-name"></span>
+                                <span class="phone" data-cmd="addr-phone"></span>
                             </div>
                             <div class="addressDiv">
                                 <span>收货地址：</span>
-                                <span id="orderReceiveAddress"></span>
+                                <span data-cmd="addr-info"></span>
                             </div>
                         </div>
                     </div>
@@ -455,7 +466,7 @@
 
             <ul id="cacheOrderList_identity" class="li-identity">
                 <li class="li-title">您选择了跨境商品，请输入您的身份证号码</li>
-                <li class="identity"><span>身份证:</span><input /></li>
+                <li class="identity"><span>身份证:</span><input/></li>
                 <li>
                             <span class="hint">
                                 温馨提示：收件人请使用和身份证号对应的真实姓名，
@@ -466,24 +477,55 @@
 
 
             <ul id="cacheOrderList_store_view" class="li-store">
-                <!--                    <li data-cmd="store-select" class="store-name">{store}</li>
+                <!--                <li data-cmd="store-select" class="store-name">{store}</li>
                                     <li>
                                         <p class="address">提货地址:<span>{address}</span></p>
                                         <p class="mention">(温馨提示:付款后,在订单详情中,凭提货码到自提点提货)</p>
                                     </li>
                                     <li class="time">
-                                        提货时间<span>（*必填）</span>:
+                                        提货时间:
                                         <input data-cmd="date" type="text" readonly="" value="{date}">
                                     </li>-->
             </ul>
+
+
+            <ul id="cacheOrderList_store_send" class="li-store ">
+                <!--
+                    <li data-cmd="store-select" class="store-name">{store}</li>
+                    <li>
+                          <div class="userMsgDiv">
+                                <div class="goodsAddress">
+                                    <div class="selectAddress sprite-more">
+                                        <div class="phoneDiv">
+                                            <span>收货人：</span>
+                                            <span class="name" data-cmd="addr-name">{rec-name}</span>
+                                            <span class="phone" data-cmd="addr-phone">{rec-phone}</span>
+                                        </div>
+                                        <div class="addressDiv">
+                                            <span>收货地址：</span>
+                                            <span data-cmd="addr-info">{rec-addr}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </li>
+                    <li class="time">
+                        送货时间<span>*</span>:
+                        <input data-cmd="time" type="text" readonly="" value="">
+                        <input data-cmd="date" type="text" readonly="" value="{date}">
+                    </li>
+                 -->
+            </ul>
+
             <ul class="receipt-info">
                 <li id="cacheOrderList_invoice" class="invoiceHead borderBottom">
                     <span class="pattern">发票信息：</span>
-                    <div class="pattern-style">
-                        <span id="cacheOrderList_invoice_on" class="sprite-style-chose chose">需要发票</span>
-                                <span id="cacheOrderList_invoice_off"
-                                      class="sprite-style-chose chose sprite-style-on">无需发票</span>
-                    </div>
+                    <ul class="pattern-style">
+                        <li id="cacheOrderList_invoice_on" class="sprite-style-chose chose">需要发票</li>
+                        <li id="cacheOrderList_invoice_off"
+                            class="sprite-style-chose chose sprite-style-on">无需发票
+                        </li>
+                    </ul>
                 </li>
                 <li id="cacheOrderList_invoice_view" class="liinvoice" style="display: none">
                     <div class="userMsgDiv">
@@ -493,7 +535,7 @@
                                     <span>发票抬头：</span>
                                     <span id="orderInvoiceHead"></span>
                                 </div>
-                                <div class="addressDiv">
+                                <div data-cmd="addr" class="addressDiv">
                                     <span>寄送地址：</span>
                                     <span id="orderInvoiceAddress"></span>
                                 </div>
@@ -508,6 +550,7 @@
             </li>
             <li data-cmd="expoint-view" class="score-pay">
                 <span class="pattern">使用积分兑换：</span>
+
                 <p data-cmd="expoint" class="chose-outer">
                     <span class="chose-y "></span>
                 </p>
@@ -517,11 +560,12 @@
         <div class="goodDetailDiv">
             <div class="headTitie">
                 <span class="title">商品清单</span>
+
                 <div class="editgoods" id="cacheOrderEdit">
-                    <img src="img/kdpx.gif" />编辑清单
+                    <img src="img/kdpx.gif"/>编辑清单
                 </div>
                 <div class="add_goods">
-                    <img src="img/kdpx.gif" />添加商品
+                    <img src="img/kdpx.gif"/>添加商品
                 </div>
             </div>
             <ul id="cacheOrderList_ul" class="">
@@ -720,13 +764,14 @@
         <div class="searchTxt">
             <!-- 这里添加form元素来响应enter按键的输入 -->
             <form>
-                <img src="img/kdpx.gif" class="imgSearch sprite-search" />
+                <img src="img/kdpx.gif" class="imgSearch sprite-w-search" />
                 <input type="text" id="inputTxt" />
                 <img src="img/kdpx.gif" class="imgClear sprite-clear" />
             </form>
         </div>
         <div class="cancelBtn">搜索</div>
     </div>
+    
     <div class="content" id="viewid_searchPage_content">
         <div>
             <ul class="historyList">
@@ -1047,7 +1092,7 @@
             <img src="img/kdpx.gif" />
         </div>
         <div data-cmd="btnCtrl" class="btnctrl_left">
-            <div class="menu_share sprite-me-link-client">
+            <div data-cmd="chat" class="menu_share sprite-me-link-client">
                 <span class="name">客服</span>
             </div>
             <div class="orderdetail_btn">
@@ -1408,7 +1453,7 @@
         <div>
             <p class="pwd default-icon-pwd"><input placeholder="请输入邀请码" data-cmd="ipt"></p>
             <div class="describe sprite-invite">输入邀请码绑定成为经销商的买家，还能享受经销商的优惠价格呦！</div>
-            <p><button class="cancel" data-cmd="close">取消</button><button class="submit" data-cmd="btn">确定</button></p>
+            <p><button class="cancel" data-cmd="close">跳过</button><button class="submit" data-cmd="btn">确定</button></p>
         </div>
     </div>
 </div>
@@ -1572,7 +1617,7 @@
     <div class="main-searchOuter" id="main-searchOuter">
         <!--查询 -->
         <div class="back-div" id="back-div">
-            <i class="icon-category sprite-order"></i>
+            <i class="icon-category"></i>
             <p class="title"></p>
         </div>
         <div class="main-searchinput" id="toClassSearch">
@@ -1758,7 +1803,6 @@
     <script src="views/AddGoods/AddGoods.js?v=442"></script>
     <script src="views/AddGoods/AddGoods_Api.js?v=442"></script>
     <script src="views/AddGoods/AddGoods_Attr.js?v=442"></script>
-    <script src="views/AddGoods/AddGoods_AddList.js?v=442"></script>
     <script src="views/AddGoods/AddGoods_Batch.js?v=442"></script>
 
     <script src="views/Goods/GoodsList/GoodsList.js?v=442"></script>
@@ -1779,6 +1823,7 @@
 
     <script src="views/Cache/CacheList.js?v=442"></script>
     <script src="views/Cache/CacheOrderList.js?v=442"></script>
+    <script src="views/Cache/CacheOrderList_Send.js?v=442"></script>
     <script src="views/Cache/CacheOrderList_Retail.js?v=442"></script>
 
     <script src="views/Order/Orderlist.js?v=442"></script>

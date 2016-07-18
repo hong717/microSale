@@ -94,7 +94,6 @@ var jSelect = (function () {
         }
     }
 
-
     function showSelect(cfg) {
         initView();
         config = MiniQuery.Object.clone(cfg);
@@ -130,13 +129,7 @@ var jSelect = (function () {
         $(div).hide();
     }
 
-    function render() {
-        initView();
-        show();
-    }
-
     return {
-        render: render,
         show: show,
         hide: hide,
         showSelect: showSelect

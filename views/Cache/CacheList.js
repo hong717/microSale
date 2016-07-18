@@ -110,6 +110,33 @@ var CacheList = (function () {
         return itemstr;
     }
 
+    //获取商品列表参数
+    function getItemListParam() {
+        var inum = goodsListArr.length;
+        var itemlist = [];
+        var auxtype;
+        for (var i = 0; i < inum; i++) {
+            auxtype = goodsListArr[i].auxtype;
+            if (auxtype == 2 || auxtype == 0) {
+                itemlist.push({
+                    itemid: goodsListArr[i].itemid,
+                    parentid: ''
+                });
+            } else {
+                var attrList = goodsListArr[i].attrList;
+                var parentid = (auxtype == 3) ? (attrList[0].parentid || '') : goodsListArr[i].itemid;
+                var jnum = attrList.length;
+                for (var j = 0; j < jnum; j++) {
+                    itemlist.push({
+                        itemid: attrList[j].fitemid,
+                        parentid: parentid
+                    });
+                }
+            }
+        }
+        return {itemlist: itemlist};
+    }
+
     //获取商品id 与数量列表，用来判断购物车的东西有没变化
     function getItemidStr2() {
         var inum = goodsListArr.length;
@@ -156,11 +183,12 @@ var CacheList = (function () {
         }
 
         bloadind = 1;
+        var listParm = getItemListParam();
         kdAppSet.setKdLoading(true, "获取价格信息...");
         Lib.API.get('GetItemPriceList', {
             currentPage: 1,
             ItemsOfPage: 999,
-            para: {Itemid: itemStr}
+            para: listParm
         }, function (data, json) {
             privilegeInfo = data.pricemsg || '';
             setPrivilegeInfo(privilegeInfo);
@@ -242,13 +270,18 @@ var CacheList = (function () {
             var itemid = goodsListArr[i].itemid;
             var attrList = goodsListArr[i].attrList;
             var jnum = attrList.length;
+            var parentid = '';
             for (var j = 0; j < jnum; j++) {
                 if (auxtype == 1) {
                     itemid = attrList[j].fitemid;
+                    parentid = goodsListArr[i].itemid || '';
+                } else if (auxtype == 3) {
+                    parentid = attrList[j].parentid || '';
                 }
                 var auxid = attrList[j].fauxid;
                 var num = attrList[j].num;
-                var price = getItemPrice(priceList, itemid, auxid, num);
+
+                var price = getItemPrice(priceList, itemid, auxid, num, parentid);
                 if (price != null) {
                     goodsListArr[i].attrList[j].price = price;
                 }
@@ -261,11 +294,11 @@ var CacheList = (function () {
     }
 
     //根据策略获取商品价格
-    function getItemPrice(priceList, itemid, auxid, num) {
+    function getItemPrice(priceList, itemid, auxid, num, parentid) {
         var inum = priceList.length;
         for (var i = 0; i < inum; i++) {
             var item = priceList[i];
-            if (itemid == item.fitemid && (item.fauxid == 0 || auxid == item.fauxid)) {
+            if (itemid == item.fitemid && (item.fauxid == 0 || auxid == item.fauxid) && parentid == item.parentid) {
                 var priceStrategy = item.fstrategy || [];
                 var price = getPriceByStrategy(priceStrategy, num);
                 return price;
@@ -360,7 +393,8 @@ var CacheList = (function () {
                             attrIndex: index,
                             attrPindex: pindex,
                             stockunit: item.unitname,
-                            attrnum: row.num
+                            attrnum: row.num,
+                            canedit: (item.auxtype == 3) ? 'hide-border' : ''
                         });
                     }
                 ).join('')
@@ -385,10 +419,10 @@ var CacheList = (function () {
     }
 
     //是否显示 商品删除按钮
-    function showBtnDelete(attrList, bshow) {
+    function showBtnDelete(attrList, bshow, auxType) {
         if (bshow) {
             var attrRowDel = attrList.find(".attrRowDel");
-            if (attrRowDel.length > 1) {
+            if (attrRowDel.length > 1 && auxType != 3) {
                 attrRowDel.css("display", "inline-block");
                 attrList.find(".attrprice").css("display", "none");
             }
@@ -493,7 +527,8 @@ var CacheList = (function () {
                 //var ctrlP=$(this).parent().parent();
                 if (this.innerText == "编辑") {
                     this.innerText = "完成";
-                    showBtnDelete(ctrlP, true);
+                    var auxtype = goodsListArr[index].auxtype;
+                    showBtnDelete(ctrlP, true, auxtype);
                     ctrlP.find(".itemlist-li-top-center").css({"right": "1.2rem"});
                 } else {
                     this.innerText = "编辑";
@@ -577,10 +612,16 @@ var CacheList = (function () {
         //商品数量点击  键盘事件
         $("#goodsitemlist").delegate(".attrnum", {
             'click': function (ev) {
+                var pindex = this.getAttribute("attrpindex");
+                var auxtype = goodsListArr[pindex].auxtype;
+                if (auxtype == 3) {
+                    //套装商品不能修改
+                    return false;
+                }
 
                 var target = $(this).children('input');
                 var iindex = this.getAttribute("attrindex");
-                var pindex = this.getAttribute("attrpindex");
+
                 var attrList = goodsListArr[pindex].attrList;
                 var attrname = attrList[iindex].name;
                 var attrListCtrl = $("#goodsitemlist").find("li[index=" + pindex + "]");
@@ -600,14 +641,21 @@ var CacheList = (function () {
                         }
                         //更新价格
                         var itemid = 0;
-                        if (goodsListArr[pindex].auxtype == 2 || goodsListArr[pindex].auxtype == 0) {
+                        var parentid = '';
+                        var auxtype = goodsListArr[pindex].auxtype;
+                        if (auxtype == 2 || auxtype == 0) {
                             itemid = goodsListArr[pindex].itemid;
                         } else {
                             itemid = attrList[iindex].fitemid;
+                            if (auxtype == 3) {
+                                parentid = attrList[iindex].parentid;
+                            } else if (auxtype == 1) {
+                                parentid = goodsListArr[pindex].itemid;
+                            }
                         }
                         var auxid = attrList[iindex].fauxid;
                         var num = attrList[iindex].num;
-                        var price = getItemPrice(dlist, itemid, auxid, num);
+                        var price = getItemPrice(dlist, itemid, auxid, num, parentid);
                         attrList[iindex].price = price;
                         var goodslist = JSON.stringify(goodsListArr);
                         kdShare.cache.setCacheData(goodslist, kdAppSet.getGoodslistFlag());

@@ -21,8 +21,15 @@ var AddGoods_Attr = (function () {
         attrList1All,
         attrList2All;
 
+
+    var domv = 'addgoodsbody';
+    var groupList;
+    var groupListData;
+    var samples;
+    var curGitemSel;
+
     function initView(param) {
-        divList = document.getElementById('addgoodsbody');
+        divList = document.getElementById(domv);
         scroller = param;
         ul = divList.firstElementChild;
         ullist = $(ul);
@@ -33,10 +40,65 @@ var AddGoods_Attr = (function () {
         addSelAttr = { attr1: "", attr2: "" }; //属性选中值
         addGoodsList = AddGoods_Api.getAddGoodsList();
         stockNumList = [];
+        groupList = document.getElementById('view-addgoods-grouplist');
+        samples = $.String.getTemplates(groupList.innerHTML, [
+            {
+                name: 'li',
+                begin: '<!--',
+                end: '-->'
+            },
+            {
+                name: 'row',
+                begin: '#--row.begin--#',
+                end: '#--row.end--#',
+                outer: '{rows}'
+            }
+        ]);
+
         bindEvents();
     }
 
+
+    function selGroupItem(attrCtrl, bcheck) {
+        attrCtrl.siblings().removeClass("attrCheck");
+        attrCtrl.siblings().addClass("attrUnCheck");
+        attrCtrl.removeClass("attrUnCheck");
+        attrCtrl.addClass("attrCheck");
+
+        var index = attrCtrl.attr('data-index');
+        var pindex = attrCtrl.attr('data-pindex');
+        groupListData[pindex].selIndex = index;
+        curGitemSel = groupListData[pindex].attrList[index] || {};
+        if (bcheck) {
+            var itemid = groupListData[pindex].attrList[index].fitemid;
+            var parentid = groupListData[pindex].attrList[index].fparentid;
+            AddGoods_Api.getGoodsAuxDetail(parentid, itemid, freshAuxInfo);
+            updateGroupItemPrice();
+        }
+    }
+
+    function updateGroupItemPrice() {
+
+        var attrNum = Number($(".divNum .numText2")[0].innerText);
+        var item = curGitemSel;
+        var price = AddGoods_Api.getPriceByStrategy(item.fstrategy, attrNum);
+        var oldPrice = AddGoods_Api.getOldPriceByStrategy(item);
+        var view = $("#view-addgoods");
+        view.find('[data-cmd="price"]').text(kdAppSet.getRmbStr + kdAppSet.formatMoneyStr(price));
+        view.find('[data-cmd="preprice"]').text(kdAppSet.getRmbStr + kdAppSet.formatMoneyStr(oldPrice));
+
+    }
+
     function bindEvents() {
+        //套装商品 选中
+        $("#view-addgoods-grouplist").delegate('.goodAttr1 li', {
+            'click': function () {
+                var attrCtrl = $(this);
+                selGroupItem(attrCtrl, true);
+            }
+        });
+
+
         //辅助属性1选中
         $("#goodAttrList1").delegate('.attr', {
             'click': function () {
@@ -79,7 +141,7 @@ var AddGoods_Attr = (function () {
                             target.innerText = kvalue;
                         }
                         updateGoodsAuxPrice();
-                        freshSumInfoNoAttr();
+
                     },
                     hidefn: function () {
                     }
@@ -98,7 +160,6 @@ var AddGoods_Attr = (function () {
         }
         numInput.innerText = numAdd;
         updateGoodsAuxPrice();
-        freshSumInfoNoAttr();
     }
 
     //数字键 加号函数
@@ -108,7 +169,6 @@ var AddGoods_Attr = (function () {
         numAdd++;
         numInput.innerText = numAdd;
         updateGoodsAuxPrice();
-        freshSumInfoNoAttr();
     }
 
     //加入采购清单
@@ -118,10 +178,28 @@ var AddGoods_Attr = (function () {
             OptMsg.ShowMsg("数据正在加载中,请稍后...");
             return;
         }
-        var dataKey = getAuxDataKey(true);
-        if (dataKey != "") {
-            return addGoodsDataToList(dataKey);
+
+        if (auxType == 3) {
+            //套装商品
+            return addGroupGoods();
+        } else {
+            var dataKey = getAuxDataKey(true);
+            if (dataKey != "") {
+                return addGoodsDataToList(dataKey);
+            }
         }
+    }
+
+    //检查套装商品选择是否满足条件
+    function checkGroupSel() {
+
+    }
+
+    //把套装商品加入购物列表
+    function addGroupGoods() {
+        var numAdd = Number($(".divNum .numText2")[0].innerText);
+        AddGoods_Api.addGroupData(numAdd);
+        return true;
     }
 
 
@@ -131,7 +209,6 @@ var AddGoods_Attr = (function () {
         var price = AddGoods_Api.getGoodsAuxPrice(dataKey, numAdd);
         var dataAdd = AddGoods_Api.addGoodsDataToCache(dataKey, numAdd, price, true);
         initAttrListInfo();
-
         if (auxType != 0) {//0 无辅助属性
             $(".addgoods .btnok").css("background", "#FF6427");
             $(".addgoods .selectAttrs").css("display", "none");
@@ -166,21 +243,32 @@ var AddGoods_Attr = (function () {
         attrList2 = shareData.attrList2;
         attrList1All = shareData.attrList1All;
         attrList2All = shareData.attrList2All;
+        groupListData = shareData.groupList;
+
     }
 
     //显示商品的辅助属性
     function showItemAuxInfo(datalist) {
         //获取商品辅助属性值
         getShareData();
-        auxType = datalist.auxType; // 0  无辅助属性  1 组合物料  2 有辅助属性
-        showBtnGoodsList(auxType);
+        auxType = datalist.auxType; // 0  无辅助属性  1 组合物料  2 有辅助属性 3套装商品
+
+        var viewSingle = $('#' + domv + '[data-cmd="add-single"]');
+        if (auxType == 3) {
+            viewSingle.hide();
+            $(groupList).show();
+        } else {
+            $(groupList).hide();
+            viewSingle.show();
+        }
+
         var goodsAttr1 = $("#goodsAttr1");
         var goodsAttr2 = $("#goodsAttr2");
         goodsAttr1.hide();
         goodsAttr2.hide();
 
         if (auxType == attrType.noAttr) {
-            freshSumInfoNoAttr();
+
         } else if (auxType == attrType.cmbAttr) {//合并商品
             goodsAttr1.show();
             goodsAttr1.find("p").text("");
@@ -224,11 +312,31 @@ var AddGoods_Attr = (function () {
                 goodsAttr2.find("p").text(attrName2);
                 freshAttrList2(attrList2);
             }
+        } else if (auxType == attrType.groupAttr) {
+            fillGroupList(groupListData);
         }
         autoSelGoods();
         scroller.refresh();
     }
 
+
+    //套装商品列表
+    function fillGroupList(list) {
+
+        groupList.innerHTML = $.Array.map(list, function (item, pindex) {
+            return $.String.format(samples['li'], {
+                groupName: item.groupName,
+                'rows': $.Array.map(item.attrList, function (row, index) {
+                        return $.String.format(samples['row'], {
+                            index: index,
+                            pindex: pindex,
+                            attrname: row.fnameaftermerge
+                        });
+                    }
+                ).join('')
+            });
+        }).join('');
+    }
 
     //刷新显示辅助属性2 列表
     function freshAttrList2(list) {
@@ -285,6 +393,11 @@ var AddGoods_Attr = (function () {
 
     //如果有针对辅助属性，设置价格策略，则更新对应的价格信息
     function updateGoodsAuxPrice() {
+        if (auxType == 3) {
+            //套装商品更新价格信息
+            updateGroupItemPrice();
+            return;
+        }
         var dataKey = getAuxDataKey(false);
         if (dataKey == "") {
             return;
@@ -295,7 +408,7 @@ var AddGoods_Attr = (function () {
 
         $("#view-addgoods").find('[data-cmd="price"]').text(kdAppSet.getRmbStr + kdAppSet.formatMoneyStr(price));
         if (auxType != 0) {//非单商品，修改原价 积分--马跃
-            $("#view-addgoods").find('[data-cmd="preprice"]').text( kdAppSet.getRmbStr + kdAppSet.formatMoneyStr(oldPrice));
+            $("#view-addgoods").find('[data-cmd="preprice"]').text(kdAppSet.getRmbStr + kdAppSet.formatMoneyStr(oldPrice));
         }
 
     }
@@ -309,15 +422,16 @@ var AddGoods_Attr = (function () {
             if (auxlist.FImageUrl == "") {
                 auxlist.FImageUrl = config.goods.goodsImg;
             }
-
-            var stockinfo = kdAppSet.getStockStr(parseInt(auxlist.FQty), config.goods.unitname);
+            var unitname=auxlist.FUnitName || config.goods.unitname;
+            var stockinfo = kdAppSet.getStockStr(parseInt(auxlist.FQty), unitname);
             var stockmsg = stockinfo.stockStr;
             var stockcolor = stockinfo.color;
             var stockctrl = $(".addgoods .stocknum").find("span");
             stockctrl[0].innerText = stockmsg;
             var color = stockcolor.replace("color:", "");
             stockctrl.css("color", color);
-            $(".addgoods #addgoodshead").find("img")[0].src = auxlist.FImageUrl != '' ? (imgMode ? kdAppSet.getImgThumbnail(auxlist.FImageUrl) : noimgModeDefault) : (imgMode ? 'img/no_img.png' : noimgModeDefault);
+            $(".addgoods #addgoodshead").find("img")[0].src = auxlist.FImageUrl != '' ? (imgMode ? kdAppSet.getImgThumbnail(auxlist.FImageUrl) : noimgModeDefault)
+                                                                                        : (imgMode ? 'img/no_img.png' : noimgModeDefault);
         } else {
             $(".addgoods .stocknum").find("span")[0].innerText = "";
             $(".addgoods #addgoodshead").find("img")[0].src = imgMode ? 'img/loading.png' : noimgModeDefault;
@@ -379,6 +493,16 @@ var AddGoods_Attr = (function () {
             } else if (attrList1.length >= 1 && attrList2.length == 0) {
                 var item = $($("#goodAttrList1 .attr")[0]);
                 attr1Selected(item);
+            }
+        } else if (auxType == attrType.groupAttr) {
+            var vlist = $('#view-addgoods-grouplist .goodAttr1 [data-index="0"]');
+            var len = vlist.length;
+            for (var k = 0; k < len; k++) {
+                if (k == 0) {
+                    selGroupItem($(vlist[k]), true);
+                } else {
+                    selGroupItem($(vlist[k]));
+                }
             }
         }
     }
@@ -485,40 +609,6 @@ var AddGoods_Attr = (function () {
         attrListSelected(list, attrname);
     }
 
-    //是否显示加入购物清单
-    function showBtnGoodsList(auxtype) {
-        /*        //auxtype  0  无辅助属性  1 组合物料  2 有辅助属性
-         var addgoods = $(".addgoods");
-         var btnAddGoods = addgoods.find("#btnAddGoods");
-         var sumlist = addgoods.find("#flySumlist");
-         if (auxtype == attrType.noAttr) {
-         btnAddGoods.hide();
-         sumlist.hide();
-         addgoods.find(".btnok").css("background", "#FF6427");
-         addgoods.find(".divbody").css({"bottom": "50px"});
-         } else {
-         btnAddGoods.show();
-         sumlist.show();
-         addgoods.find(".btnok").css("background", "#aaaaaa");
-         addgoods.find(".divbody").css({"bottom": "90px"});
-         }*/
-    }
-
-    //在没有辅助属性时，打开界面时，汇总信息要自动计算更新
-    function freshSumInfoNoAttr() {
-        /*        if (auxType == attrType.noAttr) {
-         var dataKey = getAuxDataKey(false);
-         if (dataKey == "") {
-         return;
-         }
-         var attrNum = Number($(".divNum .numText2")[0].innerText);
-         var price = AddGoods_Api.getGoodsAuxPrice(dataKey, attrNum);
-         var ctrlp = $(".addgoods .sumlist");
-         ctrlp.find("#sum_num").text(attrNum);
-         ctrlp.find("#sum_money").text(kdAppSet.getRmbStr + kdAppSet.formatMoneyStr(kdShare.calcMul(attrNum, price)));
-         $(".addgoods .divhead .price ")[0].innerHTML = kdAppSet.getRmbStr + kdAppSet.formatMoneyStr(price);
-         }*/
-    }
 
     //获取选中的辅助属性值 , bhint 是否提示选取辅助属性
     function getAuxDataKey(bhint) {

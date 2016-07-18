@@ -456,6 +456,7 @@
     background-color: #FDFEFE;
     position: relative;
     overflow: hidden;
+    font-size: 0;
 }
 
 .view_cacheOrderList .cacheOrderTopList .deliver-bar {
@@ -509,24 +510,15 @@
 }
 
 .view_cacheOrderList .cacheOrderTopList .pattern-style {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
     height: 0.88rem;
     line-height: 0.88rem;
-    padding-left: 1.76rem;
-    padding-right: 0.64rem;
-    text-align: right;
     box-sizing: border-box;
+    display: inline-block;
+    font-size:0;
 }
-
-.view_cacheOrderList .cacheOrderTopList .pattern-style span:first-child {
-    float: left;
-}
-
-.view_cacheOrderList .cacheOrderTopList .pattern-style span:last-child {
-    float: right;
+.view_cacheOrderList .cacheOrderTopList .pattern-style li{
+    line-height: 0.42rem;
+    display:inline-block;
 }
 
 .view_cacheOrderList .cacheOrderTopList li .chose {
@@ -545,6 +537,7 @@
 
 .view_cacheOrderList .cacheOrderTopList li span {
     line-height: 0.42rem;
+    display:inline-block;
 }
 
 .view_cacheOrderList .cacheOrderTopList .liaddress, .liinvoice {
@@ -564,6 +557,7 @@
     background-size: 0.26rem;
     background-origin: content-box;
     padding-right: 0.24rem;
+    font-size:0;
 }
 
 .view_cacheOrderList .cacheOrderTopList .receipt-info {
@@ -651,7 +645,6 @@
 
 .view_cacheOrderList .li-store .mention {
     color: #D6D6D6;
-    border-bottom: 1px solid #f0f0f0;
     padding: 0 0.2rem 0.2rem 0.2rem;
     font-size: 13px;
 }
@@ -663,7 +656,9 @@
     padding: 0 0.6rem 0 0.2rem;
     font-size: 15px;
     overflow:hidden;
+    border-top: 1px solid #f0f0f0;
 }
+
 
 .view_cacheOrderList .li-store .time span {
     color: #EE4300;
@@ -679,6 +674,7 @@
     text-align: right;
     vertical-align:top;
 }
+
 
 .view_cacheOrderList .li-store .time::after {
     content: "";

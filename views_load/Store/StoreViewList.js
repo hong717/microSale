@@ -155,7 +155,6 @@ var StoreViewList = (function () {
         if (currentPage > 1 || ullist.children().length == 0) {
             ullist.children().filter('.hintflag').remove();
             ullist.append('<li class="hintflag">' + Lib.LoadingTip.get() + '</li>');
-            //scroller.refresh();
         }
         var str = viewpage.find('[data-cmd="keyword"]')[0].value;
         str = str.replace(/\s+/g, "");

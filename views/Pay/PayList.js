@@ -66,18 +66,10 @@
         //隐藏所有支付类型
         viewpage.find('[data-pay]').hide();
 
-        if (payinfo.sendType == 1) {
-            //门店自提 不能使用线下支付
-            var posi = payls.indexOf('offline');
-            if (posi >= 0) {
-                payls.splice(posi, 1);
-            }
-        } else {
-            //显示线下支付类型
-            var offPay = viewpage.find('[data-cmd="offline"]');
-            offPay.removeClass('on');
-            offPay.show();
-        }
+        //显示线下支付类型
+        var offPay = viewpage.find('[data-cmd="offline"]');
+        offPay.removeClass('on');
+        offPay.show();
 
         //显示线上支付类型
         for (var i = 0, len = payls.length; i < len; i++) {

@@ -173,8 +173,7 @@ var GoodsDetail = (function () {
                 return false;
             })
             .delegate('#menu_share_btn', 'click', function () {
-
-
+                kdShare.openChat(config.item || {});
             });
 
     }

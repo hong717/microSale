@@ -6,6 +6,7 @@
         function post(caller) {
             var xhr = new window.XMLHttpRequest();
             xhr.open('post', caller.url, true);
+            xhr.withCredentials = "true";
             xhr.onreadystatechange = function () {
                 if (xhr.readyState == 4) {
                     if (xhr.status == 200) {
@@ -1097,6 +1098,7 @@
     function firstMsg(msg) {
         viewPage.find('[data-cmd="send"]').show();
         hisList(msg);
+        repeatCall();
     }
 
     //聊天历史
@@ -1205,7 +1207,7 @@
             groupid: 0,
             talktime: ''
         }, firstMsg);
-        repeatCall();
+
         checkGoods(init || {});
     }
 

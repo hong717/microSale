@@ -679,6 +679,13 @@ var OrderDetail = (function () {
         });
 
 
+        //客服
+        viewPage.delegate('[data-cmd="chat"]', {
+            'click': function () {
+                kdShare.openChat({});
+            }
+        });
+
         //付款
         viewPage.delegate('.paybuttonList .payNow', {
             'click': function () {
@@ -842,9 +849,9 @@ var OrderDetail = (function () {
 
         //如果是已收货 则付款按钮位置会在最右边
         if (targetorder.status == _Status.receive) {
-            $('.view_orderdetail .paybuttonList').css("right", "3%");
+            $('.view_orderdetail .paybuttonList').css("right", "1rem");
         } else {
-            $('.view_orderdetail .paybuttonList').css("right", "41%");
+            $('.view_orderdetail .paybuttonList').css("left", "1rem");
         }
 
     }

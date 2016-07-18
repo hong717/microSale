@@ -331,9 +331,13 @@ var kdShare = (function () {
     //打开客服沟通
     function openChat(item) {
         //改为打开客服联系页面
+        var phoneList = OptMsg.getPhoneList();
+        if(phoneList.length<=0){
+            OptMsg.ShowMsg('很抱歉,商家没有设置客服信息');
+            return;
+        }
         var info = kdAppSet.getAppParam();
         var user = kdAppSet.getUserInfo();
-        var phoneList = OptMsg.getPhoneList();
         var phoneStr = phoneList.join(',');
         var param = {
             eid: info.eid,
@@ -342,7 +346,7 @@ var kdShare = (function () {
             nick: user.contactName,
             img: user.headimgurl,
             openid: info.openid,
-            appid: info.appid || '10091',
+            appid: '10091',
             'goodsImg': '',
             'goodsName': '',
             'goodsPrice': '',

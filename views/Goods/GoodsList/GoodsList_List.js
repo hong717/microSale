@@ -21,7 +21,7 @@
 
 
     //需要直接加入购物车模式 的 企业号，特别处理
-    var eidList = [ '2467638','4148788','326919','2276683'];
+    var eidList = [ '2467638','4148788','326919','2276683','4547956'];
 
     //初始化列表视图数据
     function init() {
@@ -40,6 +40,7 @@
 
             var eid = kdAppSet.getAppParam().eid;
             var qInput = (eidList.indexOf(eid) >= 0);
+            //qInput=kdAppSet.getUserInfo().quickInput;
             sample = qInput ? $.String.between(samples, '<!--3', '3-->') : $.String.between(samples, '<!--1', '1-->');
 
             sample2 = $.String.getTemplates(samples, [
@@ -237,7 +238,7 @@
         var curkey = searchKey.tabindex + searchKey.keyword + searchKey.ItemType + taglist.join('');
 
         kdAppSet.setAppTitle(searchInfo.title);
-        if (curkey != skey) {
+        if (curkey != skey || searchInfo.reload) {
             searchKey = searchInfo;
             $('#txtSearch').val(searchKey.keyword || hintText);
             clear();

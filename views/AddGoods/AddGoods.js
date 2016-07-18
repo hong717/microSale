@@ -20,7 +20,6 @@ var AddGoods = (function () {
             scroller = Lib.Scroller.create(divList);
             AddGoods_Api.initView(scroller);
             AddGoods_Attr.initView(scroller);
-            //AddGoods_AddList.initView();
             AddGoods_Batch.initView();
             addGoodsList = AddGoods_Api.getAddGoodsList();
             bindEvents();

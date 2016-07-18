@@ -270,7 +270,7 @@ var Home = (function () {
                 img: item.img,
                 name: item.name,
                 goodsid: item.goodsid,
-                price: kdAppSet.formatMoneyStr(item.price)
+                price: kdAppSet.formatMoneyStr(item.price == 0 ? item.maxprice : item.price)
             });
         }).join('');
     }

@@ -1,9 +1,16 @@
 ﻿<div class="view-freightRule" id="view-freightRule" style="display:none">
-    <p class="head">运费计算规则</p>
+    <p class="head">快递运费计算规则</p>
     <ul>
         <li class="item">1. 商品运费分独立计费商品运费和整单计费商品运费两种</li>
         <li class="item">2. 运费计算时独立计费商品优先级大于整单计费商品</li>
         <li class="item">3. 当存在多个独立计费的商品取金额最高的商品运费</li>
         <li class="item">4. 总运费等于独立计费商品的运费加上整单计费商品的运费</li>
     </ul>
+    <div data-cmd="send" style="display:none">
+        <p class="head">门店配送运费规则</p>
+        <ul>
+            <li class="item">1. 配送金额不足<span data-cmd="beginamount"></span>元，需支付运费<span data-cmd="freightforamount"></span>元</li>
+            <li class="item">2. 配送范围超过<span data-cmd="beginrang"></span>公里，需支付运费<span data-cmd="freightforrang"></span>元</li>
+        </ul>
+    </div>
 </div>

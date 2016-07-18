@@ -170,7 +170,8 @@ var CacheOrderList_Retail = (function () {
                     temp.expoint = attrListg[0].expoint || 0;
                     temp.onlyexpoint = attrListg[0].onlyexpoint || 0;
                 }
-
+                temp.ParentID = '';
+                temp.GroupID = '';
                 tempdata.push(temp);
             } else if (iauxtype == 1) {
                 var attrList1 = data[i].attrList;
@@ -183,18 +184,18 @@ var CacheOrderList_Retail = (function () {
                     temp1.orgPrice = attrList1[j].price;
 
                     temp1.IsOverseas = data[i].isoverseas;
-                    temp1.UnitID = data[i].unitid;
+                    temp1.UnitID = attrList1[j].unitid;
+                    temp1.unitname = attrList1[j].unitname;
                     temp1.AuxID = 0;
                     temp1.DeliverDate = recDate;
 
-
                     temp1.img = data[i].img;
                     temp1.name = MiniQuery.Object.clone(data[i].name + ' - ' + attrList1[j].name);
-                    temp1.unitname = data[i].unitname;
 
                     temp1.expoint = attrList1[j].expoint || 0;
                     temp1.onlyexpoint = attrList1[j].onlyexpoint || 0;
-
+                    temp1.ParentID = data[i].itemid;
+                    temp1.GroupID = '';
                     tempdata.push(temp1);
                 }
             } else if (iauxtype == 2) {
@@ -218,13 +219,95 @@ var CacheOrderList_Retail = (function () {
 
                     temp2.expoint = attrList2[k].expoint || 0;
                     temp2.onlyexpoint = attrList2[k].onlyexpoint || 0;
-
+                    temp2.ParentID = '';
+                    temp2.GroupID = '';
                     tempdata.push(temp2);
                 }
+            } else if (iauxtype == 3) {
+
+                var attrList3 = data[i].attrList;
+                var hnum = attrList3.length;
+                for (var h = 0; h < hnum; h++) {
+                    var temp3 = {};
+                    temp3.itemid = attrList3[h].fitemid;
+                    temp3.qty = attrList3[h].num;
+                    temp3.price = attrList3[h].price;
+                    temp3.orgPrice = attrList3[h].price;
+
+                    temp3.IsOverseas = data[i].isoverseas;
+                    temp3.UnitID = attrList3[h].unitid;
+                    temp3.AuxID = 0;
+                    temp3.DeliverDate = recDate;
+                    temp3.img = data[i].img;
+                    temp3.name = MiniQuery.Object.clone(data[i].name + ' - ' + attrList3[h].name);
+                    temp3.unitname = MiniQuery.Object.clone(attrList3[h].unitname);
+
+                    temp3.expoint = attrList3[h].expoint || 0;
+                    temp3.onlyexpoint = attrList3[h].onlyexpoint || 0;
+
+                    temp3.ParentID = attrList3[h].parentid;
+                    temp3.GroupID = attrList3[h].groupid;
+                    tempdata.push(temp3);
+                }
+
             }
         }
         return tempdata;
     }
+
+    /*
+     //合并相同itemid的商品
+     function unionGoods(list) {
+     var inum = list.length;
+     var tempdata = [];
+     for (var i = 0; i < inum; i++) {
+     var item = list[i];
+     var jnum = tempdata.length;
+     var bcheck = false;
+     for (var j = 0; j < jnum; j++) {
+     if (item.itemid == tempdata[j].itemid) {
+     tempdata[j].qty = tempdata[j].qty + item.qty;
+     bcheck = true;
+     break;
+     }
+     }
+     if (!bcheck) {
+     tempdata.push({
+     itemid: item.itemid,
+     qty: item.qty,
+     price: item.price,
+     expoint: item.expoint,
+     onlyexpoint: item.onlyexpoint
+     });
+     }
+     }
+     return tempdata;
+     }
+     */
+
+/*
+    //当同一个商品在不同 auxtype 类型中，出现时，取最高价
+    function getMaxPrice(list){
+        var inum = list.length;
+        var maxPrice = 0;
+        for (var i = 0; i < inum; i++) {
+            var item = list[i];
+            var jnum = tempdata.length;
+            var bcheck = false;
+            for (var j = 0; j < jnum; j++) {
+                if (item.itemid == tempdata[j].itemid && item.ParentID == tempdata[j].ParentID) {
+                    tempdata[j].qty = tempdata[j].qty + item.qty;
+                    bcheck = true;
+                    break;
+                }
+            }
+
+        }
+        return tempdata;
+    }
+*/
+
+
 
     //合并相同itemid的商品
     function unionGoods(list) {
@@ -235,7 +318,7 @@ var CacheOrderList_Retail = (function () {
             var jnum = tempdata.length;
             var bcheck = false;
             for (var j = 0; j < jnum; j++) {
-                if (item.itemid == tempdata[j].itemid) {
+                if (item.itemid == tempdata[j].itemid && item.ParentID == tempdata[j].ParentID) {
                     tempdata[j].qty = tempdata[j].qty + item.qty;
                     bcheck = true;
                     break;
@@ -243,6 +326,7 @@ var CacheOrderList_Retail = (function () {
             }
             if (!bcheck) {
                 tempdata.push({
+                    ParentID: item.ParentID,
                     itemid: item.itemid,
                     qty: item.qty,
                     price: item.price,
@@ -310,6 +394,62 @@ var CacheOrderList_Retail = (function () {
         return list;
     }
 
+    function getDataByAuxType(data) {
+        var tempdata = [];
+        var inum = data.length;
+        for (var i = 0; i < inum; i++) {
+            var iauxtype = data[i].auxtype;
+            if (iauxtype == 0) {
+                tempdata.push({
+                    itemid: data[i].itemid,
+                    auxtype: iauxtype
+                });
+            } else if (iauxtype == 1) {
+                var attrList1 = data[i].attrList;
+                var jnum = attrList1.length;
+                for (var j = 0; j < jnum; j++) {
+                    tempdata.push({
+                        itemid: attrList1[j].fitemid,
+                        auxtype: iauxtype
+                    });
+                }
+            } else if (iauxtype == 2) {
+                var attrList2 = data[i].attrList;
+                var knum = attrList2.length;
+                for (var k = 0; k < knum; k++) {
+                    tempdata.push({
+                        itemid: data[i].itemid,
+                        auxtype: iauxtype
+                    });
+                    break;
+                }
+            } else if (iauxtype == 3) {
+                var attrList3 = data[i].attrList;
+                var hnum = attrList3.length;
+                for (var h = 0; h < hnum; h++) {
+                    tempdata.push({
+                        itemid: attrList3[h].fitemid,
+                        auxtype: iauxtype
+                    });
+                }
+            }
+        }
+        return tempdata;
+    }
+
+    //检测商品类型auxtype是否重复
+    function checkAuxTypeRepeat(data) {
+        var tdata = getDataByAuxType(data);
+        var len = tdata.length;
+        for (var i = 0; i < len; i++) {
+            for (var j = i+1; j < len; j++) {
+                if(tdata[i].itemid==tdata[j].itemid  && tdata[i].auxtype!=tdata[j].auxtype ){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
     //expoints  商品的兑换积分   fn回调函数
     function getPromotion(list, scroller, fn, billInfo, expoints) {
@@ -318,8 +458,11 @@ var CacheOrderList_Retail = (function () {
         var user = kdAppSet.getUserInfo();
         listData = getListData(list);
         var listData2 = unionGoods(listData);
-        //使用积分兑换,不走促销流程
-        if (expoints > 0) {
+        //1 使用积分兑换,不走促销流程
+        //2 当同一个商品在， 同时出现在 单品，合并商品，套装商品中的任意2个时，不允许使用促销策略
+         var bRepeat = checkAuxTypeRepeat(list);
+
+        if (expoints > 0 || bRepeat) {
             var data = getGoodsList(listData2);
             freshViewList(data, scroller, fn, billInfo);
             setTimeout(2000, function () {
@@ -353,7 +496,8 @@ var CacheOrderList_Retail = (function () {
             var billPoint = para.points || 0;
             if (billPoint < 0) {
                 billPoint = 0;
-            };
+            }
+            ;
         } catch (e) {
         }
         kdAppSet.setKdLoading(false);
@@ -416,6 +560,7 @@ var CacheOrderList_Retail = (function () {
         for (var i = 0; i < inum; i++) {
             var item = list[i];
             tempdata.push({
+                ParentID: item.ParentID || '',
                 ItemID: item.itemid,
                 Qty: item.qty,
                 Price: item.discountPrice
@@ -443,6 +588,8 @@ var CacheOrderList_Retail = (function () {
             //前端计算金额使用
             temp.expoint = item.expoint || 0;
             temp.onlyexpoint = item.onlyexpoint || 0;
+            temp.GroupID = item.GroupID || '';
+            temp.ParentID = item.ParentID || '';
             tempdata.push(temp);
         }
         return tempdata;

@@ -193,6 +193,6 @@ var Gaode = (function () {
         geocoder: geocoder,//坐标--地址
         regeocoder: regeocoder,//地址-坐标
         getlocation: getlocation,//获取当前坐标
-        pointdistance: pointdistance,//两点之间距离
+        pointdistance: pointdistance//两点之间距离
     }
 })();

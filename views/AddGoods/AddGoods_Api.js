@@ -9,11 +9,12 @@ var AddGoods_Api = (function () {
         dlist,
     //采购清单中的商品
         addGoodsList,
-    // 0  无辅助属性  1 组合物料  2 有辅助属性
+    // 0  无辅助属性  1 组合物料  2 有辅助属性 3套装商品
         attrType = {
             noAttr: 0,
             cmbAttr: 1,
-            soleAttr: 2
+            soleAttr: 2,
+            groupAttr: 3
         },
     //当前商品ID
         curGoodsId,
@@ -32,6 +33,9 @@ var AddGoods_Api = (function () {
     //属性2列表 所有值
         attrList2All;
 
+    //套装商品列表
+    var groupList;
+
     //初始化视图
     function initView(param) {
         divList = document.getElementById('addgoodsbody');
@@ -48,6 +52,7 @@ var AddGoods_Api = (function () {
         attrList2 = [];//属性2列表
         attrList1All = []; //属性1列表 所有值
         attrList2All = []; //属性2列表 所有值
+        groupList = [];
         curGoodsId = 0;
     }
 
@@ -89,6 +94,8 @@ var AddGoods_Api = (function () {
     function getItemPoint(itemid) {
         var expoint = dlist.expoint || 0;
         var onlyexpoint = dlist.onlyexpoint || 0;
+        var unitid = dlist.unitid || 0;
+        var unitname = dlist.unitname || '';
         if (auxType == attrType.cmbAttr) {
             //如果是合并商品
             var auxlist = dlist.auxlist || [];
@@ -96,13 +103,17 @@ var AddGoods_Api = (function () {
                 if (itemid == auxlist[i].fitemid) {
                     expoint = auxlist[i].expoint || 0;
                     onlyexpoint = auxlist[i].onlyexpoint || 0;
+                    unitid = auxlist[i].funitid || 0;
+                    unitname = auxlist[i].funitname || '';
                     break;
                 }
             }
         }
         return {
             expoint: expoint,
-            onlyexpoint: onlyexpoint
+            onlyexpoint: onlyexpoint,
+            unitid: unitid,
+            unitname: unitname
         };
     }
 
@@ -146,6 +157,7 @@ var AddGoods_Api = (function () {
         attrName2 = "";
         attrList1All = [];
         attrList2All = [];
+        groupList = [];
     }
 
 
@@ -175,7 +187,7 @@ var AddGoods_Api = (function () {
 
     function setData(datalist) {
 
-        auxType = datalist.auxType; // 0  无辅助属性  1 组合物料  2 有辅助属性
+        auxType = datalist.auxType; // 0  无辅助属性  1 组合物料  2 有辅助属性 3套装商品
         var auxName = datalist.auxName || [];
         if (auxName.length == 1) {
             attrName1 = auxName[0].FName;
@@ -224,6 +236,8 @@ var AddGoods_Api = (function () {
                     attrList2All.push(attrStr2);
                 }
             }
+        } else if (auxType == attrType.groupAttr) {//套装商品
+            groupList = formatList(datalist);
         }
 
         if (attrList1.length > 1) {
@@ -232,6 +246,33 @@ var AddGoods_Api = (function () {
         if (attrList2.length > 1) {
             attrList2.sort(NameAsc);
         }
+    }
+
+    //分组套装商品
+    function formatList(dlist) {
+        var auxlist = dlist.auxlist || [];
+        var glist = [];
+        var len = auxlist.length;
+        for (var i = 0; i < len; i++) {
+            pushItem(auxlist[i], glist);
+        }
+        return glist;
+    }
+
+    function pushItem(item, list) {
+
+        var len = list.length;
+        for (var i = 0; i < len; i++) {
+            if (list[i].groupId == item.fgroupid) {
+                list[i].attrList.push(item);
+                return;
+            }
+        }
+        list.push({
+            groupId: item.fgroupid,
+            groupName: item.fgroupname,
+            attrList: [item]
+        });
     }
 
     //获取商品原价
@@ -269,8 +310,6 @@ var AddGoods_Api = (function () {
         }
         return oldrice;
     }
-
-
 
 
     //如果有针对辅助属性，设置价格策略，则获取价格信息
@@ -386,7 +425,8 @@ var AddGoods_Api = (function () {
             var pointsInfo = getItemPoint(itemid);
             var addObj = {
                 name: dataKey, num: numAdd, fauxid: auxid, fitemid: itemid,
-                price: price, expoint: pointsInfo.expoint, onlyexpoint: pointsInfo.onlyexpoint
+                price: price, expoint: pointsInfo.expoint, onlyexpoint: pointsInfo.onlyexpoint,
+                unitid:pointsInfo.unitid,unitname:pointsInfo.unitname
             };
             addGoodsList.push(addObj);
         }
@@ -394,6 +434,31 @@ var AddGoods_Api = (function () {
             numAdd: numAdd,
             isum: isum,
             isummoney: isummoney
+        }
+    }
+
+    //套装商品 加入购物清单 数据缓存
+    function addGroupData(numAdd) {
+        var inum = addGoodsList.length - 1;
+        var knum = groupList.length - 1;
+        var item;
+        var gindex;
+        var price;
+        for (var k = 0; k <= knum; k++) {
+            gindex = groupList[k].selIndex;
+            item = groupList[k].attrList[gindex];
+            for (var i = inum; i >= 0; i--) {
+                if (addGoodsList[i].fitemid == item.fitemid) {
+                    addGoodsList.splice(i, 1);
+                }
+            }
+            price=getPriceByStrategy(item.fstrategy,numAdd);
+            var addObj = {
+                name: item.fnameaftermerge, num: numAdd, fauxid: 0, fitemid: item.fitemid,
+                price: price, expoint: item.expoint, onlyexpoint: item.onlyexpoint,
+                groupid: item.fgroupid, parentid: item.fparentid, unitid: item.funitid, unitname: item.funitname
+            };
+            addGoodsList.push(addObj);
         }
     }
 
@@ -406,12 +471,14 @@ var AddGoods_Api = (function () {
         initView: initView,
         getItemAuxInfo: getItemAuxInfo,
         getGoodsAuxDetail: getGoodsAuxDetail,
-        //reSetAddGoodsList: reSetAddGoodsList,
         getGoodsAuxPrice: getGoodsAuxPrice,
         getKeyid: getKeyid,
         addGoodsDataToCache: addGoodsDataToCache,
+        addGroupData: addGroupData,
         apiLoading: apiLoading,
         getOldPrice: getOldPrice,//获取原价
+        getPriceByStrategy: getPriceByStrategy,
+        getOldPriceByStrategy: getOldPriceByStrategy,
         getDatalist: function () {
             return dlist;
         },
@@ -427,7 +494,8 @@ var AddGoods_Api = (function () {
                 attrName2: attrName2,
                 attrList2: attrList2,
                 attrList1All: attrList1All,
-                attrList2All: attrList2All
+                attrList2All: attrList2All,
+                groupList: groupList
             };
         }
     };

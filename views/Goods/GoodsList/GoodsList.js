@@ -117,9 +117,7 @@ var GoodsList = (function () {
             //如果是新品或者促销 则刷新商品
             config.reload = true;
         }
-        config.ItemType = 1099;
-        config.MiddleType = '';
-        config.ChildType = '';
+       
         var cItemType = config.ItemType;
         var cChildType = config.ChildType;
 
@@ -181,7 +179,8 @@ var GoodsList = (function () {
             //标题
             title: config.title || '',
             ItemType: config.ItemType || -1,
-            TagList: config.taglist || []
+            TagList: config.taglist || [],
+            reload:config.reload
         });
 
 

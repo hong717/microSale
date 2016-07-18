@@ -175,7 +175,6 @@
     position: absolute;
     right: 0;
     width: 100%;
-    overflow: hidden;
     height: 1rem;
     padding-right: 0.8rem;
     box-sizing: border-box;
@@ -255,12 +254,12 @@
 
 .orderbuttonList {
     position: absolute;
-    bottom: 0.3rem;
+    bottom: 0.4rem;
     right: 0;
-    width: 35%;
+    width: 33%;
     text-align: center;
     display: none;
-    margin-right: 3%;
+    margin-right: 0.98rem;
 }
 
 .orderbuttonList ul {
@@ -734,9 +733,8 @@
 
 .view_orderdetail .paybuttonList {
     position: absolute;
-    bottom: 0.6rem;
-    right: 41%;
-    width: 35%;
+    bottom: 0.4rem;
+    width: 33%;
     text-align: center;
     display: none;
 }
@@ -783,7 +781,7 @@
     content: '';
     width: 0;
     height: 0;
-    border: 9px solid #fff;
+    border: 0.18rem solid #fff;
     border-color: #fff transparent transparent transparent;
     position: absolute;
     top: -0.2rem;

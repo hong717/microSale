@@ -1831,17 +1831,38 @@ var EditBuyer = (function () {
 /**
  * Created by pc on 2015-08-04.
  */
-var FreightRule = (function(){
-    function render(){
+var FreightRule = (function () {
+    var hasinit = true;
+    var viewPage;
+    function render() {
+        initview();
         show();
     }
 
-    function show(){
-        $('#view-freightRule').show();
+    function initview() {
+        if (hasinit) {
+            viewPage = $('#view-freightRule');
+            var sendlist = kdAppSet.getUserInfo().sendList;
+            for (i = 0; i < sendlist.length; i++) {
+                if (sendlist[i].name == "门店配送") {
+                    viewPage.find('[data-cmd="send"]').show();
+                }
+            }
+            var freight = kdAppSet.getUserInfo().sendPara;
+            viewPage.find('[data-cmd="beginamount"]')[0].innerHTML = freight.beginamount;
+            viewPage.find('[data-cmd="freightforamount"]')[0].innerHTML = freight.freightforamount;
+            viewPage.find('[data-cmd="beginrang"]')[0].innerHTML = freight.beginrang;
+            viewPage.find('[data-cmd="freightforrang"]')[0].innerHTML = freight.freightforrang;
+            hasinit = false;
+        }
     }
 
-    function hide(){
-        $('#view-freightRule').hide();
+    function show() {
+        viewPage.show();
+    }
+
+    function hide() {
+        viewPage.hide();
     }
 
     return {
@@ -2528,6 +2549,7 @@ var ChatList = (function () {
         function post(caller) {
             var xhr = new window.XMLHttpRequest();
             xhr.open('post', caller.url, true);
+            xhr.withCredentials = "true";
             xhr.onreadystatechange = function () {
                 if (xhr.readyState == 4) {
                     if (xhr.status == 200) {
@@ -3619,6 +3641,7 @@ var ChatList = (function () {
     function firstMsg(msg) {
         viewPage.find('[data-cmd="send"]').show();
         hisList(msg);
+        repeatCall();
     }
 
     //聊天历史
@@ -3727,7 +3750,7 @@ var ChatList = (function () {
             groupid: 0,
             talktime: ''
         }, firstMsg);
-        repeatCall();
+
         checkGoods(init || {});
     }
 
@@ -10637,15 +10660,17 @@ var StoreList = (function () {
     // 获取门店列表
     function getStoreList() {
         //loadingHint();
+        //门店类型 type 增加传入项： "send" --- 表示允许配送的门店
         Lib.API.get('GetStoreList', {
-            currentPage: currentPage,
-            ItemsOfPage: itemsOfPage,
-            para: {
-                'region': getPara(),
-                'lng': config.lng,
-                'lat': config.lat
-            }
-        },
+                currentPage: currentPage,
+                ItemsOfPage: itemsOfPage,
+                para: {
+                    'region': getPara(),
+                    'lng': config.lng,
+                    'lat': config.lat,
+                    'type': config.type || ''
+                }
+            },
             function (data, json) {
                 TotalPage = json.TotalPage ? json.TotalPage : 0;
                 var list = getListData(data.storelist);
@@ -10664,12 +10689,12 @@ var StoreList = (function () {
     //获取门店列表 判断是否只有一个门店
     function getOnlyOneStore(fn) {
         Lib.API.get('GetStoreList', {
-            para: {
-                'region': '',
-                'lng': 0,
-                'lat': 0
-            }
-        },
+                para: {
+                    'region': '',
+                    'lng': 0,
+                    'lat': 0
+                }
+            },
             function (data, json) {
                 var list = data.storelist;
                 if (list.length == 1) {
@@ -10700,7 +10725,8 @@ var StoreList = (function () {
                 ismatch: item.ismatch,
                 lat: item.lat,
                 lng: item.lng,
-                distance: item.distance
+                distance: item.distance,
+                phone: item.phone || ""
             };
             if (aitem.ismatch == 1) {
                 showHint = false;
@@ -10862,17 +10888,17 @@ var StoreList = (function () {
         kdAppSet.setKdLoading(true, '获取地址编码...');
 
         Lib.API.post('GetAddressNumber', {
-            para: getLocationPara(address)
-        }, function (data, json, root, userflag) {
-            kdAppSet.setKdLoading(false);
-            dealLocationCode(data);
-        }, function (code, msg, json, root, userflag) {
-            kdAppSet.setKdLoading(false);
-            OptMsg.ShowMsg(msg);
-        }, function () {
-            kdAppSet.setKdLoading(false);
-            OptMsg.ShowMsg('网络错误，请稍候再试', '', 3000);
-        }
+                para: getLocationPara(address)
+            }, function (data, json, root, userflag) {
+                kdAppSet.setKdLoading(false);
+                dealLocationCode(data);
+            }, function (code, msg, json, root, userflag) {
+                kdAppSet.setKdLoading(false);
+                OptMsg.ShowMsg(msg);
+            }, function () {
+                kdAppSet.setKdLoading(false);
+                OptMsg.ShowMsg('网络错误，请稍候再试', '', 3000);
+            }
         );
     }
 
@@ -11140,7 +11166,6 @@ var StoreViewList = (function () {
         if (currentPage > 1 || ullist.children().length == 0) {
             ullist.children().filter('.hintflag').remove();
             ullist.append('<li class="hintflag">' + Lib.LoadingTip.get() + '</li>');
-            //scroller.refresh();
         }
         var str = viewpage.find('[data-cmd="keyword"]')[0].value;
         str = str.replace(/\s+/g, "");
