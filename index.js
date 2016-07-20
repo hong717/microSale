@@ -588,7 +588,7 @@
             if (!kdShare.is_chromebrower() && !kdAppSet.getAppParam().isdebug) {
                 jAlert("请在谷歌浏览器中使用微商城轻应用!", "", function () {
                     var chromeUrl = 'http://rj.baidu.com/soft/detail/14744.html';
-                    window.location.href = chromeUrl;
+                    window.location.href=chromeUrl;
                 });
                 kdAppSet.setKdLoading(false);
                 return;
@@ -597,7 +597,7 @@
                 getUserInfo();
             }
         }
-
+        /*hong1012 的账户修改 index.js 2016-07-20 19:38*/
     })();
 })();
 
@@ -605,3 +605,5 @@
 
 
 /*ling717 的账户test new pullrequest 2016-07-20 18:57*/
+
+
